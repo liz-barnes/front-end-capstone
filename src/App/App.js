@@ -1,13 +1,27 @@
 import React from 'react';
 import './App.scss';
+import { getParkData } from '../helpers/data/parkData';
+import TestCard from '../components/Cards/TestCard';
 
 class App extends React.Component {
+  state = {
+    parks: [],
+  }
+
+  componentDidMount() {
+    getParkData().then((resp) => {
+      this.setState({
+        parks: resp,
+      });
+    });
+  }
+
   render() {
+    const { parks } = this.state;
     return (
       <div className="App">
-        <h2>INSIDE APP COMPONENT</h2>
-        <button className="btn btn-info">I am a button</button>
-      </div>
+        {parks.map((park) => <TestCard key={park.id} park={park} />)}
+     </div>
     );
   }
 }
