@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TestCard({ park }) {
+export default function ParkTestCard({ park }) {
   return (
     <div>
       <h1>{park.name}</h1>
