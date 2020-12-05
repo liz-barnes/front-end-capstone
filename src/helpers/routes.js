@@ -9,7 +9,7 @@ import Home from '../components/Home';
 import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
 
-export default function Routes({ parks }) {
+export default function Routes({ parks, searchInput }) {
   return (
     <Switch>
       <Route
@@ -20,7 +20,7 @@ export default function Routes({ parks }) {
       <Route
         exact
         path="/search-for-parks"
-        component={() => <ParkSearch parks={parks} />}
+        component={() => <ParkSearch parks={parks} searchInput={searchInput}/>}
       />
       <Route
         exact

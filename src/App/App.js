@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Routes parks={parks}/>
+          <Routes parks={parks} />
         </Router>
         {/* <h1>Parks</h1>
         {parks.map((park) => <ParkTestCard key={park.id} park={park} />)}
