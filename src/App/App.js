@@ -10,21 +10,25 @@ import Routes from '../helpers/routes';
 class App extends React.Component {
   state = {
     parks: [],
-    campgrounds: [],
     hikes: [],
+    campgrounds: [],
   }
 
   componentDidMount() {
+    this.getParks();
+    this.getHikes();
+    this.getCampgrounds();
+  }
+
+  getParks = () => {
     getParkData().then((resp) => {
       this.setState({
         parks: resp,
       });
     });
-    getCampgroundData().then((resp) => {
-      this.setState({
-        campgrounds: resp,
-      });
-    });
+  }
+
+  getHikes = () => {
     getHikeData().then((resp) => {
       this.setState({
         hikes: resp,
@@ -32,12 +36,21 @@ class App extends React.Component {
     });
   }
 
+  getCampgrounds = () => {
+    getCampgroundData().then((resp) => {
+      this.setState({
+        campgrounds: resp,
+      });
+    });
+  }
+
   render() {
+    const { parks } = this.state;
     // const { parks, campgrounds, hikes } = this.state;
     return (
       <div className="App">
         <Router>
-          <Routes />
+          <Routes parks={parks}/>
         </Router>
         {/* <h1>Parks</h1>
         {parks.map((park) => <ParkTestCard key={park.id} park={park} />)}
