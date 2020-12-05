@@ -5,7 +5,9 @@ export default class ParkPage extends Component {
 
   render() {
     return (
-      <h1>Park Page</h1>
+        <div className="park-page">
+          <h1>Park Page</h1>
+        </div>
     );
   }
 }
