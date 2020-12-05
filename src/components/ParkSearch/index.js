@@ -2,6 +2,9 @@ import React from 'react';
 import ParkTestCard from '../Cards/ParkTestCard';
 
 export default function ParkSearch({ parks }) {
+  const searchInput = 'aBra';
+  const searchResult = parks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+
   return (
     <div className="park-search-page">
       <h1>ParkSearch</h1>
@@ -11,7 +14,7 @@ export default function ParkSearch({ parks }) {
           <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
-      {parks.map((park) => <ParkTestCard key={park.id} park={park} />)}
+      {searchResult.map((park) => <ParkTestCard key={park.id} park={park} />)}
     </div>
   );
 }
