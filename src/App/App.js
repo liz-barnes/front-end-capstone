@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import { getParkData, getCampgroundData, getHikeData } from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
+import AdventureCard from '../components/Cards/AdventureCard';
 // import ParkTestCard from '../components/Cards/ParkTestCard';
 // import CampTestCard from '../components/Cards/CampTestCard';
 // import HikeTestCard from '../components/Cards/HikeTestCard';
@@ -44,11 +45,21 @@ class App extends React.Component {
     });
   }
 
+  enterKeyEvent = (e) => {
+    if (e.keyCode === '13') {
+      e.preventDefault();
+      const input = e.target.value;
+      console.warn('input', input);
+    }
+  }
+
   render() {
     const { parks } = this.state;
     // const { parks, campgrounds, hikes } = this.state;
     return (
       <div className="App">
+        {(e) => this.enterKeyEvent(e)}
+        {/* {this.enterKeyEvent(e)}; */}
         <Router>
           <Routes parks={parks} />
         </Router>
@@ -58,6 +69,7 @@ class App extends React.Component {
         {campgrounds.map((camp) => <CampTestCard key={camp.id} camp={camp} />)}
         <h1>Hikes</h1> */}
         {/* {hikes.map((hike) => <HikeTestCard key={hike.id} hike={hike} />)} */}
+        {/* {parks.map((park) => <AdventureCard key={park.id} park={park} />)} */}
      </div>
     );
   }
