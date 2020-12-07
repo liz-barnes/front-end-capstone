@@ -8,6 +8,7 @@ import {
 import Home from '../components/Home';
 import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
+import Auth from '../components/Auth';
 
 export default function Routes({ parks, searchInput }) {
   return (
@@ -26,6 +27,11 @@ export default function Routes({ parks, searchInput }) {
         exact
         path="/park-name-page"
         component={ParkPage}
+      />
+      <Route
+        exact
+        path="/auth"
+        component={Auth}
       />
     </Switch>
   );
