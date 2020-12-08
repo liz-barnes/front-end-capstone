@@ -45,14 +45,6 @@ class App extends React.Component {
     });
   }
 
-  // enterKeyEvent = (e) => {
-  //   if (e.keyCode === '13') {
-  //     e.preventDefault();
-  //     const input = e.target.value;
-  //     console.warn('input', input);
-  //   }
-  // }
-
   render() {
     const { parks } = this.state;
     // const { parks, campgrounds, hikes } = this.state;

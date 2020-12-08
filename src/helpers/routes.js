@@ -19,14 +19,21 @@ export default function Routes({ parks, searchInput }) {
       />
       <Route
         exact
-        path="/search-for-parks"
-        component={() => <ParkSearch parks={parks} searchInput={searchInput}/>}
+        path="/parks"
+        component={() => <ParkSearch parks={parks} />}
       />
-      <Route
+      <PropsRoute
         exact
-        path="/park-name-page"
+        path="/parks/:name"
         component={ParkPage}
+        parks={parks}
       />
     </Switch>
   );
 }
+
+const PropsRoute = ({ component: Component, parks, ...rest }) => {
+  const RouteChecker = (props) => (
+    (<Component {...props} parks={parks} />));
+  return <Route {...rest} render={(props) => RouteChecker(props)} />;
+};
