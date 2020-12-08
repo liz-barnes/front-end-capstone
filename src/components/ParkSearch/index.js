@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
-import ParkTestCard from '../Cards/ParkTestCard';
+// import ParkTestCard from '../Cards/ParkTestCard';
+import AdventureCard from '../Cards/AdventureCard';
 import Search from '../Search';
 
 export default class ParkSearch extends Component {
   state = {
     searchResult: [],
+    searchInput: '',
   }
 
   handleSearchInput = (e) => {
-    const { value } = e.target;
-    const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(value.toLowerCase()));
-    this.setState({ searchResult });
-    console.warn('search', searchResult);
+    this.setState({ searchResult: e.target.value });
+    // const { value } = e.target;
+    // const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(value.toLowerCase()));
+    // this.setState({ searchResult });
+    // console.warn('search', searchResult);
+  };
+
+  handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      console.warn('pressed');
+      const { value } = e.target;
+      // const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(value.toLowerCase()));
+      // this.setState({ searchResult });
+      console.warn('input', value);
+    }
   };
 
   render() {
-    const { searchResult } = this.state;
+    const { searchResult, searchInput } = this.state;
     return (
       <div className="park-search-page">
         <h1>ParkSearch</h1>
-        <Search handleSearchInput={(e) => this.handleSearchInput(e)} />
-        {searchResult.length ? searchResult.map((park) => <ParkTestCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
+        <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} searchInput={searchInput}/>
+        {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
       </div>
     );
   }
@@ -45,14 +60,14 @@ export default class ParkSearch extends Component {
 //     return searchResult;
 //   };
 
-//   // const handleSearchSubmit = (e) => {
-//   //   e.preventDefault();
-//   //   if (e.key === 'Enter') {
-//   //     e.preventDefault();
-//   //     const input = e.target.value;
-//   //     console.warn('input', input);
-//   //   }
-//   // };
+// const handleSearchSubmit = (e) => {
+//   e.preventDefault();
+//   if (e.key === 'Enter') {
+//     e.preventDefault();
+//     const input = e.target.value;
+//     console.warn('input', input);
+//   }
+// };
 
 //   return (
 //     <div className="park-search-page">
