@@ -10,7 +10,7 @@ export default class ParkSearch extends Component {
   }
 
   handleSearchInput = (e) => {
-    this.setState({ searchResult: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
     // const { value } = e.target;
     // const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(value.toLowerCase()));
     // this.setState({ searchResult });
@@ -19,22 +19,24 @@ export default class ParkSearch extends Component {
 
   handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      console.warn('pressed');
-      const { value } = e.target;
-      // const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(value.toLowerCase()));
-      // this.setState({ searchResult });
-      console.warn('input', value);
-    }
+    console.warn('pressed');
+    const { searchInput } = this.state;
+    // e.preventDefault();
+    // if (e.key === 'Enter') {
+    //   e.preventDefault();
+    //   console.warn('pressed');
+    const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    this.setState({ searchResult });
+    console.warn('input', searchInput);
+    // }
   };
 
   render() {
-    const { searchResult, searchInput } = this.state;
+    const { searchResult } = this.state;
     return (
       <div className="park-search-page">
         <h1>ParkSearch</h1>
-        <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} searchInput={searchInput}/>
+        <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} value={this.state.searchInput}/>
         {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
       </div>
     );

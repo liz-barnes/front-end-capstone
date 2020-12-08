@@ -6,7 +6,7 @@ const key = apiKeys.apiKey;
 const parkCode = 'shen';
 
 const getParkData = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/parks?limit=5&api_key=${key}`).then((response) => {
+  axios.get(`${baseUrl}/parks?limit=500&api_key=${key}`).then((response) => {
     resolve((response.data.data));
     // console.warn('parks', (response.data.data));
   });
