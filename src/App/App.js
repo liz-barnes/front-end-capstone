@@ -1,7 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
-import { getParkData, getCampgroundData, getHikeData } from '../helpers/data/parkData';
+import {
+  getParkData,
+  getCampgroundData,
+  getHikeData,
+} from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
 import AdventureCard from '../components/Cards/AdventureCard';
 // import ParkTestCard from '../components/Cards/ParkTestCard';

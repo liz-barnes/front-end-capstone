@@ -7,9 +7,18 @@ const parkCode = 'shen';
 
 const getParkData = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/parks?limit=500&api_key=${key}`).then((response) => {
-    resolve((response.data.data));
+    if (response.status === 200) {
+      resolve((response.data.data));
+    }
     // console.warn('parks', (response.data.data));
   });
+});
+
+const getSinglePark = (parkId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/parks?q=${parkId}&api_key=${key}`).then((response) => {
+    resolve(response.data.data[0]);
+    resolve(response.status);
+  }).catch((error) => reject(error));
 });
 
 const getCampgroundData = () => new Promise((resolve, reject) => {
@@ -26,4 +35,9 @@ const getHikeData = () => new Promise((resolve, reject) => {
   });
 });
 
-export { getParkData, getCampgroundData, getHikeData };
+export {
+  getParkData,
+  getCampgroundData,
+  getHikeData,
+  getSinglePark,
+};

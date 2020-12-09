@@ -1,48 +1,84 @@
 import React, { Component } from 'react';
+import { getSinglePark } from '../../../helpers/data/parkData';
+import SingleView from '../SingleView';
+import Loader from '../../Loader';
 
 export default class ParkPage extends Component {
-  componentDidMount() {
-    const parkName = this.props.match.params.name;
-    console.warn(parkName);
+  state = {
+    park: [],
+    // parkId: '',
+    loading: true,
   }
 
+  componentDidMount() {
+    // const parkName = this.props.match.params.name;
+    const parkId = this.props.match.params.id;
+    // this.setState({ parkId });
+    getSinglePark(parkId).then((park) => {
+      this.setState({ park }, this.setLoading);
+    });
+    // setTimeout(() => {
+    //   this.getParkInfo(parkId);
+    //   console.warn('parks props', this.props.parks);
+    // }, 2000);
+    // this.getParkInfo(parkId);
+    // console.warn(parkId);
+    // console.warn(parkName);
+    // console.warn('id', parkId);
+  }
+
+  setLoading = () => {
+    this.timer = setInterval(() => {
+      this.setState({ loading: false });
+    }, 100);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  // getParkInfo = (parkId) => {
+  //   // getSinglePark(parkId).then((park) => {
+  //   //   this.setState({ park });
+  //   //   <SingleView park={park} />;
+  //   //   // console.warn('get it', park.addresses[0].city);
+  //   //   // console.warn('post', park);
+  //   // });
+  //   const parkInfo = this.props.parks.filter((park) => park.id === parkId);
+  //   // this.setState({
+  //   //   park: parkInfo,
+  //   //   success: true,
+  //   // });
+  //   // console.warn('dis park', parkInfo);
+  //   // getSingleBoard(boardId).then((response) => {
+  //   //   this.setState({
+  //   //     board: response,
+  //   //   });
+  //   // });
+  // };
+
+  //   if (response === 200) {
+  //     setTimeout(() => {
+  //       staffView.staffView(user);
+  //     }, 3000);
+  //   } else {
+  //     console.warn('failed, come back later');
+  //   }
+  // })
+
   render() {
+    const { park, loading } = this.state;
+
     return (
-      <div>
-        <h1>Help</h1>
-      </div>
+      <>
+      { loading ? (
+          <Loader />
+      ) : (
+      // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
+        <SingleView park={park} />
+        // <h1>Helpo</h1>
+      )}
+      </>
     );
-    // <div className="park-page">
-    //   <h1>Park Page</h1>
-    //   <h4>{park.name}</h4>
-    //   <p>{park.states}</p>
-
-    //   <p>{park.description}</p>
-
-    //   <div className="sidebar">
-    //     <div className="park-address">
-    //       <h6>Address</h6>
-    //       <p>{park.addresses[0].line1}</p>
-    //       <p>{park.addresses[0].city}, {park.addresses[0].stateCode}, {park.addresses[0].postalCode}</p>
-    //     </div>
-    //     <div className="park-fees">
-    //       <h6>Fees</h6>
-    //       {/* filter a 'fee free park' */}
-    //       <p>{park.entranceFees[0].cost}</p>
-    //       <p>{park.entranceFees[0].description}</p>
-    //     </div>
-    //     <div className="park-hours">
-    //       <h6>Hours</h6>
-    //       <p>{park.operationalHours[0].description}</p>
-    //       <p>Park Closed</p>
-    //       {/* filter through length of exceptions array to get all dates the park is closed */}
-    //       <li>{park.operationalHours[0].exceptions[0].startDate}</li>
-    //     </div>
-    //     <div className="park-contact">
-    //       <h6>Contact</h6>
-    //       <p>{park.phoneNumbers[0].phoneNumber}</p>
-    //     </div>
-    //   </div>
-    // </div>
   }
 }

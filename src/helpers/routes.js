@@ -24,10 +24,15 @@ export default function Routes({ parks, searchInput }) {
       />
       <PropsRoute
         exact
-        path="/parks/:name"
+        path="/parks/:name/:id"
         component={ParkPage}
         parks={parks}
       />
+      {/* <Route
+        exact
+        path="/parks/:name/:id"
+        component={() => <ParkPage parks={parks}/>}
+      /> */}
     </Switch>
   );
 }
