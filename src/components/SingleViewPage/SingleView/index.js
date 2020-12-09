@@ -7,7 +7,7 @@ export default function SingleView({ park }) {
   // const { park } = this.state;
   return (
     <div className="park-page">
-      <h1>Park Page</h1>
+      <button>Add to trip</button>
       <h4>{park.name}</h4>
       <p>{park.states}</p>
       <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>

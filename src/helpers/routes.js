@@ -5,16 +5,19 @@ import {
   // Redirect,
 } from 'react-router-dom';
 
+import Login from '../components/Login';
 import Home from '../components/Home';
 import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
+import Trips from '../views/Trips';
 
-export default function Routes({ parks, searchInput }) {
+export default function Routes({ parks, user }) {
   return (
     <Switch>
+      <Route exact path='/' component={() => <Login user={user} />} />
       <Route
         exact
-        path="/"
+        path="/adventure-planner"
         component={Home}
       />
       <Route
@@ -27,6 +30,11 @@ export default function Routes({ parks, searchInput }) {
         path="/parks/:name/:id"
         component={ParkPage}
         parks={parks}
+      />
+      <Route
+        exact
+        path="/my-trips"
+        component={() => <Trips user={user} />}
       />
       {/* <Route
         exact
