@@ -11,6 +11,7 @@ import {
 } from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
 import MyNavbar from '../components/MyNavbar';
+import { getUserTrips } from '../helpers/data/tripData';
 import AdventureCard from '../components/Cards/AdventureCard';
 // import ParkTestCard from '../components/Cards/ParkTestCard';
 // import CampTestCard from '../components/Cards/CampTestCard';
@@ -20,16 +21,17 @@ fbConnection();
 class App extends React.Component {
   state = {
     user: null,
+    userTrips: [],
     parks: [],
     hikes: [],
     campgrounds: [],
   }
 
   componentDidMount() {
-    console.warn('user', this.state.user);
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
+        console.warn('user', this.state.user);
       } else {
         this.setState({ user: false });
       }
@@ -37,6 +39,9 @@ class App extends React.Component {
     this.getParks();
     this.getHikes();
     this.getCampgrounds();
+    setTimeout(() => {
+      this.getUserTrips(this.state.user);
+    }, 1000);
   }
 
   componentWillUnmount() {
@@ -67,8 +72,21 @@ class App extends React.Component {
     });
   }
 
+  getUserTrips = () => {
+    const { user } = this.state;
+    if (user) {
+      console.warn('userrrr', user);
+      getUserTrips(user.uid).then((resp) => {
+        console.warn('trips', resp);
+        this.setState({
+          userTrips: resp,
+        });
+      });
+    }
+  }
+
   render() {
-    const { user, parks } = this.state;
+    const { user, parks, userTrips } = this.state;
     // const { parks, campgrounds, hikes } = this.state;
     return (
       <div className="App">
@@ -76,7 +94,7 @@ class App extends React.Component {
         {/* {this.enterKeyEvent(e)}; */}
         <Router>
           <MyNavbar user={user} />
-        { user !== null && <Routes user={user} parks={parks}/> }
+        { user !== null && <Routes user={user} parks={parks} userTrips={userTrips}/> }
           {/* <Routes parks={parks} /> */}
         </Router>
         {/* <h1>Parks</h1>

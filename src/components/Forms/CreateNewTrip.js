@@ -80,7 +80,7 @@ export default class AddToTripForm extends Component {
           name='dates'
           value={this.state.dates}
           onChange={this.handleChange}
-          placeholder='Dates'
+          placeholder='Dates (Ex. 10/04/20 - 10/10/20)'
           className="form-control form-control-lg m-1"
           required
         />

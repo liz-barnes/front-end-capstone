@@ -1,13 +1,18 @@
 import React from 'react';
+import Modal from '../../Modal';
+import AddToTripForm from '../../Forms/AddToTripForm';
 
-export default function SingleView({ park }) {
+export default function SingleView({ park, userTrips, user }) {
   // state = {
   //     park: [],
   // }
   // const { park } = this.state;
   return (
     <div className="park-page">
-      <button>Add to trip</button>
+      <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
+        <AddToTripForm userTrips={userTrips} user={user} park={park}/>
+      </Modal>
+      {/* <button>Add to trip</button> */}
       <h4>{park.name}</h4>
       <p>{park.states}</p>
       <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>

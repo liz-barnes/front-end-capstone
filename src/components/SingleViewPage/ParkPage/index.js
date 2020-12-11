@@ -68,6 +68,7 @@ export default class ParkPage extends Component {
 
   render() {
     const { park, loading } = this.state;
+    const { userTrips, user } = this.props;
 
     return (
       <>
@@ -75,7 +76,7 @@ export default class ParkPage extends Component {
           <Loader />
       ) : (
       // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
-        <SingleView park={park} />
+        <SingleView park={park} userTrips={userTrips} user={user} />
         // <h1>Helpo</h1>
       )}
       </>
