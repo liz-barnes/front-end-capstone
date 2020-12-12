@@ -34,14 +34,6 @@ export default class Trips extends Component {
           });
         }
       });
-    // });
-    // }).then(() => {
-    //   getBoardPins(firebaseKey).then((response) => {
-    //     response.forEach((item) => {
-    //       deletePin(item.pinId);
-    //     });
-    //   });
-    // });
     });
   };
 
