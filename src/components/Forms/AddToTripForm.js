@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import firebase from 'firebase/app';
 import 'firebase/storage';
-import addTripActivity from '../../helpers/data/mergedData';
+import { addTripActivity } from '../../helpers/data/mergedData';
 // import getUid from '../../helpers/data/authData';
 // import { createPin, updatePin } from '../../helpers/data/pinData';
 // import { getUserBoards } from '../../helpers/data/boardData';

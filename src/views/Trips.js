@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Modal from '../components/Modal';
 import CreateNewTrip from '../components/Forms/CreateNewTrip';
-import { getUserTrips } from '../helpers/data/tripData';
+import { getUserTrips, deleteTrip } from '../helpers/data/tripData';
 import TripCard from '../components/Cards/TripCard';
+import { getTripActivity, removeTripActivities } from '../helpers/data/mergedData';
 
 export default class Trips extends Component {
   state = {
@@ -22,10 +23,32 @@ export default class Trips extends Component {
     });
   }
 
+  removeTrip = (tripId) => {
+    deleteTrip(tripId).then(() => {
+      this.getTrips();
+    }).then(() => {
+      getTripActivity(tripId).then((resp) => {
+        if (resp.length) {
+          resp.forEach((item) => {
+            removeTripActivities(item.firebaseKey);
+          });
+        }
+      });
+    // });
+    // }).then(() => {
+    //   getBoardPins(firebaseKey).then((response) => {
+    //     response.forEach((item) => {
+    //       deletePin(item.pinId);
+    //     });
+    //   });
+    // });
+    });
+  };
+
   render() {
     const { trips } = this.state;
     const showTrips = () => (
-      trips.map((trip) => <TripCard key={trip.firebaseKey} trip={trip} onUpdate={this.getTrips}/>)
+      trips.map((trip) => <TripCard key={trip.firebaseKey} trip={trip} onUpdate={this.getTrips} removeTrip={this.removeTrip}/>)
     );
     return (
       <div className="trip-page">

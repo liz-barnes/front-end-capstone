@@ -28,6 +28,8 @@ const updateTrip = (object) => new Promise((resolve, reject) => {
     .then(resolve).catch((error) => reject(error));
 });
 
+const deleteTrip = (tripId) => axios.delete(`${baseUrl}/trips/${tripId}.json`);
+
 const getTripActivities = (tripId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/trip-activities.json?orderBy="tripId"&equalTo="${tripId}"`).then((response) => {
     resolve(Object.values(response.data));
@@ -40,5 +42,6 @@ export {
   getSingleTrip,
   createTrip,
   updateTrip,
+  deleteTrip,
   getTripActivities,
 };

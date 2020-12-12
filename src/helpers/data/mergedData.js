@@ -8,8 +8,17 @@ const addTripActivity = (object) => new Promise((resolve, reject) => {
   axios
     .post(`${baseUrl}/trip-activities.json`, object).then((response) => {
       const update = { firebaseKey: response.data.name };
-      axios.patch(`${baseUrl}/user-trips/${response.data.name}.json`, update);
+      axios.patch(`${baseUrl}/trip-activities/${response.data.name}.json`, update);
     }).catch((error) => reject(error));
 });
 
-export default addTripActivity;
+const getTripActivity = (tripId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/trip-activities.json?orderBy="tripId"&equalTo="${tripId}"`).then((resp) => {
+    console.warn('get trip', resp);
+    resolve(Object.values(resp.data));
+  }).catch((error) => reject(error));
+});
+
+const removeTripActivities = (firebaseKey) => axios.delete(`${baseUrl}/trip-activities/${firebaseKey}.json`);
+
+export { addTripActivity, getTripActivity, removeTripActivities };
