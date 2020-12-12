@@ -10,6 +10,7 @@ import Home from '../components/Home';
 import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
 import Trips from '../views/Trips';
+import SingleTrip from '../views/SingleTrip';
 
 export default function Routes({ parks, user, userTrips }) {
   return (
@@ -33,10 +34,17 @@ export default function Routes({ parks, user, userTrips }) {
         userTrips={userTrips}
         user={user}
       />
-      <Route
+      <PropsRoute
         exact
         path="/my-trips"
-        component={() => <Trips user={user} />}
+        component={Trips}
+        user={user}
+      />
+      <PropsRoute
+        exact
+        path="/my-trips/:tripId"
+        component={SingleTrip}
+        user={user}
       />
       {/* <Route
         exact

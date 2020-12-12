@@ -28,9 +28,17 @@ const updateTrip = (object) => new Promise((resolve, reject) => {
     .then(resolve).catch((error) => reject(error));
 });
 
+const getTripActivities = (tripId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/trip-activities.json?orderBy="tripId"&equalTo="${tripId}"`).then((response) => {
+    resolve(Object.values(response.data));
+    console.warn('trip values', Object.values(response.data));
+  }).catch((error) => reject(error));
+});
+
 export {
   getUserTrips,
   getSingleTrip,
   createTrip,
   updateTrip,
+  getTripActivities,
 };
