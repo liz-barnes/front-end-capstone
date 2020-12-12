@@ -25,13 +25,13 @@ export default class Trips extends Component {
   render() {
     const { trips } = this.state;
     const showTrips = () => (
-      trips.map((trip) => <TripCard key={trip.firebaseKey} trip={trip} />)
+      trips.map((trip) => <TripCard key={trip.firebaseKey} trip={trip} onUpdate={this.getTrips}/>)
     );
     return (
       <div className="trip-page">
         <h1 className="page-banner">Your Trips</h1>
         <Modal title={'Create New Trip'} buttonLabel={'Create a New Trip'}>
-          <CreateNewTrip />
+          <CreateNewTrip onUpdate={this.getTrips}/>
         </Modal>
         <div className="trip-container">{showTrips()}</div>
       </div>

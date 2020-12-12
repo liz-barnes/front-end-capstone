@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import getUser from '../../helpers/data/authData';
 import { createTrip, updateTrip } from '../../helpers/data/tripData';
 
-export default class AddToTripForm extends Component {
+export default class CreateNewTrip extends Component {
   state = {
     firebaseKey: this.props.trip?.firebaseKey || '',
     name: this.props.trip?.name || '',
@@ -47,7 +47,7 @@ export default class AddToTripForm extends Component {
     } else {
       updateTrip(this.state)
         .then(() => {
-          this.props.onUpdate?.(this.props.board.firebaseKey);
+          this.props.onUpdate?.(this.props.trip.firebaseKey);
           this.setState({ success: true });
         });
     }
