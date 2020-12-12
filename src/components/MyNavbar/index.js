@@ -64,6 +64,11 @@ export default function MyNavbar(props) {
                 {user?.displayName}
                 </DropdownItem>
                 <DropdownItem>
+                  <Link className="dropdown-link" to='/my-trips'>
+                    <p>My Trips</p>
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
                   <div
                     className='nav-link logout-btn'
                     onClick={(e) => logMeOut(e)}
