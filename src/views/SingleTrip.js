@@ -42,6 +42,7 @@ export default class SingleTrip extends Component {
       if (object.parkId === parkId) {
         removeTripActivities(object.firebaseKey);
       }
+      this.componentDidMount();
     });
     // getActivityTrip(parkId).then((resp) => {
     //   if (resp.length) {
@@ -55,7 +56,7 @@ export default class SingleTrip extends Component {
   render() {
     const { activities, joinedTripObject } = this.state;
     const showActivities = activities.map((activity) => <ActivityCard
-        key={activity.firebaseKey} activity={activity} joinedTripObject={joinedTripObject} removeActivity={this.removeActivity} onUpdate={this.getActivities}
+        key={activity.firebaseKey} activity={activity} joinedTripObject={joinedTripObject} removeActivity={this.removeActivity}
       />);
     return (
       <div className="single-trip-page">
