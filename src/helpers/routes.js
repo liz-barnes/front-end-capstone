@@ -16,17 +16,19 @@ export default function Routes({ parks, user, userTrips }) {
   return (
     <Switch>
       <Route exact path='/' component={() => <Login user={user} />} />
-      <Route
+      {/* <PrivateRoute
         exact
         path="/adventure-planner"
         component={Home}
-      />
-      <Route
+      /> */}
+      <PrivateRoute
         exact
         path="/parks"
-        component={() => <ParkSearch parks={parks} />}
+        component={ParkSearch}
+        user={user}
+        parks={parks}
       />
-      <PropsRoute
+      <PrivateRoute
         exact
         path="/parks/:name/:id"
         component={ParkPage}
@@ -34,13 +36,13 @@ export default function Routes({ parks, user, userTrips }) {
         userTrips={userTrips}
         user={user}
       />
-      <PropsRoute
+      <PrivateRoute
         exact
         path="/my-trips"
         component={Trips}
         user={user}
       />
-      <PropsRoute
+      <PrivateRoute
         exact
         path="/my-trips/:tripId"
         component={SingleTrip}
@@ -55,17 +57,62 @@ export default function Routes({ parks, user, userTrips }) {
   );
 }
 
-const PropsRoute = ({
-  component: Component, parks, user, userTrips, ...rest
-}) => {
-  const RouteChecker = (props) => (
-    (<Component {...props} parks={parks} user={user} userTrips={userTrips} />));
-  return <Route {...rest} render={(props) => RouteChecker(props)} />;
-};
+// export default function Routes({ parks, user, userTrips }) {
+//   return (
+//     <Switch>
+//       <Route exact path='/' component={() => <Login user={user} />} />
+//       <Route
+//         exact
+//         path="/adventure-planner"
+//         component={Home}
+//       />
+//       <Route
+//         exact
+//         path="/parks"
+//         component={() => <ParkSearch parks={parks} />}
+//       />
+//       <PropsRoute
+//         exact
+//         path="/parks/:name/:id"
+//         component={ParkPage}
+//         parks={parks}
+//         userTrips={userTrips}
+//         user={user}
+//       />
+//       <PropsRoute
+//         exact
+//         path="/my-trips"
+//         component={Trips}
+//         user={user}
+//       />
+//       <PropsRoute
+//         exact
+//         path="/my-trips/:tripId"
+//         component={SingleTrip}
+//         user={user}
+//       />
+//       {/* <Route
+//         exact
+//         path="/parks/:name/:id"
+//         component={() => <ParkPage parks={parks}/>}
+//       /> */}
+//     </Switch>
+//   );
+// }
 
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
+// const PropsRoute = ({
+//   component: Component, parks, user, userTrips, ...rest
+// }) => {
+//   const RouteChecker = (props) => (
+//     (<Component {...props} parks={parks} user={user} userTrips={userTrips} />));
+//   return <Route {...rest} render={(props) => RouteChecker(props)} />;
+// };
+
+const PrivateRoute = ({
+  component: Component, user, parks, userTrips, ...rest
+}) => {
   const RouteChecker = (props) => (user
-    ? (<Component {...props} user={user} />)
+    ? (<Component {...props} user={user} parks={parks} userTrips={userTrips}/>)
     : (<Redirect to={{ pathname: '/', state: { from: props.locations } }} />));
 
   return <Route {...rest} render={(props) => RouteChecker(props)} />;

@@ -40,7 +40,7 @@ class App extends React.Component {
     this.getHikes();
     this.getCampgrounds();
     setTimeout(() => {
-      this.getUserTrips(this.state.user);
+      this.getUserTrips();
     }, 1000);
   }
 
