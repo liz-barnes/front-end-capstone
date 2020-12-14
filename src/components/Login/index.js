@@ -17,8 +17,7 @@ export default function Login({ user }) {
   };
 
   return (
-    <div className='home-page'>
-      <h1>Welcome to Adevnture Planner</h1>
+    <div className='login-page'>
       {loadComponent()}
     </div>
   );

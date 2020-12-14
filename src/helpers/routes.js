@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Route,
   Switch,
-  // Redirect,
+  Redirect,
 } from 'react-router-dom';
 
 import Login from '../components/Login';
@@ -60,5 +60,13 @@ const PropsRoute = ({
 }) => {
   const RouteChecker = (props) => (
     (<Component {...props} parks={parks} user={user} userTrips={userTrips} />));
+  return <Route {...rest} render={(props) => RouteChecker(props)} />;
+};
+
+const PrivateRoute = ({ component: Component, user, ...rest }) => {
+  const RouteChecker = (props) => (user
+    ? (<Component {...props} user={user} />)
+    : (<Redirect to={{ pathname: '/', state: { from: props.locations } }} />));
+
   return <Route {...rest} render={(props) => RouteChecker(props)} />;
 };
