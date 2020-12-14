@@ -2,7 +2,9 @@ import React from 'react';
 import Modal from '../../Modal';
 import AddToTripForm from '../../Forms/AddToTripForm';
 
-export default function SingleView({ park, userTrips, user }) {
+export default function SingleView({
+  park, userTrips, user, getUserTrips,
+}) {
   // state = {
   //     park: [],
   // }
@@ -10,7 +12,7 @@ export default function SingleView({ park, userTrips, user }) {
   return (
     <div className="park-page">
       <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
-        <AddToTripForm userTrips={userTrips} user={user} park={park}/>
+        <AddToTripForm userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} />
       </Modal>
       {/* <button>Add to trip</button> */}
       <h4>{park.name}</h4>

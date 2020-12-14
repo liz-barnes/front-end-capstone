@@ -76,7 +76,8 @@ export default class ParkPage extends Component {
           <Loader />
       ) : (
       // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
-        <SingleView park={park} userTrips={userTrips} user={user} />
+        <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips}/>
+        // <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips}/>
         // <h1>Helpo</h1>
       )}
       </>

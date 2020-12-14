@@ -89,6 +89,7 @@ export default class AddToTripForm extends Component {
   };
 
   render() {
+    // const trips = this.props.getUserTrips();
     const { success } = this.state;
     const { userTrips } = this.props;
     const showTripOptions = () => userTrips.map((trip) => (<option key={trip.firebaseKey} value={trip.firebaseKey}>{trip.name}</option>));
