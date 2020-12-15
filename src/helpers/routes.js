@@ -11,6 +11,7 @@ import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
 import Trips from '../views/Trips';
 import SingleTrip from '../views/SingleTrip';
+import ParkHikes from '../components/ParkHikes';
 
 export default function Routes({ parks, user, userTrips }) {
   return (
@@ -46,6 +47,12 @@ export default function Routes({ parks, user, userTrips }) {
         exact
         path="/my-trips/:tripId"
         component={SingleTrip}
+        user={user}
+      />
+      <PrivateRoute
+        exact
+        path="/parks/hikes/"
+        component={ParkHikes}
         user={user}
       />
       {/* <Route

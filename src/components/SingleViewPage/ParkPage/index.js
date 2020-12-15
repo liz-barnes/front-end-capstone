@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { getSinglePark } from '../../../helpers/data/parkData';
 import SingleView from '../SingleView';
 import Loader from '../../Loader';
+import getParkHike from '../../../helpers/data/hikeData';
 
 export default class ParkPage extends Component {
   state = {
     park: [],
     // parkId: '',
     loading: true,
+    parkHikes: [],
   }
 
   componentDidMount() {
@@ -16,6 +18,8 @@ export default class ParkPage extends Component {
     // this.setState({ parkId });
     getSinglePark(parkId).then((park) => {
       this.setState({ park }, this.setLoading);
+    }).then(() => {
+      this.getParkHikes();
     });
     // setTimeout(() => {
     //   this.getParkInfo(parkId);
@@ -25,6 +29,13 @@ export default class ParkPage extends Component {
     // console.warn(parkId);
     // console.warn(parkName);
     // console.warn('id', parkId);
+  }
+
+  getParkHikes = () => {
+    const { parkCode } = this.state.park;
+    getParkHike(parkCode).then((hike) => {
+      this.setState({ parkHikes: hike });
+    });
   }
 
   setLoading = () => {
@@ -67,7 +78,7 @@ export default class ParkPage extends Component {
   // })
 
   render() {
-    const { park, loading } = this.state;
+    const { park, loading, parkHikes } = this.state;
     const { userTrips, user } = this.props;
 
     return (
@@ -76,7 +87,7 @@ export default class ParkPage extends Component {
           <Loader />
       ) : (
       // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
-        <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips}/>
+        <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips} parkHikes={parkHikes}/>
         // <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips}/>
         // <h1>Helpo</h1>
       )}

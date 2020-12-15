@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Modal from '../../Modal';
 import AddToTripForm from '../../Forms/AddToTripForm';
+import ParkHikes from '../../ParkHikes';
 
 export default function SingleView({
-  park, userTrips, user, getUserTrips,
+  park, userTrips, user, getUserTrips, parkHikes,
 }) {
   // state = {
   //     park: [],
@@ -14,6 +16,14 @@ export default function SingleView({
       <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
         <AddToTripForm userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} />
       </Modal>
+      <Link to={{
+        pathname: '/parks/hikes/',
+        state: {
+          parkHikes,
+        },
+      }}>
+        <button>Hikes</button>
+      </Link>
       {/* <button>Add to trip</button> */}
       <h4>{park.name}</h4>
       <p>{park.states}</p>
