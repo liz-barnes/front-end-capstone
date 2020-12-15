@@ -20,6 +20,7 @@ export default function SingleView({
         pathname: '/parks/hikes/',
         state: {
           parkHikes,
+          park,
         },
       }}>
         <button>Hikes</button>

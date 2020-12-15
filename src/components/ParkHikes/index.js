@@ -5,10 +5,10 @@ import HikeCard from '../Cards/HikeCard';
 
 export default class ParkHikes extends Component {
   render() {
-    const { parkHikes } = this.props.location.state;
+    const { parkHikes, park } = this.props.location.state;
     return (
       <>
-        <h1>Park Hikes</h1>
+        <h1>{park.name} Hikes</h1>
         {/* <Hikes parkHikes={parkHikes} /> */}
         {parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)}
       </>
