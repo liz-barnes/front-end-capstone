@@ -31,7 +31,6 @@ class App extends React.Component {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
-        console.warn('user', this.state.user);
       } else {
         this.setState({ user: false });
       }
@@ -75,9 +74,7 @@ class App extends React.Component {
   getUserTrips = () => {
     const { user } = this.state;
     if (user) {
-      console.warn('userrrr', user);
       getUserTrips(user.uid).then((resp) => {
-        console.warn('trips', resp);
         this.setState({
           userTrips: resp,
         });

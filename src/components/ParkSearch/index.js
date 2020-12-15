@@ -19,7 +19,6 @@ export default class ParkSearch extends Component {
 
   handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.warn('pressed');
     const { searchInput } = this.state;
     // e.preventDefault();
     // if (e.key === 'Enter') {
@@ -27,7 +26,6 @@ export default class ParkSearch extends Component {
     //   console.warn('pressed');
     const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
     this.setState({ searchResult });
-    console.warn('input', searchInput);
     // }
   };
 

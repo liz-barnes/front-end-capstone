@@ -19,11 +19,11 @@ export default function SingleView({
       <Link to={{
         pathname: '/parks/hikes/',
         state: {
-          parkHikes,
-          park,
+          singlePark: park,
         },
       }}>
         <button>Hikes</button>
+        {/* {parkHikes ? <button>Hikes</button> : <h3>No Hikes</h3>} */}
       </Link>
       {/* <button>Add to trip</button> */}
       <h4>{park.name}</h4>

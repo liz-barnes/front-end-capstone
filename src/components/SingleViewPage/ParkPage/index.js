@@ -18,9 +18,10 @@ export default class ParkPage extends Component {
     // this.setState({ parkId });
     getSinglePark(parkId).then((park) => {
       this.setState({ park }, this.setLoading);
-    }).then(() => {
-      this.getParkHikes();
     });
+    // .then(() => {
+    //   this.getParkHikes();
+    // });
     // setTimeout(() => {
     //   this.getParkInfo(parkId);
     //   console.warn('parks props', this.props.parks);
@@ -31,12 +32,12 @@ export default class ParkPage extends Component {
     // console.warn('id', parkId);
   }
 
-  getParkHikes = () => {
-    const { parkCode } = this.state.park;
-    getParkHike(parkCode).then((hike) => {
-      this.setState({ parkHikes: hike });
-    });
-  }
+  // getParkHikes = () => {
+  //   const { parkCode } = this.state.park;
+  //   getParkHike(parkCode).then((hike) => {
+  //     this.setState({ parkHikes: hike });
+  //   });
+  // }
 
   setLoading = () => {
     this.timer = setInterval(() => {
@@ -83,11 +84,13 @@ export default class ParkPage extends Component {
 
     return (
       <>
+      {console.warn('sTAET', this.state)}
       { loading ? (
           <Loader />
       ) : (
-      // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
         <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips} parkHikes={parkHikes}/>
+      // {park ? <SingleView park={park} /> : <h1>Park not found</h1>}
+        // <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips} parkHikes={parkHikes}/>
         // <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips}/>
         // <h1>Helpo</h1>
       )}
