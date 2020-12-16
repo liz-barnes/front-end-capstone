@@ -9,7 +9,7 @@ import { addTripActivity } from '../../helpers/data/mergedData';
 
 export default class AddToTripForm extends Component {
   state = {
-    parkId: '',
+    activityId: '',
     tripId: '',
     userId: '',
     // firebaseKey: this.props.pin?.firebaseKey || '',
@@ -57,7 +57,7 @@ export default class AddToTripForm extends Component {
     // } else {
     this.setState({
       [e.target.name]: e.target.value,
-      parkId: this.props.park.id,
+      activityId: this.props.id,
       userId: this.props.user.uid,
     });
   };
@@ -70,9 +70,8 @@ export default class AddToTripForm extends Component {
       tripId: this.state.firebaseKey,
       userId: this.props.user.uid,
     };
-    this.setState({ parkId: this.props.parkId, tripId: this.state.firebaseKey, userId: this.props.user.uid });
+    this.setState({ activityId: this.props.id, tripId: this.state.firebaseKey, userId: this.props.user.uid });
     addTripActivity(this.state).then((resp) => {
-      console.warn('user-trip', resp);
       // this.props.onUpdate?.();
       this.setState({ success: true, firebaseKey: resp.data.firebaseKey });
     });
