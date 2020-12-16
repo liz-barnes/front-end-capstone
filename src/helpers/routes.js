@@ -56,14 +56,22 @@ export default function Routes({ parks, user, userTrips }) {
         component={ParkHikes}
         user={user}
       />
-      <PrivateRoute
-        exact
-        path="/parks/hikes/:hikeId"
+      {/* <PrivateRoute
+        path="/parks/hikes/page"
         component={Hikes}
         parks={parks}
         userTrips={userTrips}
         user={user}
-      />
+      /> */}
+      <PrivateRoute
+        exact
+        path="/parks/hikess/"
+        component={Hikes}
+        parks={parks}
+        userTrips={userTrips}
+        user={user}
+        />
+
       {/* <Route
         exact
         path="/parks/:name/:id"

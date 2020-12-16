@@ -5,10 +5,12 @@ export default function HikeCard({ hike }) {
   return (
     <div>
       <Link to={{
-        pathname: `/parks/hikes/${hike.id}`,
-        hike,
+        pathname: '/parks/hikess/',
+        state: {
+          singleHike: hike,
+        },
       }}>
-        <img className="hike-image" src={hike.images[0].url} alt={hike.images[0].altText}/>
+        <img className="hike-image" id={hike.id} src={hike.images[0].url} alt={hike.images[0].altText}/>
       </Link>
       <h3>{hike.title}</h3>
     </div>

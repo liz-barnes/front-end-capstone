@@ -14,6 +14,7 @@ export default class ParkHikes extends Component {
     this.getParkHikes();
   }
 
+  // think about mapping over each hike to find activity with name "Hiking"
   getParkHikes = () => {
     const { singlePark } = this.props.location.state;
     getParkHike(singlePark.parkCode).then((hike) => {
@@ -23,6 +24,7 @@ export default class ParkHikes extends Component {
     });
   }
 
+  // set loading to false after 100 to stop loader and print data to DOM
   setLoading = () => {
     this.timer = setInterval(() => {
       this.setState({ loading: false });
@@ -55,7 +57,7 @@ export default class ParkHikes extends Component {
         ) : (
           parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
         )}
-        {this.showHikes()}
+        {/* {this.showHikes()} */}
         {/* {parkHikes.length === [] } */}
       </>
     );

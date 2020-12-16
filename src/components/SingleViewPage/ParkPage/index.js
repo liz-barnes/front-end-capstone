@@ -84,7 +84,6 @@ export default class ParkPage extends Component {
 
     return (
       <>
-      {console.warn('sTAET', this.state)}
       { loading ? (
           <Loader />
       ) : (
