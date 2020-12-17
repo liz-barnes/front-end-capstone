@@ -12,6 +12,7 @@ export default class AddToTripForm extends Component {
     activityId: '',
     tripId: '',
     userId: '',
+    type: this.props.type,
     // firebaseKey: this.props.pin?.firebaseKey || '',
     // name: this.props.pin?.name || '',
     // imageUrl: this.props.pin?.imageUrl || '',
@@ -70,7 +71,9 @@ export default class AddToTripForm extends Component {
       tripId: this.state.firebaseKey,
       userId: this.props.user.uid,
     };
-    this.setState({ activityId: this.props.id, tripId: this.state.firebaseKey, userId: this.props.user.uid });
+    this.setState({
+      activityId: this.props.id, tripId: this.state.firebaseKey, userId: this.props.user.uid, type: this.props.type,
+    });
     addTripActivity(this.state).then((resp) => {
       // this.props.onUpdate?.();
       this.setState({ success: true, firebaseKey: resp.data.firebaseKey });

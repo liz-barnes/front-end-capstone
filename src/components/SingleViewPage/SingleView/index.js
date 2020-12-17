@@ -14,7 +14,7 @@ export default function SingleView({
   return (
     <div className="park-page">
       <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
-        <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} />
+        <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} type='park' />
       </Modal>
       <Link to={{
         pathname: '/parks/hikes/',

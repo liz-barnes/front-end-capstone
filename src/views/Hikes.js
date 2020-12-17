@@ -14,7 +14,7 @@ export default class Hikes extends Component {
         <h1>HIKES</h1>
         <div className="hike-page">
       <Modal title={'Add Hike to Trip'} buttonLabel={'Add to Trip'}>
-        <AddToTripForm id={singleHike.id} userTrips={userTrips} user={user} />
+        <AddToTripForm id={singleHike.id} userTrips={userTrips} user={user} type='hike' />
       </Modal>
       <h4>{singleHike.title}</h4>
       <p>{singleHike.relatedParks.states}</p>

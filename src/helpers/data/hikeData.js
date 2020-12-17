@@ -11,4 +11,12 @@ const getParkHike = (parkCode) => new Promise((resolve, reject) => {
   });
 });
 
-export default getParkHike;
+const getSingleHike = (id) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/thingstodo?id=${id}&api_key=${key}`).then((response) => {
+    console.warn('API CALL HIKE', response.data.data);
+    resolve(response.data.data);
+    // resolve(response.status);
+  }).catch((error) => reject(error));
+});
+
+export { getParkHike, getSingleHike };

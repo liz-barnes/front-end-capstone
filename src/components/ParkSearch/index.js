@@ -29,17 +29,13 @@ export default class ParkSearch extends Component {
     // }
   };
 
-  log(e) {
-    console.warn(e.target.id);
-  }
-
   render() {
     const { searchResult } = this.state;
     return (
       <div className="park-search-page">
         <h1 classname="page-banner">Parks</h1>
         <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} value={this.state.searchInput}/>
-        {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} log={(e) => this.log(e)}/>) : <h1>No Parks Found</h1>}
+        {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
       </div>
     );
   }
