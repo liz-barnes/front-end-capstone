@@ -9,7 +9,7 @@ export default function ActivityCard({ activity, removeActivity, onUpdate }) {
             <img id={activity.id} className="advenutre-card-image" src={activity.images[1].url} alt={activity.name} />
           </Link>
         </div>
-        <button onClick={() => removeActivity(activity.id)} onUpdate={onUpdate}>Delete from Trip</button>
+        <button onClick={() => removeActivity(activity.id)} >Delete from Trip</button>
         <h3>{activity.name}</h3>
         <p>{activity.addresses[0].city}, {activity.addresses[0].stateCode}</p>
     </div>

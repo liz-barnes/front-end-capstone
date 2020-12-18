@@ -32,7 +32,6 @@ const deleteTrip = (tripId) => axios.delete(`${baseUrl}/trips/${tripId}.json`);
 
 const getTripActivities = (tripId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/trip-activities.json?orderBy="tripId"&equalTo="${tripId}"`).then((response) => {
-    console.warn('trip activity api call', response);
     resolve(Object.values(response.data));
   }).catch((error) => reject(error));
 });
