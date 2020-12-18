@@ -4,8 +4,7 @@ import { getTripActivities } from '../helpers/data/tripData';
 import { getSinglePark } from '../helpers/data/parkData';
 import { getActivityTrip, removeTripActivities } from '../helpers/data/mergedData';
 import { getSingleHike } from '../helpers/data/hikeData';
-import HikeCard from '../components/Cards/HikeCard';
-import HikeTestCard from '../components/Cards/HikeTestCard';
+import HikeActivityCard from '../components/Cards/HikeActivityCard';
 
 export default class SingleTrip extends Component {
   state = {
@@ -122,7 +121,7 @@ export default class SingleTrip extends Component {
       key={park.id} activity={park} joinedTripObject={joinedTripObject} removeActivity={this.removeActivity}
     />);
 
-    const showHikes = tripHikes.map((hike) => <HikeCard
+    const showHikes = tripHikes.map((hike) => <HikeActivityCard
       key={hike.id} hike={hike} removeActivity={this.removeActivity}
       />);
 
@@ -132,7 +131,6 @@ export default class SingleTrip extends Component {
 
     return (
       <div className="single-trip-page">
-        <button onClick={() => this.onUpdate()}>click</button>
         <h1 className="page-banner">Single Trip</h1>
         <div className="trip-activities-container">
           {/* {showActivities} */}

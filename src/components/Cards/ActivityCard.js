@@ -11,7 +11,7 @@ export default function ActivityCard({ activity, removeActivity, onUpdate }) {
         </div>
         <button onClick={() => removeActivity(activity.id)} >Delete from Trip</button>
         <h3>{activity.name}</h3>
-        <p>{activity.addresses[0].city}, {activity.addresses[0].stateCode}</p>
+        {/* <p>{activity.addresses[0].city}, {activity.addresses[0].stateCode}</p> */}
     </div>
   );
 }

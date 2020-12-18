@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function HikeCard({ hike }) {
+export default function HikeCard({ hike, removeActivity, onUpdate }) {
   return (
     <div>
       <Link to={{
@@ -13,6 +13,7 @@ export default function HikeCard({ hike }) {
         <img className="hike-image" id={hike.id} src={hike.images[0].url} alt={hike.images[0].altText}/>
       </Link>
       <h3>{hike.title}</h3>
+      <button onClick={() => removeActivity(hike.id)} >Delete from Trip</button>
     </div>
   );
 }
