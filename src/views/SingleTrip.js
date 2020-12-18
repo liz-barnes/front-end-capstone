@@ -20,7 +20,7 @@ export default class SingleTrip extends Component {
     const { tripId } = this.props.match.params;
     this.setState({ tripId });
     this.getJoinedTripObject(tripId);
-    this.getActivities(tripId);
+    // this.getActivities();
     this.getSingleTrip(tripId);
     // this.getActivities(tripId).then((resp) => this.setState({ activities: resp }));
   }
@@ -28,16 +28,39 @@ export default class SingleTrip extends Component {
   getJoinedTripObject = (tripId) => {
     getTripActivities(tripId).then((object) => {
       this.setState({ joinedTripObject: object });
+    }).then(() => {
+      this.getActivities(tripId);
     });
     // .then(() => {
     //   this.getActivities(tripId);
     // });
   }
 
+  // getActivities = () => {
+  //   const { joinedTripObject } = this.state;
+  //   console.warn('stattttte', joinedTripObject);
+  //   joinedTripObject.forEach((activity) => {
+  //     console.warn('activiiiityy', activity);
+  //     if (activity.type === 'park') {
+  //       getSinglePark(activity.activityId).then((park) => {
+  //         // tripParks.push(resp);
+  //         this.setState({ tripParks: [] });
+  //         this.setState({ tripParks: this.state.tripParks.concat(park) });
+  //       });
+  //     } else if (activity.type === 'hike') {
+  //       getSingleHike(activity.activityId).then((hike) => {
+  //         this.setState({ tripHikes: this.state.tripParks.concat(hike) });
+  //       });
+  //     }
+  //   });
+  // }
+
   getActivities = (tripId) => getTripActivities(tripId).then((response) => {
     // const activitiesArray = [];
-    const tripParks = [];
-    const tripHikes = [];
+    // const tripParks = [];
+    // const tripHikes = [];
+    this.setState({ tripHikes: [], tripParks: [] });
+    console.warn('cleaR state', this.state.tripParks);
     response.forEach((item) => {
       if (item.type === 'park') {
         getSinglePark(item.activityId).then((resp) => {
@@ -58,7 +81,7 @@ export default class SingleTrip extends Component {
       }
       // activitiesArray.push(getSinglePark(item.parkId));
     });
-    return Promise.all([...tripParks], [...tripHikes]);
+    // return Promise.all([...tripParks], [...tripHikes]);
   });
 
   getSingleTrip = (tripId) => {
@@ -99,15 +122,16 @@ export default class SingleTrip extends Component {
   // }
 
   removeActivity = (activityId) => {
-    const { joinedTripObject } = this.state;
+    const { joinedTripObject, tripId } = this.state;
     joinedTripObject.forEach((object) => {
       if (object.activityId === activityId) {
         removeTripActivities(object.firebaseKey);
       }
     });
-    this.getActivities(this.state.tripId).then((resp) => {
-      console.warn('trip delete resp', resp);
-    });
+    this.getJoinedTripObject(tripId);
+    // this.getActivities(this.state.tripId).then((resp) => {
+    //   console.warn('trip delete resp', resp);
+    // });
   };
 
   onUpdate = () => {
@@ -116,7 +140,13 @@ export default class SingleTrip extends Component {
     console.warn('trip hikes', this.state.tripHikes);
   }
 
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
   render() {
+    // const randomInt = this.getRandomInt(1000000);
+
     const {
       joinedTripObject, tripParks, tripHikes, trip,
     } = this.state;

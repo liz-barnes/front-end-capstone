@@ -37,7 +37,9 @@ export default class ParkSearch extends Component {
           <h1 className="banner-heading" >National Parks</h1>
         </div>
         <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} value={this.state.searchInput}/>
-        {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
+        <div className="park-search-results-container">
+          {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
+        </div>
       </div>
     );
   }
