@@ -44,7 +44,9 @@ export default class Trips extends Component {
     );
     return (
       <div className="trip-page">
-        <h1 className="page-banner">Your Trips</h1>
+        <div className="page-banner">
+        <h1 className="banner-heading">Your Trips</h1>
+        </div>
         <Modal title={'Create New Trip'} buttonLabel={'Create a New Trip'}>
           <CreateNewTrip onUpdate={this.getTrips}/>
         </Modal>

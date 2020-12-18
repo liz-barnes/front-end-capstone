@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ActivityCard from '../components/Cards/ActivityCard';
-import { getTripActivities } from '../helpers/data/tripData';
+import { getTripActivities, getSingleTrip } from '../helpers/data/tripData';
 import { getSinglePark } from '../helpers/data/parkData';
 import { getActivityTrip, removeTripActivities } from '../helpers/data/mergedData';
 import { getSingleHike } from '../helpers/data/hikeData';
@@ -13,19 +13,16 @@ export default class SingleTrip extends Component {
     tripParks: [],
     tripHikes: [],
     tripId: '',
+    trip: [],
   };
 
   componentDidMount() {
-    // const parkName = this.props.match.params.name;
     const { tripId } = this.props.match.params;
     this.setState({ tripId });
     this.getJoinedTripObject(tripId);
     this.getActivities(tripId);
+    this.getSingleTrip(tripId);
     // this.getActivities(tripId).then((resp) => this.setState({ activities: resp }));
-    // this.setState({ parkId });
-    // getSinglePark(parkId).then((park) => {
-    //   this.setState({ park }, this.setLoading);
-    // });
   }
 
   getJoinedTripObject = (tripId) => {
@@ -64,6 +61,13 @@ export default class SingleTrip extends Component {
     return Promise.all([...tripParks], [...tripHikes]);
   });
 
+  getSingleTrip = (tripId) => {
+    getSingleTrip(tripId).then((resp) => {
+      this.setState({ trip: resp });
+      console.warn('trippppp', this.state.trip);
+    });
+  }
+
   // loop through joined object. if joinedObject.parkId === parkId, delete it
   // removeActivity = (parkId) => {
   //   const { joinedTripObject } = this.state;
@@ -83,16 +87,16 @@ export default class SingleTrip extends Component {
   // }
 
   // loop through joined object. if joinedObject.parkId === parkId, delete it
-  removeActivity = (activityId) => {
-    console.warn('clicked', activityId);
-    const { joinedTripObject } = this.state;
-    joinedTripObject.forEach((object) => {
-      if (object.activityId === activityId) {
-        removeTripActivities(object.firebaseKey);
-      }
-      this.componentDidMount();
-    });
-  }
+  // removeActivity = (activityId) => {
+  //   console.warn('clicked', activityId);
+  //   const { joinedTripObject } = this.state;
+  //   joinedTripObject.forEach((object) => {
+  //     if (object.activityId === activityId) {
+  //       removeTripActivities(object.firebaseKey);
+  //     }
+  //     this.componentDidMount();
+  //   });
+  // }
 
   removeActivity = (activityId) => {
     const { joinedTripObject } = this.state;
@@ -114,7 +118,7 @@ export default class SingleTrip extends Component {
 
   render() {
     const {
-      joinedTripObject, tripParks, tripHikes,
+      joinedTripObject, tripParks, tripHikes, trip,
     } = this.state;
 
     const showParks = tripParks.map((park) => <ActivityCard
@@ -131,7 +135,10 @@ export default class SingleTrip extends Component {
 
     return (
       <div className="single-trip-page">
-        <h1 className="page-banner">Single Trip</h1>
+        <div className="page-banner">
+          <h1 className="banner-heading">{trip.name}</h1>
+          <h5 className="banner-subheading">{trip.dates}</h5>
+        </div>
         <div className="trip-activities-container">
           {/* {showActivities} */}
           {showHikes}
