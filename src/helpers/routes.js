@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 
 import Login from '../components/Login';
-import Home from '../components/Home';
 import ParkSearch from '../components/ParkSearch';
 import ParkPage from '../components/SingleViewPage/ParkPage';
 import Trips from '../views/Trips';

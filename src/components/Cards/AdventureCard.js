@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ParkPage from '../SingleViewPage/ParkPage';
 
 export default function AdventureCard({ park, log }) {
   return (

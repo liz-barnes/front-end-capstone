@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getSinglePark } from '../../../helpers/data/parkData';
 import SingleView from '../SingleView';
 import Loader from '../../Loader';
-import getParkHike from '../../../helpers/data/hikeData';
 
 export default class ParkPage extends Component {
   state = {
