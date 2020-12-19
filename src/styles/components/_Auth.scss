@@ -1,0 +1,23 @@
+.page-banner {
+  margin: auto;
+  margin-top: 75px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 75%;
+  background-color: $secondaryColor;
+}
+
+.login-btn {
+  border: $secondaryAccentColor 1px solid;
+  border-radius: 20px;
+  background-color: $primaryColor;
+  color: $secondaryAccentColor;
+  padding: 5px;
+  width: 250px;
+  font-size: 22px;
+}
+
+.login-btn:hover {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+}

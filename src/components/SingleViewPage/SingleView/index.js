@@ -61,7 +61,7 @@ export default function SingleView({
         <div className="park-fees">
           <h6>Fees</h6>
           {/* filter a 'fee free park' */}
-          <p>{park.entranceFees[0].cost}</p>
+          <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p>
         </div>
         <div className="park-hours">

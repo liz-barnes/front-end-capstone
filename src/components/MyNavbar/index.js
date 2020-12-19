@@ -65,7 +65,7 @@ export default function MyNavbar(props) {
                 </DropdownItem>
                 <DropdownItem>
                   <Link className="dropdown-link" to='/my-trips'>
-                    <p>My Trips</p>
+                    <p className="my-trips-btn">My Trips</p>
                   </Link>
                 </DropdownItem>
                 <DropdownItem>

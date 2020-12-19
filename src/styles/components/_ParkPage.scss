@@ -1,19 +1,19 @@
 @import '../variables';
 
 .park-page {
- width: 95%;
- margin: auto;
- display: grid;
- justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 50px;
-  grid-template-areas: 
-    "header1 . header2 header3"
-    "main main main main"
-    "desc desc desc desc"
-    "img1 img2 sidebar sidebar"
-    "img3 img4 sidebar sidebar"
-    "footer footer footer footer";
+  width: 75%;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    grid-template-areas: 
+      "header1 . header2 header3"
+      "main main main main"
+      "desc desc desc desc"
+      "img1 img2 sidebar sidebar"
+      "img3 img4 sidebar sidebar"
+      "footer footer footer footer";
 }
 
 .single-page-header-image {
@@ -33,15 +33,37 @@
 
 .header-details {
   grid-area: header1;
-  justify-self: end;
+  justify-self: start;
+  align-self: end;
 }
 
 .header-hikes-btn {
- grid-area: header2;
+  grid-area: header2;
+  justify-self: end;
+  align-self: end;
+  text-decoration: none;
+  color: $fontColor;
+  text-decoration-line: none;
+}
+
+.header-hikes-btn a {
+  color: $fontColor;
+  font-size: 18px;
+}
+
+.header-hikes-btn a:hover {
+  color: $accentColor;
+  text-decoration: none;
+}
+
+.header-hikes-btn p {
+  margin-bottom: 5px;
 }
 
 .header-form {
   grid-area: header3;
+  justify-self: end;
+  align-self: end;
 }
 
 .single-page-park-header-image {
@@ -78,14 +100,23 @@
 }
 
 .sidebar {
+  padding: 25px;
   grid-area: sidebar;
   background-color: $secondaryColor;
   margin-left: 15px;
   text-align: left;
 }
 
-.sidebar p {
+.sidebar p, .sidebar h6 {
   margin-bottom: 0px;
+}
+
+.sidebar h6 {
+  font-weight: bolder;
+}
+
+.sidebar p {
+  font-size: 15px;
 }
 
 .park-description {
