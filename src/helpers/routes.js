@@ -17,7 +17,7 @@ import Hikes from '../views/Hikes';
 export default function Routes({ parks, user, userTrips }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Login user={user} />} />
+      <Route exact path='/' component={() => <Login user={user} parks={parks} />} />
       {/* <PrivateRoute
         exact
         path="/adventure-planner"
