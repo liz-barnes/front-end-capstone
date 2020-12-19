@@ -13,8 +13,8 @@ Start by searching for a National Park! Click through some of the hikes. Find so
 ## [FIGMA](https://www.figma.com/file/DUW61kGBXRGlTmFsXrGnor/NPS-Capstone?node-id=0%3A1)
 > Stop by here to checkout my wireframe for this project!
 
-## Demo
-![](https://recordit.co/AmM2k0SLp5)
+## Screenshot
+![](images/capstone-screenshot.png)
 
 ## How magic was made
 This project was made possible by firebase NPS API, firebase, React, CSS Grid, CSS Flexbox, Bootstrap, Javascript, and SASS.
