@@ -1,0 +1,146 @@
+@import '../variables';
+
+.park-page {
+  width: 75%;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    grid-template-areas: 
+      "header1 header1 header2 header3"
+      "main main main main"
+      "desc desc desc desc"
+      "img1 img2 sidebar sidebar"
+      "img3 img4 sidebar sidebar"
+      "footer footer footer footer";
+}
+
+.single-page-header-image {
+  width: 75%;
+  height: 500px;
+}
+
+.park-search-results-container {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  // display: grid;
+  // justify-content: center;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 1fr 1fr;
+}
+
+.header-details {
+  grid-area: header1;
+  justify-self: start;
+  align-self: end;
+}
+
+.header-hikes-btn {
+  grid-area: header2;
+  justify-self: end;
+  align-self: end;
+  text-decoration: none;
+  color: $fontColor;
+  text-decoration-line: none;
+}
+
+.header-hikes-btn a {
+  color: $fontColor;
+  font-size: 18px;
+}
+
+.header-hikes-btn a:hover {
+  color: $accentColor;
+  text-decoration: none;
+}
+
+.header-hikes-btn p {
+  margin-bottom: 5px;
+}
+
+.header-form {
+  grid-area: header3;
+  justify-self: end;
+  align-self: end;
+}
+
+.single-page-park-header-image {
+  grid-area: main;
+}
+
+.single-page-header-image {
+  width: 100%;
+}
+
+.img1, .img2, .img3, .img4 {
+  width: 250px;
+  height: 250px;
+  margin: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;;
+}
+
+.img1 {
+  grid-area: img1;
+}
+
+.img2 {
+  grid-area: img2;
+}
+
+.img3 {
+  grid-area: img3;
+}
+
+.img4 {
+  grid-area: img4;
+}
+
+.sidebar {
+  padding: 25px;
+  grid-area: sidebar;
+  background-color: $secondaryColor;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.sidebar p, .sidebar h6 {
+  margin-bottom: 0px;
+}
+
+.sidebar h6 {
+  font-weight: bolder;
+}
+
+.sidebar p {
+  font-size: 15px;
+}
+
+.park-description {
+  grid-area: desc;
+  margin-top: 15px;
+}
+
+// .park-header-image {
+//   grid-area: main;
+// }
+
+// .header-bar {
+//   display: grid;
+//   // margin-left: 25px;
+//   // margin-right: 25%;
+//   justify-content: center;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   grid-template-rows: 50px;
+//   grid-template-areas: 
+//     "header1 . header2 header3"
+//     "main main main main"
+//     "desc desc desc desc"
+//     "img1 img2 sidebar sidebar"
+//     "img3 img4 sidebar sidebar"
+//     "footer footer footer footer";
+// }

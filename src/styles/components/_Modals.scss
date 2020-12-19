@@ -1,0 +1,34 @@
+.submit-btn {
+  margin: auto;
+  border: 1px solid $secondaryAccentColor;
+  background-color: $primaryColor;
+  border-radius: 20px;
+  padding: 5px;
+  width: 125px;
+  color: $secondaryAccentColor
+}
+
+.submit-btn:hover {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+}
+
+.modal-btn {
+  margin: 5px;
+  background-color: $primaryColor;
+  color: $secondaryAccentColor;
+  border: $secondaryAccentColor 1px solid;
+  border-radius: 20px;
+}
+
+.modal-btn:hover {
+  color: $primaryColor;
+  background-color: $secondaryAccentColor;
+  border: $secondaryAccentColor 1px solid;
+}
+
+.alert-success {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+  border: 1px solid $secondaryAccentColor;
+}
