@@ -1,3 +1,5 @@
+@import '../variables';
+
 .adventure-card-container {
   // min-width: 25%;
   // max-width: 50%;
@@ -23,4 +25,32 @@
 .card-heading {
   margin-top: 15px;
   font-size: 28px;
+}
+
+.trip-btn-container {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.delete-btn {
+  margin-top: 5px;
+  border: $secondaryAccentColor 1px solid;
+  background-color: $primaryColor;
+  color: $secondaryAccentColor;
+  border-radius: 25px;
+  width: 110px;
+  padding: 0px;
+  height: 38px;
+}
+
+.delete-btn:hover {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+}
+
+.trip-card-image {
+  width: 250px;
+  height: 250px;
 }

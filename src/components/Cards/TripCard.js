@@ -12,12 +12,14 @@ export default function TripCard({ trip, onUpdate, removeTrip }) {
           <Link className='link-to-single-page' to={`/my-trips/${trip.firebaseKey}`} trip={trip}>
             <img id={trip.firebaseKey} className="trip-card-image" src={trip.imageUrl} alt={trip.name} />
           </Link>
-          <Modal title={'Update Trip'} buttonLabel={'Update Trip'}>
-            <CreateNewTrip trip={trip} onUpdate={onUpdate}/>
-          </Modal>
-          <button onClick={() => removeTrip(trip.firebaseKey)}>Delete Trip</button>
-          <h1>{trip.name}</h1>
-          <p>{trip.dates}</p>
+          <div className="trip-btn-container">
+            <Modal title={'Update Trip'} buttonLabel={'Update Trip'}>
+              <CreateNewTrip trip={trip} onUpdate={onUpdate}/>
+            </Modal>
+            <button className="delete-btn" onClick={() => removeTrip(trip.firebaseKey)}>Delete Trip</button>
+          </div>
+          <h3>{trip.name}</h3>
+          <h6>{trip.dates}</h6>
         </div>
     </div>
   );

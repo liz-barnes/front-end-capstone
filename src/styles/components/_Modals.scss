@@ -7,3 +7,22 @@
   width: 125px;
   color: $secondaryAccentColor
 }
+
+.submit-btn:hover {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+}
+
+.modal-btn {
+  margin: 5px;
+  background-color: $primaryColor;
+  color: $secondaryAccentColor;
+  border: $secondaryAccentColor 1px solid;
+  border-radius: 20px;
+}
+
+.modal-btn:hover {
+  color: $primaryColor;
+  background-color: $secondaryAccentColor;
+  border: $secondaryAccentColor 1px solid;
+}

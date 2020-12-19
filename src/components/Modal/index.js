@@ -12,7 +12,7 @@ const AppModal = (props) => {
 
   return (
     <div className='modal-container'>
-      <Button color={props.btnColor} onClick={toggle}>
+      <Button className="modal-btn" color={props.btnColor} onClick={toggle}>
         <i className={`fas ${props.icon} fa-1x`}></i>
         {buttonLabel}
       </Button>

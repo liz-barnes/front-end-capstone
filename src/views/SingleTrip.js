@@ -60,7 +60,6 @@ export default class SingleTrip extends Component {
     // const tripParks = [];
     // const tripHikes = [];
     this.setState({ tripHikes: [], tripParks: [] });
-    console.warn('cleaR state', this.state.tripParks);
     response.forEach((item) => {
       if (item.type === 'park') {
         getSinglePark(item.activityId).then((resp) => {
@@ -135,9 +134,6 @@ export default class SingleTrip extends Component {
   };
 
   onUpdate = () => {
-    console.warn('state', this.state.joinedTripObject);
-    console.warn('trip parks', this.state.tripParks);
-    console.warn('trip hikes', this.state.tripHikes);
   }
 
   getRandomInt(max) {

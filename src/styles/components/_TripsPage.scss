@@ -1,0 +1,16 @@
+.trip-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 15px;
+}
+
+.trip-card-container {
+  width: 350px;
+  height: 350px;
+}
+
+.trip-card-image {
+  width: 250px;
+  height: 250px;
+}
