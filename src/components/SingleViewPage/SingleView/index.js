@@ -53,25 +53,25 @@ export default function SingleView({
         {/* <img className="img1" src={park.images[1].url}/> */}
       </div>
       <div className="sidebar">
-        <div className="park-address">
+        <div className="park-address sidebar-section">
           <h6>Address</h6>
           <p>{park.addresses[0].line1}</p>
           <p>{park.addresses[0].city}, {park.addresses[0].stateCode}, {park.addresses[0].postalCode}</p>
         </div>
-        <div className="park-fees">
+        <div className="park-fees sidebar-section">
           <h6>Fees</h6>
           {/* filter a 'fee free park' */}
           <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p>
         </div>
-        <div className="park-hours">
+        <div className="park-hours sidebar-section">
           <h6>Hours</h6>
           <p>{park.operatingHours[0].description}</p>
           <p>Park Closed</p>
           {/* filter through length of exceptions array to get all dates the park is closed */}
           {park.operatingHours[0].length ? <li>{park.operatingHours[0].exceptions[0].startDate}</li> : ''}
         </div>
-        <div className="park-contact">
+        <div className="park-contact sidebar-section">
           <h6>Contact</h6>
           <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
         </div>

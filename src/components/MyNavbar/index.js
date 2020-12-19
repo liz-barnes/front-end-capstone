@@ -44,14 +44,14 @@ export default function MyNavbar(props) {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
-            <NavItem>
+            {/* <NavItem>
               <Link className="nav-link" to='/parks'>Parks</Link>
-            </NavItem>
-            <NavItem>
+            </NavItem> */}
+            {/* <NavItem>
               <Link className="nav-link" to='/hikes'>
                 Hikes
               </Link>
-            </NavItem>
+            </NavItem> */}
           </Nav>
           {
             user

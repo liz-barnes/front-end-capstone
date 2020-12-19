@@ -1,0 +1,63 @@
+.hike-page {
+  width: 75%;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    grid-template-areas: 
+      "header1 . . header2"
+      "main main main main"
+      "desc desc desc desc"
+      ". . sidebar sidebar";
+  }
+
+.hike-header-details {
+  grid-area: header1;
+  justify-self: start;
+  align-self: end;
+}
+
+.hike-header-form {
+  grid-area: header2;
+  justify-self: end;
+  align-self: end;
+}
+
+.single-hike-page-header-image {
+  grid-area: main;
+}
+
+.single-hike-header-image {
+  width: 100%;
+}
+
+.hike-description {
+  grid-area: desc;
+  margin-top: 15px;
+}
+
+.hike-sidebar {
+  grid-area: sidebar;
+  padding: 25px;
+  background-color: $secondaryColor;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.hike-sidebar p, .hike-sidebar h6 {
+  margin-bottom: 0px;
+}
+
+.hike-sidebar h6 {
+  font-weight: bolder;
+}
+
+.hike-sidebar p {
+  font-size: 15px;
+}
+
+.sidebar-section {
+  margin-top: 15px;
+}
+

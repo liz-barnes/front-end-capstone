@@ -17,7 +17,7 @@ export default function Search({ handleSearchInput, handleSearchSubmit, value })
     <div className="search-bar">
       <form className="form-inline my-2 my-lg-0" onSubmit={handleSearchSubmit} >
         {/* <input type="text" onKeyPress={(e) => handleSearchSubmit(e)} /> */}
-        <input className="search-input form-control" name="searchInput" value={value} type="text" placeholder="Search for park by name" aria-label="Search" onChange={(e) => handleSearchInput(e)}/>
+        <input className="search-input form-control" name="searchInput" value={value} type="text" placeholder="Search park by name" aria-label="Search" onChange={(e) => handleSearchInput(e)}/>
       </form>
     </div>
   );
