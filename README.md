@@ -1,7 +1,8 @@
-# Front-End Capstone
-> I will be creating an application focused on National Parks and hikes near those parks. A user will be able to search for parks and hikes. The user will be able to click on search results to get more information and details on the park/hike.
+# [Adventure Planner](https://adventure-planner-lb.netlify.app/)
+> This application allows users to search for a National Park, find hikes realted to that park, create a trip and save either park or hike to their trip!
 
-
+## User experience
+Start by searching for a National Park! Click through some of the hikes. Find some place you want to explore? Create a trip and add the park/hike to your trip!
 
 ## [ERD](https://app.lucidchart.com/lucidchart/invitations/accept/f0199779-69ae-499f-94a4-75ddc89fab62)
 ![ERD](images/front-end-capstone.png)
@@ -11,3 +12,10 @@
 
 ## [FIGMA](https://www.figma.com/file/DUW61kGBXRGlTmFsXrGnor/NPS-Capstone?node-id=0%3A1)
 > Stop by here to checkout my wireframe for this project!
+
+## Demo
+![](http://g.recordit.co/pDZPrqF2Jc.gif)
+
+## How magic was made
+This project was made possible by firebase NPS API, firebase, React, CSS Grid, CSS Flexbox, Bootstrap, Javascript, and SASS.
+
