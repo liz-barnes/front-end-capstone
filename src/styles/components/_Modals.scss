@@ -26,3 +26,9 @@
   background-color: $secondaryAccentColor;
   border: $secondaryAccentColor 1px solid;
 }
+
+.alert-success {
+  background-color: $secondaryAccentColor;
+  color: $primaryColor;
+  border: 1px solid $secondaryAccentColor;
+}

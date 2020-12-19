@@ -13,7 +13,7 @@ export default function HikeCard({ hike, removeActivity, onUpdate }) {
         <img className="hike-image" id={hike.id} src={hike.images[0].url} alt={hike.images[0].altText}/>
       </Link>
       <h3>{hike.title}</h3>
-      <button onClick={() => removeActivity(hike.id)} >Delete from Trip</button>
+      <button className="delete-activity-btn" onClick={() => removeActivity(hike.id)} >Delete from Trip</button>
     </div>
   );
 }

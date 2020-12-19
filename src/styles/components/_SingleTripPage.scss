@@ -1,0 +1,21 @@
+.trip-activities-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 15px;
+}
+
+.delete-activity-btn {
+  border: 1px solid $secondaryAccentColor;
+  background-color: $primaryColor;
+  color: $secondaryAccentColor;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.delete-activity-btn:hover {
+  color: $primaryColor;
+  background-color: $secondaryAccentColor;
+}
