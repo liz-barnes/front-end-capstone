@@ -1,6 +1,17 @@
 @import '../variables';
 
+.form-inline {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  margin: auto;
+}
+
 .search-input {
+  margin-top: 10px;
+  width: 350px;
   border: none;
   border-radius: 20px;
   background-color: $secondaryColor;

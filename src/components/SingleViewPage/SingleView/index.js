@@ -13,23 +13,45 @@ export default function SingleView({
   // const { park } = this.state;
   return (
     <div className="park-page">
-      <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
-        <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} type='park' />
-      </Modal>
-      <Link to={{
-        pathname: '/parks/hikes/',
-        state: {
-          singlePark: park,
-        },
-      }}>
-        <button>Hikes</button>
-        {/* {parkHikes ? <button>Hikes</button> : <h3>No Hikes</h3>} */}
-      </Link>
+      {/* <div className="header-bar"> */}
+        <div className="header-details">
+          <h4>{park.name}</h4>
+          {/* <p>{park.states}</p> */}
+        </div>
+        <div className="header-hikes-btn">
+          <Link to={{
+            pathname: '/parks/hikes/',
+            state: {
+              singlePark: park,
+            },
+          }}>
+            <p>Hikes</p>
+            {/* {parkHikes ? <button>Hikes</button> : <h3>No Hikes</h3>} */}
+          </Link>
+        </div>
+        <div className="header-form">
+          <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
+            <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} type='park' />
+          </Modal>
+        </div>
+      {/* </div> */}
       {/* <button>Add to trip</button> */}
-      <h4>{park.name}</h4>
-      <p>{park.states}</p>
-      <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>
-      <p>{park.description}</p>
+      <div className="single-page-park-header-image">
+        <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>
+      </div>
+      <p className="park-description">{park.description}</p>
+      <div className="img1" style={{ backgroundImage: `url(${park.images[1].url})` }}>
+        {/* <img className="img1" src={park.images[1].url}/> */}
+      </div>
+      <div className="img2" style={{ backgroundImage: `url(${park.images[2].url})` }}>
+        {/* <img className="img1" src={park.images[1].url}/> */}
+      </div>
+      <div className="img3" style={{ backgroundImage: `url(${park.images[3].url})` }}>
+        {/* <img className="img1" src={park.images[1].url}/> */}
+      </div>
+      <div className="img4" style={{ backgroundImage: `url(${park.images[4].url})` }}>
+        {/* <img className="img1" src={park.images[1].url}/> */}
+      </div>
       <div className="sidebar">
         <div className="park-address">
           <h6>Address</h6>

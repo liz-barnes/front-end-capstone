@@ -18,7 +18,6 @@ export default function Search({ handleSearchInput, handleSearchSubmit, value })
       <form className="form-inline my-2 my-lg-0" onSubmit={handleSearchSubmit} >
         {/* <input type="text" onKeyPress={(e) => handleSearchSubmit(e)} /> */}
         <input className="search-input form-control" name="searchInput" value={value} type="text" placeholder="Search for park by name" aria-label="Search" onChange={(e) => handleSearchInput(e)}/>
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   );
