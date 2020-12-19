@@ -5,7 +5,30 @@
   margin: 15px;
 }
 
+.activity-card-container {
+  margin: 15px;
+  width: 250px;
+  height: 350px;
+}
+
+.advenutre-card-image {
+  width: 250px;
+  height: 250px;
+}
+
+.hike-activity-card-container {
+  margin: 15px;
+  width: 250px;
+  height: 250px;
+}
+
+.hike-image {
+  width: 250px;
+  height: 250px;
+}
+
 .delete-activity-btn {
+  margin-top: 10px;
   border: 1px solid $secondaryAccentColor;
   background-color: $primaryColor;
   color: $secondaryAccentColor;

@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 50px;
     grid-template-areas: 
-      "header1 . . header2"
+      "header1 header1 . header2"
       "main main main main"
       "desc desc desc desc"
       ". . sidebar sidebar";
