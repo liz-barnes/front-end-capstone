@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../../Modal';
 import AddToTripForm from '../../Forms/AddToTripForm';
-import ParkHikes from '../../ParkHikes';
 
 export default function SingleView({
   park, userTrips, user, getUserTrips, parkHikes,

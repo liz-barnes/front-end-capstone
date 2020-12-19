@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getParkHike } from '../../helpers/data/hikeData';
-import Hikes from '../../views/Hikes';
 import HikeCard from '../Cards/HikeCard';
 import Loader from '../Loader';
 

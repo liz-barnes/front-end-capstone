@@ -12,10 +12,6 @@ import {
 import Routes from '../helpers/routes';
 import MyNavbar from '../components/MyNavbar';
 import { getUserTrips } from '../helpers/data/tripData';
-import AdventureCard from '../components/Cards/AdventureCard';
-// import ParkTestCard from '../components/Cards/ParkTestCard';
-// import CampTestCard from '../components/Cards/CampTestCard';
-// import HikeTestCard from '../components/Cards/HikeTestCard';
 
 fbConnection();
 class App extends React.Component {

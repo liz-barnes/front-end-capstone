@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ActivityCard from '../components/Cards/ActivityCard';
 import { getTripActivities, getSingleTrip } from '../helpers/data/tripData';
 import { getSinglePark } from '../helpers/data/parkData';
-import { getActivityTrip, removeTripActivities } from '../helpers/data/mergedData';
+import { removeTripActivities } from '../helpers/data/mergedData';
 import { getSingleHike } from '../helpers/data/hikeData';
 import HikeActivityCard from '../components/Cards/HikeActivityCard';
 
