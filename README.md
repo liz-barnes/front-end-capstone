@@ -14,7 +14,7 @@ Start by searching for a National Park! Click through some of the hikes. Find so
 > Stop by here to checkout my wireframe for this project!
 
 ## Demo
-![](https://recordit.co/pDZPrqF2Jc)
+![](http://g.recordit.co/pDZPrqF2Jc.gif)
 
 ## How magic was made
 This project was made possible by firebase NPS API, firebase, React, CSS Grid, CSS Flexbox, Bootstrap, Javascript, and SASS.
