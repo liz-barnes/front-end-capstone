@@ -11,7 +11,7 @@ export default class Hikes extends Component {
     return (
         <div className="hike-page">
           <div className="hike-header-details">
-            <h4>{singleHike.title}</h4>
+            <h4 className='hike-name-header'>{singleHike.title}</h4>
             <p>{singleHike.relatedParks.states}</p>
           </div>
           <div className="hike-header-form">
@@ -25,12 +25,19 @@ export default class Hikes extends Component {
       <p className="hike-description">{singleHike.shortDescription}</p>
       <div className="hike-sidebar">
         <div className="hike-info sidebar-section">
+          <h6>Difficulty</h6>
+          <p>{singleHike.activityDescription}</p>
+        </div>
+        <div className="hike-info sidebar-section">
           {/* <h6>Difficulty: {singleHike.difficulty}</h6> */}
-          <h6>Duration: {singleHike.duration}</h6>
+          <h6>Duration</h6>
+          <p>{singleHike.duration}</p>
+          <p>{singleHike.durationDescription}</p>
           {/* <img src={singleHike.images[0].crops.url} alt={singleHike.title}/> */}
         </div>
         <div className="hike-location sidebar-section">
           <h6>Location</h6>
+          <p>{singleHike.location}</p>
           <p>{singleHike.locationDescription}</p>
         </div>
         <div className="hike-fees sidebar-section">
@@ -40,7 +47,12 @@ export default class Hikes extends Component {
         </div>
         <div className="hike-pets sidebar-section">
           <h6>Pets</h6>
-          <p>{singleHike.arePetsPermitted}</p>
+          {
+            singleHike.arePetsPermitted === true ? (
+              <p>Allowed</p>
+            ) : <p>Not Allowed</p>
+          }
+          {/* <p>{singleHike.arePetsPermitted}</p> */}
         </div>
       </div>
     </div>

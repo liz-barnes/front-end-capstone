@@ -12,6 +12,13 @@
       ". . sidebar sidebar";
   }
 
+.hike-result-container {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .hike-header-details {
   grid-area: header1;
   justify-self: start;
@@ -62,4 +69,3 @@
 .sidebar-section {
   margin-top: 15px;
 }
-

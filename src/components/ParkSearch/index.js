@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 // import ParkTestCard from '../Cards/ParkTestCard';
 import AdventureCard from '../Cards/AdventureCard';
 import Search from '../Search';
+import Loader from '../Loader';
 
 export default class ParkSearch extends Component {
   state = {
     searchResult: [],
     searchInput: '',
+    searchSubmit: null,
+    // suggestedParks: null,
+    loading: true,
+    suggestParks: true,
+  }
+
+  componentDidMount() {
+    this.setLoading();
+    // this.setSuggestedParks();
+    this.hideSuggestedParks();
+    // this.suggestedFeedLogic();
   }
 
   handleSearchInput = (e) => {
@@ -25,12 +37,101 @@ export default class ParkSearch extends Component {
     //   e.preventDefault();
     //   console.warn('pressed');
     const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    this.setState({ searchSubmit: true });
     this.setState({ searchResult });
+    this.setState({ suggestParks: false });
+    this.showParkResults();
+    console.warn('submit');
     // }
   };
 
+  setSuggestedParks = () => {
+    const { parks } = this.props;
+    const suggested = [parks[27], parks[467], parks[289]];
+    this.setState({ suggestedParks: suggested });
+    this.setLoading();
+  }
+
+  showParkResults = () => {
+    const { searchSubmit, searchResult } = this.state;
+    if (searchSubmit === true && searchResult.length) {
+      searchResult.map((park) => <AdventureCard key={park.id} park={park} />);
+    } else {
+      <h1>No Parks Found</h1>;
+    }
+  }
+
+  hideSuggestedParks = () => {
+    const { suggestParks, loading } = this.state;
+    if (suggestParks === false) {
+      <h1>Help</h1>;
+      console.warn('helpppp');
+    }
+  }
+
+  suggestedFeedLogic = () => {
+    const { suggestParks, suggestedParks, loading } = this.state;
+    if (loading) {
+      <Loader />;
+    } else if (suggestParks && !loading) {
+      suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />);
+    } else if (suggestParks === false) {
+      <div></div>;
+    }
+  }
+
+  setLoading = () => {
+    this.timer = setInterval(() => {
+      this.setState({ loading: false });
+    }, 100);
+    this.showSuggestedParks();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  // searchKey = () => {
+  //   const nullSearch = this.state.search;
+  //   if (nullSearch === null) {
+  //   }
+  // }
+
+  logic = () => {
+    const {
+      suggestedParks, loading, searchSubmit, suggestParks,
+    } = this.state;
+    // loading ? (
+    //   <Loader />
+    // ) : suggestParks ? (
+    //   suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />)
+    // ) : suggestParks === false ? (
+    //   <div></div>
+    // ) : ''
+  }
+
+  showSuggestedParks = () => {
+    const { loading, suggestParks } = this.state;
+    const { suggestedParks } = this.props;
+    if (loading) {
+      <Loader />;
+    } else if (suggestParks) {
+      suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />);
+    }
+  }
+
+  // showSuggested = () => {
+  //   const { suggestedParks } = this.props;
+  //   setTimeout(() => {
+  //     suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />);
+  //   }, 5000);
+  // }
+
   render() {
-    const { searchResult } = this.state;
+    const {
+      searchResult, loading, searchSubmit, suggestParks,
+    } = this.state;
+    const { suggestedParks } = this.props;
     return (
       <div className="park-search-page">
         <div className="page-banner">
@@ -38,7 +139,29 @@ export default class ParkSearch extends Component {
         </div>
         <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} value={this.state.searchInput}/>
         <div className="park-search-results-container">
-          {searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : <h1>No Parks Found</h1>}
+          {/* {this.suggestedFeedLogic()} */}
+        {/* {
+          loading ? (
+            <Loader />
+          ) : suggestParks ? (
+            suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />)
+          ) : (
+            <span>Default</span>
+        )} */}
+          {/* { loading ? (
+            <Loader />
+          ) : (
+            suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />)
+          )} */}
+          {/* {suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />)} */}
+          {/* {suggestedParks.length ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
+          {suggestParks ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
+          {/* {this.showSuggestedParks()} */}
+          {/* {setTimeout(() => {
+            this.showSuggestedParks();
+          }, 1000)} */}
+          {searchSubmit && searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : '' }
+          {searchSubmit && searchResult.length === 0 ? <h1>No Parks Found</h1> : ''}
         </div>
       </div>
     );

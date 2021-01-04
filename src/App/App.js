@@ -21,6 +21,7 @@ class App extends React.Component {
     parks: [],
     hikes: [],
     campgrounds: [],
+    suggestedParks: null,
   }
 
   componentDidMount() {
@@ -48,6 +49,9 @@ class App extends React.Component {
       this.setState({
         parks: resp,
       });
+    }).then(() => {
+      this.setSuggestedParks();
+      console.warn('sug parks', this.state.suggestedParks);
     });
   }
 
@@ -78,8 +82,18 @@ class App extends React.Component {
     }
   }
 
+  setSuggestedParks = () => {
+    const { parks } = this.state;
+    console.warn('PARKXZ', parks);
+    const suggested = [parks[27], parks[467], parks[289]];
+    this.setState({ suggestedParks: suggested });
+    // this.setLoading();
+  }
+
   render() {
-    const { user, parks, userTrips } = this.state;
+    const {
+      user, parks, userTrips, suggestedParks,
+    } = this.state;
     // const { parks, campgrounds, hikes } = this.state;
     return (
       <div className="App">
@@ -87,7 +101,7 @@ class App extends React.Component {
         {/* {this.enterKeyEvent(e)}; */}
         <Router>
           <MyNavbar user={user} />
-        { user !== null && <Routes user={user} parks={parks} userTrips={userTrips}/> }
+        { user !== null && <Routes user={user} parks={parks} userTrips={userTrips} suggestedParks={suggestedParks}/> }
           {/* <Routes parks={parks} /> */}
         </Router>
         {/* <h1>Parks</h1>

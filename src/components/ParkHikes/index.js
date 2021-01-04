@@ -50,12 +50,14 @@ export default class ParkHikes extends Component {
 
     return (
       <>
-        <h1>{singlePark.name} Hikes</h1>
-        { loading ? (
-          <Loader />
-        ) : (
-          parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
-        )}
+        <h1 className='park-hikes-header'>{singlePark.name} Hikes</h1>
+        <div className="hike-result-container">
+          { loading ? (
+            <Loader />
+          ) : (
+            parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
+          )}
+        </div>
         {/* {this.showHikes()} */}
         {/* {parkHikes.length === [] } */}
       </>
