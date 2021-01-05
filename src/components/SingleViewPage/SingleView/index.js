@@ -66,7 +66,7 @@ export default function SingleView({
         <div className="park-hours sidebar-section">
           <h6>Hours</h6>
           <p>{park.operatingHours[0].description}</p>
-          <p>Park Closed</p>
+          {/* <p>Park Closed</p> */}
           {/* filter through length of exceptions array to get all dates the park is closed */}
           {park.operatingHours[0].length ? <li>{park.operatingHours[0].exceptions[0].startDate}</li> : ''}
         </div>

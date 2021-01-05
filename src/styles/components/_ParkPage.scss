@@ -1,6 +1,7 @@
 @import '../variables';
 
 .park-page {
+  // padding-top: 25px;
   width: 75%;
   margin: auto;
   display: grid;
@@ -21,7 +22,9 @@
 }
 
 .park-search-results-container {
-  margin-top: 15px;
+  width: 75%;
+  margin-top: 25px;
+  margin: auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

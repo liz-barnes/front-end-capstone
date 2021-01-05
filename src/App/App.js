@@ -35,9 +35,6 @@ class App extends React.Component {
     this.getParks();
     this.getHikes();
     this.getCampgrounds();
-    setTimeout(() => {
-      this.getUserTrips();
-    }, 1000);
   }
 
   componentWillUnmount() {
@@ -49,7 +46,8 @@ class App extends React.Component {
       this.setState({
         parks: resp,
       });
-    }).then(() => {
+    }).then((response) => {
+      console.warn('repsspsp', response);
       this.setSuggestedParks();
       console.warn('sug parks', this.state.suggestedParks);
     });

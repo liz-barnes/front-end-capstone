@@ -57,6 +57,7 @@ export default class ParkHikes extends Component {
           ) : (
             parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
           )}
+          {!loading && parkHikes.length === 0 ? <h3>No Hikes Found</h3> : ''}
         </div>
         {/* {this.showHikes()} */}
         {/* {parkHikes.length === [] } */}

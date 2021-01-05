@@ -155,7 +155,7 @@ export default class ParkSearch extends Component {
           )} */}
           {/* {suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />)} */}
           {/* {suggestedParks.length ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
-          {suggestParks ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
+          {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
           {/* {this.showSuggestedParks()} */}
           {/* {setTimeout(() => {
             this.showSuggestedParks();
