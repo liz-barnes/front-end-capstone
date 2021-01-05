@@ -38,9 +38,9 @@ export default function MyNavbar(props) {
   const toggle = () => setIsOpen(!isOpen);
   return user && (
     <div>
-      <Navbar color='dark' dark expand='md' className='justify-content-between'>
+      <Navbar expand='md' className='justify-content-between'>
         <Link className="navbar-brand" to='/'>Adventure Planner</Link>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler className='fa fa-fw fa-user user-icon' onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
             {/* <NavItem>
@@ -56,7 +56,8 @@ export default function MyNavbar(props) {
             user
             && <>
               <UncontrolledDropdown>
-              <DropdownToggle nav caret>
+              {/* <a href="#"><i class="fa fa-fw fa-user"></i> Login</a> */}
+              <DropdownToggle className='fa fa-fw fa-user user-icon' aria-hidden='true'>
               </DropdownToggle>
               <DropdownMenu right>
               <DropdownItem>

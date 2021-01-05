@@ -83,7 +83,7 @@ class App extends React.Component {
   setSuggestedParks = () => {
     const { parks } = this.state;
     console.warn('PARKXZ', parks);
-    const suggested = [parks[27], parks[467], parks[289]];
+    const suggested = [parks[241], parks[467], parks[34]];
     this.setState({ suggestedParks: suggested });
     // this.setLoading();
   }
