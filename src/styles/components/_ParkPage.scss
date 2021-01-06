@@ -1,7 +1,6 @@
 @import '../variables';
 
 .park-page {
-  // padding-top: 25px;
   width: 75%;
   margin: auto;
   display: grid;
@@ -123,23 +122,3 @@
   margin-top: 15px;
   text-align: left;
 }
-
-// .park-header-image {
-//   grid-area: main;
-// }
-
-// .header-bar {
-//   display: grid;
-//   // margin-left: 25px;
-//   // margin-right: 25%;
-//   justify-content: center;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   grid-template-rows: 50px;
-//   grid-template-areas: 
-//     "header1 . header2 header3"
-//     "main main main main"
-//     "desc desc desc desc"
-//     "img1 img2 sidebar sidebar"
-//     "img3 img4 sidebar sidebar"
-//     "footer footer footer footer";
-// }

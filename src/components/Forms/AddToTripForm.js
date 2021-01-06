@@ -75,7 +75,6 @@ export default class AddToTripForm extends Component {
               this.btn = btn;
             }}
             className="submit-btn m-2"
-            // onClick={(e) => this.handleSubmit(e)}
           >
             Submit
           </button>

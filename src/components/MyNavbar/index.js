@@ -43,20 +43,11 @@ export default function MyNavbar(props) {
         <NavbarToggler className='fa fa-fw fa-user user-icon' onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
-            {/* <NavItem>
-              <Link className="nav-link" to='/parks'>Parks</Link>
-            </NavItem> */}
-            {/* <NavItem>
-              <Link className="nav-link" to='/hikes'>
-                Hikes
-              </Link>
-            </NavItem> */}
           </Nav>
           {
             user
             && <>
               <UncontrolledDropdown>
-              {/* <a href="#"><i class="fa fa-fw fa-user"></i> Login</a> */}
               <DropdownToggle className='fa fa-fw fa-user user-icon' aria-hidden='true'>
               </DropdownToggle>
               <DropdownMenu right>

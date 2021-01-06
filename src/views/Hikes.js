@@ -29,11 +29,9 @@ export default class Hikes extends Component {
           <p>{singleHike.activityDescription}</p>
         </div>
         <div className="hike-info sidebar-section">
-          {/* <h6>Difficulty: {singleHike.difficulty}</h6> */}
           <h6>Duration</h6>
           <p>{singleHike.duration}</p>
           <p>{singleHike.durationDescription}</p>
-          {/* <img src={singleHike.images[0].crops.url} alt={singleHike.title}/> */}
         </div>
         <div className="hike-location sidebar-section">
           <h6>Location</h6>
@@ -52,7 +50,6 @@ export default class Hikes extends Component {
               <p>Allowed</p>
             ) : <p>Not Allowed</p>
           }
-          {/* <p>{singleHike.arePetsPermitted}</p> */}
         </div>
       </div>
     </div>

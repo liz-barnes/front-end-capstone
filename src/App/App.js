@@ -47,9 +47,7 @@ class App extends React.Component {
         parks: resp,
       });
     }).then((response) => {
-      console.warn('repsspsp', response);
       this.setSuggestedParks();
-      console.warn('sug parks', this.state.suggestedParks);
     });
   }
 
@@ -82,33 +80,20 @@ class App extends React.Component {
 
   setSuggestedParks = () => {
     const { parks } = this.state;
-    console.warn('PARKXZ', parks);
     const suggested = [parks[241], parks[467], parks[34]];
     this.setState({ suggestedParks: suggested });
-    // this.setLoading();
   }
 
   render() {
     const {
       user, parks, userTrips, suggestedParks,
     } = this.state;
-    // const { parks, campgrounds, hikes } = this.state;
     return (
       <div className="App">
-        {/* {(e) => this.enterKeyEvent(e)} */}
-        {/* {this.enterKeyEvent(e)}; */}
         <Router>
           <MyNavbar user={user} />
-        { user !== null && <Routes user={user} parks={parks} userTrips={userTrips} suggestedParks={suggestedParks}/> }
-          {/* <Routes parks={parks} /> */}
+          { user !== null && <Routes user={user} parks={parks} userTrips={userTrips} suggestedParks={suggestedParks}/> }
         </Router>
-        {/* <h1>Parks</h1>
-        {parks.map((park) => <ParkTestCard key={park.id} park={park} />)}
-        <h1>Camps</h1>
-        {campgrounds.map((camp) => <CampTestCard key={camp.id} camp={camp} />)}
-        <h1>Hikes</h1> */}
-        {/* {hikes.map((hike) => <HikeTestCard key={hike.id} hike={hike} />)} */}
-        {/* {parks.map((park) => <AdventureCard key={park.id} park={park} />)} */}
      </div>
     );
   }
