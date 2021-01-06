@@ -13,10 +13,12 @@ import SingleTrip from '../views/SingleTrip';
 import ParkHikes from '../components/ParkHikes';
 import Hikes from '../views/Hikes';
 
-export default function Routes({ parks, user, userTrips }) {
+export default function Routes({
+  parks, user, userTrips, suggestedParks,
+}) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Login user={user} parks={parks} />} />
+      <Route exact path='/' component={() => <Login user={user} parks={parks} suggestedParks={suggestedParks}/>} />
       {/* <PrivateRoute
         exact
         path="/adventure-planner"
@@ -28,6 +30,7 @@ export default function Routes({ parks, user, userTrips }) {
         component={ParkSearch}
         user={user}
         parks={parks}
+        suggestedParks={suggestedParks}
       />
       <PrivateRoute
         exact

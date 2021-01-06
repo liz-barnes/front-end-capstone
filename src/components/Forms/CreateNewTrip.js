@@ -19,17 +19,6 @@ export default class CreateNewTrip extends Component {
   }
 
   handleChange = (e) => {
-    // if (e.target.name === 'filename') {
-    //   this.setState({ imageUrl: '' });
-    //   const storageRef = firebase.storage().ref();
-    //   const imagesRef = storageRef.child(`pinterest/${this.state.userId}/${Date.now()}${e.target.files[0].name}`);
-
-    //   imagesRef.put(e.target.files[0]).then((snapshot) => {
-    //     snapshot.ref.getDownloadURL().then((imageUrl) => {
-    //       this.setState({ imageUrl });
-    //     });
-    //   });
-    // } else {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -96,9 +85,6 @@ export default class CreateNewTrip extends Component {
           required
         />
         </div>
-        {/* <div>
-         <input className="m-2" type="file" id="myFile" name="filename" accept="image/*" onChange={this.handleChange} />
-         </div> */}
          <button ref={(btn) => { this.btn = btn; }} className="submit-btn m-2">Submit</button>
       </form>
       </>

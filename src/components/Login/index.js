@@ -4,13 +4,13 @@ import Loader from '../Loader';
 // import Home from '../Home';
 import ParkSearch from '../ParkSearch';
 
-export default function Login({ user, parks }) {
+export default function Login({ user, parks, suggestedParks }) {
   const loadComponent = () => {
     let component = '';
     if (user === null) {
       component = <Loader />;
     } else if (user) {
-      component = <ParkSearch parks={parks} user={user}/>;
+      component = <ParkSearch parks={parks} user={user} suggestedParks={suggestedParks}/>;
     } else {
       component = <Auth />;
     }

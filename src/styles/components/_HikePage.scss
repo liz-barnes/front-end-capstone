@@ -8,9 +8,17 @@
     grid-template-areas: 
       "header1 header1 . header2"
       "main main main main"
-      "desc desc desc desc"
-      ". . sidebar sidebar";
+      "desc desc sidebar sidebar";
   }
+
+.hike-result-container {
+  width: 75%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 
 .hike-header-details {
   grid-area: header1;
@@ -30,6 +38,7 @@
 
 .single-hike-header-image {
   width: 100%;
+  height: 500px;
 }
 
 .hike-description {
@@ -44,6 +53,7 @@
   background-color: $secondaryColor;
   margin-left: 15px;
   text-align: left;
+  margin-top: 10px;
 }
 
 .hike-sidebar p, .hike-sidebar h6 {
@@ -61,4 +71,3 @@
 .sidebar-section {
   margin-top: 15px;
 }
-

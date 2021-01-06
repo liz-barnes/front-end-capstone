@@ -7,7 +7,6 @@ import CreateNewTrip from '../Forms/CreateNewTrip';
 export default function TripCard({ trip, onUpdate, removeTrip }) {
   return (
     <div className="trip-card-container">
-        {/* <div className="advenutre-card-image" style={{ backgroundImage: `url(${park.images[1].url})` }}></div> */}
         <div>
           <Link className='link-to-single-page' to={`/my-trips/${trip.firebaseKey}`} trip={trip}>
             <img id={trip.firebaseKey} className="trip-card-image" src={trip.imageUrl} alt={trip.name} />

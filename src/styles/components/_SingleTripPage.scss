@@ -1,8 +1,10 @@
 .trip-activities-container {
   display: flex;
   flex-flow: row wrap;
+  width: 75%;
   justify-content: center;
   margin: 15px;
+  margin: auto;
 }
 
 .activity-card-container {

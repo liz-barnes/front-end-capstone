@@ -1,13 +1,8 @@
 @import '../variables';
 
 .adventure-card-container {
-  // min-width: 25%;
-  // max-width: 50%;
-  // min-height: 25%;
-  // max-height: 50%;
-  width: 400px;
-  height: 400px;
-  // height: 350px;
+  width: 300px;
+  height: 300px;
   margin: 15px;
 }
 
@@ -16,6 +11,10 @@
   height: 350px;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.hike-card-container {
+  width: 350px;
 }
 
 .hike-image {
