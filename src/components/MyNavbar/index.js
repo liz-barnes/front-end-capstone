@@ -1,15 +1,3 @@
-// import React, { Component } from 'react';
-
-// export default class MyNavbar extends Component {
-//     state = {};
-
-//     render() {
-//       return (
-//         <h1>Navbar</h1>
-//       );
-//     }
-// }
-
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -24,7 +12,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-// import SearchInput from '../SearchInput';
 
 export default function MyNavbar(props) {
   const history = useHistory();
