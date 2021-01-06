@@ -46,31 +46,19 @@ export default class ParkHikes extends Component {
   render() {
     const { singlePark } = this.props.location.state;
     const { loading, parkHikes } = this.state;
-    // const showHikes = parkHikes.length ? parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />) : <h3>No Hikes Found</h3>;
 
     return (
       <>
-        <h1>{singlePark.name} Hikes</h1>
-        { loading ? (
-          <Loader />
-        ) : (
-          parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
-        )}
-        {/* {this.showHikes()} */}
-        {/* {parkHikes.length === [] } */}
+        <h1 className='park-hikes-header'>{singlePark.name} Hikes</h1>
+        <div className="hike-result-container">
+          { loading ? (
+            <Loader />
+          ) : (
+            parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />)
+          )}
+          {!loading && parkHikes.length === 0 ? <h3>No Hikes Found</h3> : ''}
+        </div>
       </>
     );
   }
 }
-
-// export default function ParkHikes({ parkHikes }) {
-//   const showHikes = () => parkHikes.map((hike) => <HikeCard key={hike.id} hike={hike} />);
-
-//   return (
-//     <>
-//       <h1>Park Hikes</h1>
-//       <Hikes parkHikes={parkHikes} />
-//       {showHikes}
-//     </>
-//   );
-// }

@@ -1,15 +1,3 @@
-// import React, { Component } from 'react';
-
-// export default class MyNavbar extends Component {
-//     state = {};
-
-//     render() {
-//       return (
-//         <h1>Navbar</h1>
-//       );
-//     }
-// }
-
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -24,7 +12,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-// import SearchInput from '../SearchInput';
 
 export default function MyNavbar(props) {
   const history = useHistory();
@@ -38,25 +25,17 @@ export default function MyNavbar(props) {
   const toggle = () => setIsOpen(!isOpen);
   return user && (
     <div>
-      <Navbar color='dark' dark expand='md' className='justify-content-between'>
+      <Navbar expand='md' className='justify-content-between'>
         <Link className="navbar-brand" to='/'>Adventure Planner</Link>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler className='fa fa-fw fa-user user-icon' onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
-            {/* <NavItem>
-              <Link className="nav-link" to='/parks'>Parks</Link>
-            </NavItem> */}
-            {/* <NavItem>
-              <Link className="nav-link" to='/hikes'>
-                Hikes
-              </Link>
-            </NavItem> */}
           </Nav>
           {
             user
             && <>
               <UncontrolledDropdown>
-              <DropdownToggle nav caret>
+              <DropdownToggle className='fa fa-fw fa-user user-icon' aria-hidden='true'>
               </DropdownToggle>
               <DropdownMenu right>
               <DropdownItem>

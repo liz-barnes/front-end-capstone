@@ -5,3 +5,38 @@
 .my-trips-btn:hover {
   text-decoration: none;
 }
+
+.navbar {
+  background: $primaryColor;
+  margin-right: 11.25%;
+}
+
+.user-icon {
+  padding-right: 25px;
+  background: $fontColor;
+}
+
+.navbar-brand {
+  color: $fontColor;
+  margin-left: 13%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  font-size: 26px;
+}
+
+.navbar-brand:hover {
+  color: $accentColor;
+}
+
+.user-icon.navbar-toggler::before {
+  color: $primaryColor;
+}
+
+.navbar-toggler-icon {
+  width: 0px;
+}
+
+.button .user-icon .navbar-toggler {
+  padding: 0px;
+  max-height: 5px !important;
+}

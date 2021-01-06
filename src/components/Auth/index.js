@@ -17,7 +17,6 @@ export default class Auth extends Component {
         <h5 className="banner-subheading">Sign in to start planning your next adventure!</h5>
       </div>
         <button className='login-btn mt-4' onClick={this.loginClickEvent}>
-          {/* <img src={googleImage} alt='Google Sign In Button' /> */}
           Sign in with Google
         </button>
       </div>
