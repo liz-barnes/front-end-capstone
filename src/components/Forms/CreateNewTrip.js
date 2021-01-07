@@ -43,6 +43,7 @@ export default class CreateNewTrip extends Component {
     setTimeout(() => {
       this.setState({ success: false });
     }, 3000);
+    this.props.toggle();
   }
 
   render() {

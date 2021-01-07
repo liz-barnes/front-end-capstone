@@ -42,6 +42,7 @@ export default class AddToTripForm extends Component {
     addTripActivity(this.state).then((resp) => {
       this.setState({ success: true, firebaseKey: resp.data.firebaseKey });
     });
+    this.props.toggle();
   };
 
   render() {
