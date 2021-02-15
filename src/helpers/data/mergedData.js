@@ -2,7 +2,6 @@ import axios from 'axios';
 import firebaseConfig from '../fbApiKeys';
 
 const baseUrl = firebaseConfig.databaseURL;
-// const key = apiKeys.apiKey;
 
 const addTripActivity = (object) => new Promise((resolve, reject) => {
   axios
