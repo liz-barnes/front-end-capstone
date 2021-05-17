@@ -12,6 +12,7 @@ import {
 import Routes from '../helpers/routes';
 import MyNavbar from '../components/MyNavbar';
 import { getUserTrips } from '../helpers/data/tripData';
+import setCurrentUser from '../helpers/data/userData';
 
 fbConnection();
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
+        setCurrentUser(user);
       } else {
         this.setState({ user: false });
       }
