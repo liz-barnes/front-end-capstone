@@ -5,7 +5,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Login from '../Components/Login';
+import Auth from '../Components/Auth';
 import ParkSearch from '../Components/ParkSearch';
 import ParkPage from '../Views/SingpleParkView';
 import Trips from '../Views/Trips';
@@ -18,7 +18,7 @@ export default function Routes({
 }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Login user={user} parks={parks} suggestedParks={suggestedParks}/>} />
+      <Route exact path='/' component={() => <Auth user={user} parks={parks} suggestedParks={suggestedParks}/>} />
       {/* <PrivateRoute
         exact
         path="/adventure-planner"
