@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ActivityCard from '../components/Cards/ActivityCard';
+import ActivityCard from '../Components/Cards/ActivityCard';
 import { getTripActivities, getSingleTrip } from '../helpers/data/tripData';
 import { getSinglePark } from '../helpers/data/parkData';
 import { removeTripActivities } from '../helpers/data/mergedData';
 import { getSingleHike } from '../helpers/data/hikeData';
-import HikeActivityCard from '../components/Cards/HikeActivityCard';
+import HikeActivityCard from '../Components/Cards/HikeActivityCard';
 
 export default class SingleTrip extends Component {
   state = {

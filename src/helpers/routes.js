@@ -5,13 +5,13 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Login from '../components/Login';
-import ParkSearch from '../components/ParkSearch';
-import ParkPage from '../components/SingleViewPage/ParkPage';
-import Trips from '../views/Trips';
-import SingleTrip from '../views/SingleTrip';
-import ParkHikes from '../components/ParkHikes';
-import Hikes from '../views/Hikes';
+import Login from '../Components/Login';
+import ParkSearch from '../Components/ParkSearch';
+import ParkPage from '../Views/SingpleParkView';
+import Trips from '../Views/Trips';
+import SingleTrip from '../Views/SingleTrip';
+import ParkHikes from '../Views/ParkHikesView';
+import Hikes from '../Views/SingleHikeView';
 
 export default function Routes({
   parks, user, userTrips, suggestedParks,

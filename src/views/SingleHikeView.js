@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Modal from '../components/Modal';
-import AddToTripForm from '../components/Forms/AddToTripForm';
+import Modal from '../Components/Modals';
+import AddToTripForm from '../Components/Forms/AddToTripForm';
 
 export default class Hikes extends Component {
   state = {};
