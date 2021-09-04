@@ -45,7 +45,8 @@ export default class ParkSearch extends Component {
         </div>
         <Search handleSearchInput={(e) => this.handleSearchInput(e)} handleSearchSubmit={(e) => this.handleSearchSubmit(e)} value={this.state.searchInput}/>
         <div className="park-search-results-container">
-          {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
+          {console.warn(suggestedParks, 'sug parks')}
+          {/* {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
           {searchSubmit && searchResult.length ? searchResult.map((park) => <AdventureCard key={park.id} park={park} />) : '' }
           {searchSubmit && searchResult.length === 0 ? <h1>No Parks Found</h1> : ''}
         </div>
