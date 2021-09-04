@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { getParkHike } from '../../helpers/data/hikeData';
-import HikeCard from '../Cards/HikeCard';
-import Loader from '../Loader';
+import { getParkHike } from '../helpers/data/hikeData';
+import HikeCard from '../Components/Cards/HikeCard';
+import Loader from '../Components/Loader';
 
 export default class ParkHikes extends Component {
   state = {
