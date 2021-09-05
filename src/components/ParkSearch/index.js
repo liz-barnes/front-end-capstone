@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 // import AdventureCard from '../Cards/AdventureCard';
 // import Search from '../Search';
-// import getParkData from '../../helpers/data/parksData';
-import park from '../../helpers/data/parkObject';
+import parkData from '../../helpers/data/parkData';
+// import park from '../../helpers/data/parkObject';
 
 export default function ParkSearch() {
   const [allParks, setAllParks] = useState([]);
   const [showSuggestedParks, setShowSuggestedParks] = useState(true);
-
-  // const parkResults = [];
   const [suggestedParks, setSuggestedParks] = useState([]);
   const [searchResults, setSearchResults] = useState([], []);
   const [searchInput, setSearchInput] = useState('');
@@ -29,15 +27,26 @@ export default function ParkSearch() {
     },
   ];
 
+  // const getAllParks = () => {
+  //   parkData.getParkData().then((response) => {
+  //     console.warn('parkz', response);
+  //     setAllParks(response);
+  //     console.warn(allParks, 'you did it');
+  //   });
+  // };
+
   useEffect(() => {
-    setAllParks(park);
-    console.warn(park);
-    console.warn('parkkkk', allParks);
-    // getParkData().then((response) => {
-    //   console.warn('parkz', response);
-    //   setAllParks(response);
-    // });
-  }, [allParks]);
+    // setAllParks(park);
+    // console.warn(park);
+    // console.warn('parkkkk', allParks);
+    if (!allParks.length) {
+      parkData.getParkData().then((response) => {
+        console.warn('parkz', response);
+        setAllParks(response);
+        console.warn(allParks, 'you did it');
+      });
+    }
+  }, [allParks, setAllParks]);
 
   // const handleChange = (e) => {
   //   e.preventDefault();

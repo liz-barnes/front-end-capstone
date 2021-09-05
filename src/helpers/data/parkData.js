@@ -5,9 +5,9 @@ const baseUrl = apiKeys.databaseURL;
 const key = apiKeys.apiKey;
 
 const getParkData = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/parks?limit=500&api_key=${key}`).then((response) => {
+  axios.get(`${baseUrl}/parks?limit=1&api_key=${key}`).then((response) => {
     if (response.status === 200) {
-      // resolve((response.data.data));
+      resolve((response.data.data));
     }
   }).catch((error) => reject(error));
 });
