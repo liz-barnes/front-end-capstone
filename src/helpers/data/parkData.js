@@ -9,7 +9,7 @@ const getParkData = () => new Promise((resolve, reject) => {
     if (response.status === 200) {
       resolve((response.data.data));
     }
-  });
+  }).catch((error) => reject(error));
 });
 
 const getSinglePark = (parkId) => new Promise((resolve, reject) => {
@@ -31,9 +31,10 @@ const getHikeData = (parkCode) => new Promise((resolve, reject) => {
   });
 });
 
-export {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
   getParkData,
+  getSinglePark,
   getCampgroundData,
   getHikeData,
-  getSinglePark,
 };

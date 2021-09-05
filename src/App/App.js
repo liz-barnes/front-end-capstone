@@ -1,14 +1,12 @@
+/* eslint-disable import/no-duplicates */
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import fbConnection from '../helpers/data/connection';
 import './App.scss';
-import {
-  getParkData,
-  getCampgroundData,
-  getHikeData,
-} from '../helpers/data/parkData';
+import parkData from '../helpers/data/parkData';
+import hikeData from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
 import MyNavbar from '../Components/MyNavbar';
 import { getUserTrips } from '../helpers/data/tripData';
@@ -34,7 +32,7 @@ class App extends React.Component {
     });
     this.getParks();
     this.getHikes();
-    this.getCampgrounds();
+    // this.getCampgrounds();
   }
 
   componentWillUnmount() {
@@ -42,7 +40,7 @@ class App extends React.Component {
   }
 
   getParks = () => {
-    getParkData().then((resp) => {
+    parkData.getParkData().then((resp) => {
       this.setState({
         parks: resp,
       });
@@ -52,20 +50,20 @@ class App extends React.Component {
   }
 
   getHikes = () => {
-    getHikeData().then((resp) => {
+    hikeData.getHikeData().then((resp) => {
       this.setState({
         hikes: resp,
       });
     });
   }
 
-  getCampgrounds = () => {
-    getCampgroundData().then((resp) => {
-      this.setState({
-        campgrounds: resp,
-      });
-    });
-  }
+  // getCampgrounds = () => {
+  //   campgroundData.getCampgroundData().then((resp) => {
+  //     this.setState({
+  //       campgrounds: resp,
+  //     });
+  //   });
+  // }
 
   getUserTrips = () => {
     const { user } = this.state;
