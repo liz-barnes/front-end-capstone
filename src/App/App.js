@@ -10,7 +10,7 @@ import {
   getHikeData,
 } from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
-import MyNavbar from '../components/MyNavbar';
+import MyNavbar from '../Components/MyNavbar';
 import { getUserTrips } from '../helpers/data/tripData';
 
 fbConnection();

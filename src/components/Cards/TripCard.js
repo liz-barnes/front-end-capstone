@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Modal from '../Modal';
+import Modal from '../Modals';
 import CreateNewTrip from '../Forms/CreateNewTrip';
 // import ParkPage from '../SingleViewPage/ParkPage';
 
