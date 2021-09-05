@@ -36,9 +36,6 @@ export default function ParkSearch() {
   // };
 
   useEffect(() => {
-    // setAllParks(park);
-    // console.warn(park);
-    // console.warn('parkkkk', allParks);
     if (!allParks.length) {
       parkData.getParkData().then((response) => {
         console.warn('parkz', response);
@@ -46,39 +43,11 @@ export default function ParkSearch() {
         console.warn(allParks, 'you did it');
       });
     }
-  }, [allParks, setAllParks]);
-
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput({
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  // const showParks = () => {
-  //   const testing = (test?.filter((t) => t.name.includes(searchInput)));
-  //   console.warn(testing, 'testinggg');
-  //   setSearchResults(testing);
-  // };
+  });
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // const { searchInput } = this.state;
-    // const parks = allParks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
-    // setSearchResults(allParks?.filter((parkz) => parkz.name.toLowerCase().includes(searchInput.toLowerCase())));
-    // setSearchResults(test?.filter((t) => t.name.toLowerCase().includes(searchInput.toLowerCase())));
-    // const testing = (test?.filter((t) => t.name.includes(searchInput)));
-    // console.warn(testing, 'testinggg');
-    // setSearchResults(testing);
-    const testing = (test?.filter((t) => t.name.includes(searchInput)));
-    console.warn(testing, 'testinggg');
-    setSearchResults(testing);
-    // setSearchResults(testing);
-    // if (!searchResults) {
-    //   setSearchResults(testing);
-    // }
-
-    console.warn(searchResults, 'search results state');
+    setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
     setSearchSubmit(true);
     setShowSuggestedParks(false);
     // this.showParkResults();
@@ -99,28 +68,6 @@ export default function ParkSearch() {
     </div>
   );
 }
-
-// export default class ParkSearch extends Component {
-//   state = {
-//     searchResult: [],
-//     searchInput: '',
-//     searchSubmit: null,
-//     suggestParks: true,
-//   }
-
-//   handleSearchInput = (e) => {
-//     this.setState({ [e.target.name]: e.target.value });
-//   };
-
-//   handleSearchSubmit = (e) => {
-//     e.preventDefault();
-//     const { searchInput } = this.state;
-//     const searchResult = this.props.parks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
-//     this.setState({ searchSubmit: true });
-//     this.setState({ searchResult });
-//     this.setState({ suggestParks: false });
-//     this.showParkResults();
-//   };
 
 //   showParkResults = () => {
 //     const { searchSubmit, searchResult } = this.state;
