@@ -30,6 +30,7 @@ class App extends React.Component {
         this.setState({ user: false });
       }
     });
+    console.warn('app ruunig');
     this.getParks();
     this.getHikes();
     // this.getCampgrounds();

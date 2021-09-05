@@ -5,9 +5,11 @@ const baseUrl = apiKeys.databaseURL;
 const key = apiKeys.apiKey;
 
 const getParkData = () => new Promise((resolve, reject) => {
+  console.warn('park');
   axios.get(`${baseUrl}/parks?limit=500&api_key=${key}`).then((response) => {
     if (response.status === 200) {
-      resolve((response.data.data));
+      console.warn('good');
+      // resolve((response.data.data));
     }
   }).catch((error) => reject(error));
 });
@@ -31,7 +33,6 @@ const getHikeData = (parkCode) => new Promise((resolve, reject) => {
   });
 });
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getParkData,
   getSinglePark,

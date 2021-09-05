@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import AdventureCard from '../Cards/AdventureCard';
 // import Search from '../Search';
-import parkData from '../../helpers/data/parkData';
+import getParkData from '../../helpers/data/parksData';
 
 export default function ParkSearch() {
   const [allParks, setAllParks] = useState([]);
@@ -12,31 +12,24 @@ export default function ParkSearch() {
   const [searchSubmit, setSearchSubmit] = useState(null);
 
   useEffect(() => {
-    parkData.getParkData().then((response) => {
+    getParkData().then((response) => {
+      console.warn('parkz', response);
       setAllParks(response);
     });
   });
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    console.warn('search input value', e.target.value);
-    setSearchInput({
-      [e.target.name]: e.target.value,
-    });
-    console.warn(searchInput, 'input state');
-  };
-
-  // const handleSearchInput = (e) => {
-  //   console.warn('search input value', e.target.value);
-  //   setSearchInput({ [e.target.name]: e.target.value });
-  //   console.warn(searchInput, 'input state');
-  //   // this.setState({ [e.target.name]: e.target.value });
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   setSearchInput({
+  //     [e.target.name]: e.target.value,
+  //   });
   // };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     // const { searchInput } = this.state;
-    setSearchResults(allParks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
+    // const parks = allParks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
     console.warn(searchResults, 'search results state');
     setSearchSubmit(true);
     setShowSuggestedParks(false);
@@ -52,7 +45,7 @@ export default function ParkSearch() {
       <div className="search-bar">
         <form className="form-inline my-2 my-lg-0" onSubmit={handleSearchSubmit} >
           <input className="search-input form-control" name="searchInput" value={searchInput.name} type="text" placeholder="Search park by name"
-          aria-label="Search" onChange={(e) => handleChange(e)}/>
+          aria-label="Search" onChange={(e) => setSearchInput(e.target.value)}/>
         </form>
       </div>
     </div>
