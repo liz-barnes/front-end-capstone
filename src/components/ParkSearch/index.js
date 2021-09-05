@@ -1,22 +1,43 @@
 import React, { useEffect, useState } from 'react';
 // import AdventureCard from '../Cards/AdventureCard';
 // import Search from '../Search';
-import getParkData from '../../helpers/data/parksData';
+// import getParkData from '../../helpers/data/parksData';
+import park from '../../helpers/data/parkObject';
 
 export default function ParkSearch() {
   const [allParks, setAllParks] = useState([]);
   const [showSuggestedParks, setShowSuggestedParks] = useState(true);
+
+  // const parkResults = [];
   const [suggestedParks, setSuggestedParks] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([], []);
   const [searchInput, setSearchInput] = useState('');
   const [searchSubmit, setSearchSubmit] = useState(null);
+  const test = [
+    {
+      name: 'bubbles',
+      age: 3,
+    },
+    {
+      name: 'cartoon',
+    },
+    {
+      name: 'nip',
+    },
+    {
+      name: 'tip',
+    },
+  ];
 
   useEffect(() => {
-    getParkData().then((response) => {
-      console.warn('parkz', response);
-      setAllParks(response);
-    });
-  });
+    setAllParks(park);
+    console.warn(park);
+    console.warn('parkkkk', allParks);
+    // getParkData().then((response) => {
+    //   console.warn('parkz', response);
+    //   setAllParks(response);
+    // });
+  }, [allParks]);
 
   // const handleChange = (e) => {
   //   e.preventDefault();
@@ -25,15 +46,32 @@ export default function ParkSearch() {
   //   });
   // };
 
+  // const showParks = () => {
+  //   const testing = (test?.filter((t) => t.name.includes(searchInput)));
+  //   console.warn(testing, 'testinggg');
+  //   setSearchResults(testing);
+  // };
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     // const { searchInput } = this.state;
     // const parks = allParks.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
-    setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
+    // setSearchResults(allParks?.filter((parkz) => parkz.name.toLowerCase().includes(searchInput.toLowerCase())));
+    // setSearchResults(test?.filter((t) => t.name.toLowerCase().includes(searchInput.toLowerCase())));
+    // const testing = (test?.filter((t) => t.name.includes(searchInput)));
+    // console.warn(testing, 'testinggg');
+    // setSearchResults(testing);
+    const testing = (test?.filter((t) => t.name.includes(searchInput)));
+    console.warn(testing, 'testinggg');
+    setSearchResults(testing);
+    // setSearchResults(testing);
+    // if (!searchResults) {
+    //   setSearchResults(testing);
+    // }
+
     console.warn(searchResults, 'search results state');
     setSearchSubmit(true);
     setShowSuggestedParks(false);
-    console.warn('final input', searchInput);
     // this.showParkResults();
   };
 
@@ -47,6 +85,7 @@ export default function ParkSearch() {
           <input className="search-input form-control" name="searchInput" value={searchInput.name} type="text" placeholder="Search park by name"
           aria-label="Search" onChange={(e) => setSearchInput(e.target.value)}/>
         </form>
+        {searchResults.map((r) => <h1>{r.name}</h1>)}
       </div>
     </div>
   );

@@ -5,17 +5,15 @@ const baseUrl = apiKeys.databaseURL;
 const key = apiKeys.apiKey;
 
 const getParkData = () => new Promise((resolve, reject) => {
-  console.warn('park');
   axios.get(`${baseUrl}/parks?limit=500&api_key=${key}`).then((response) => {
     if (response.status === 200) {
-      console.warn('good');
       // resolve((response.data.data));
     }
   }).catch((error) => reject(error));
 });
 
 const getSinglePark = (parkId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/parks?q=${parkId}&api_key=${key}`).then((response) => {
+  axios.get(`${baseUrl}/parks?q=${parkId}&limit=5&api_key=${key}`).then((response) => {
     resolve(response.data.data[0]);
     resolve(response.status);
   }).catch((error) => reject(error));
@@ -28,9 +26,9 @@ const getCampgroundData = () => new Promise((resolve, reject) => {
 });
 
 const getHikeData = (parkCode) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/thingstodo?parkCode=${parkCode}&limit=5&api_key=${key}`).then((response) => {
-    resolve((response.data.data));
-  });
+  // axios.get(`${baseUrl}/thingstodo?parkCode=${parkCode}&limit=5&api_key=${key}`).then((response) => {
+  //   resolve((response.data.data));
+  // });
 });
 
 export default {
