@@ -17,13 +17,21 @@ export default function ParkSearch() {
     });
   });
 
-  const handleSearchInput = (e) => {
-    console.warn('search input name', e.target.name);
+  const handleChange = (e) => {
+    e.preventDefault();
     console.warn('search input value', e.target.value);
-    setSearchInput({ [e.target.name]: e.target.value });
+    setSearchInput({
+      [e.target.name]: e.target.value,
+    });
     console.warn(searchInput, 'input state');
-    // this.setState({ [e.target.name]: e.target.value });
   };
+
+  // const handleSearchInput = (e) => {
+  //   console.warn('search input value', e.target.value);
+  //   setSearchInput({ [e.target.name]: e.target.value });
+  //   console.warn(searchInput, 'input state');
+  //   // this.setState({ [e.target.name]: e.target.value });
+  // };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +40,7 @@ export default function ParkSearch() {
     console.warn(searchResults, 'search results state');
     setSearchSubmit(true);
     setShowSuggestedParks(false);
+    console.warn('final input', searchInput);
     // this.showParkResults();
   };
 
@@ -40,11 +49,10 @@ export default function ParkSearch() {
       <div className="page-banner">
         <h1 className="banner-heading" >National Parks</h1>
       </div>
-      <div>New Park Search</div>
       <div className="search-bar">
         <form className="form-inline my-2 my-lg-0" onSubmit={handleSearchSubmit} >
-          <input className="search-input form-control" name="searchInput" value={searchInput.value} type="text" placeholder="Search park by name"
-          aria-label="Search" onChange={(e) => handleSearchInput(e)}/>
+          <input className="search-input form-control" name="searchInput" value={searchInput.name} type="text" placeholder="Search park by name"
+          aria-label="Search" onChange={(e) => handleChange(e)}/>
         </form>
       </div>
     </div>
