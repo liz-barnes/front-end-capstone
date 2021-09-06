@@ -16,7 +16,7 @@ export default function ParkSearch() {
         setAllParks(response);
       });
     }
-  });
+  }, [allParks]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

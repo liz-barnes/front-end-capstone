@@ -5,7 +5,6 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import fbConnection from '../helpers/data/connection';
 import './App.scss';
-import parkData from '../helpers/data/parkData';
 import hikeData from '../helpers/data/parkData';
 import Routes from '../helpers/routes';
 import MyNavbar from '../Components/MyNavbar';
@@ -30,24 +29,13 @@ class App extends React.Component {
         this.setState({ user: false });
       }
     });
-    console.warn('app ruunig');
-    this.getParks();
+    console.warn('app running');
     this.getHikes();
     // this.getCampgrounds();
   }
 
   componentWillUnmount() {
     this.removeListener();
-  }
-
-  getParks = () => {
-    parkData.getParkData().then((resp) => {
-      this.setState({
-        parks: resp,
-      });
-    }).then((response) => {
-      this.setSuggestedParks();
-    });
   }
 
   getHikes = () => {
