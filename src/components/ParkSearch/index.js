@@ -181,7 +181,10 @@ export default function ParkSearch() {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
+    // const parksByName = allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    const parksByState = allParks?.filter((park) => park.states.includes(stateAbbreviation(searchInput.toUpperCase())));
+    setSearchResults(parksByState);
+    // setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
     setSearchSubmit(true);
     setShowSuggestedParks(false);
   };
