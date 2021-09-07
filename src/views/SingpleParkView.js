@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSinglePark } from '../helpers/data/parkData';
+import parkData from '../helpers/data/parkData';
 import SingleView from './SingleParkView';
 import Loader from '../Components/Loader';
 
@@ -12,7 +12,7 @@ export default class ParkPage extends Component {
 
   componentDidMount() {
     const parkId = this.props.match.params.id;
-    getSinglePark(parkId).then((park) => {
+    parkData.getSinglePark(parkId).then((park) => {
       this.setState({ park }, this.setLoading);
     });
   }

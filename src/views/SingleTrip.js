@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ActivityCard from '../Components/Cards/ActivityCard';
 import { getTripActivities, getSingleTrip } from '../helpers/data/tripData';
-import { getSinglePark } from '../helpers/data/parkData';
+import parkData from '../helpers/data/parkData';
 import { removeTripActivities } from '../helpers/data/mergedData';
 import { getSingleHike } from '../helpers/data/hikeData';
 import HikeActivityCard from '../Components/Cards/HikeActivityCard';
@@ -35,7 +35,7 @@ export default class SingleTrip extends Component {
     this.setState({ tripHikes: [], tripParks: [] });
     response.forEach((item) => {
       if (item.type === 'park') {
-        getSinglePark(item.activityId).then((resp) => {
+        parkData.getSinglePark(item.activityId).then((resp) => {
           this.setState({ tripParks: this.state.tripParks.concat(resp) });
         });
       } else if (item.type === 'hike') {
