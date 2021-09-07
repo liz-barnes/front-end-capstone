@@ -6,7 +6,9 @@ export default function ParkSearch() {
   const [allParks, setAllParks] = useState([]);
   const [showSuggestedParks, setShowSuggestedParks] = useState(true);
   const [suggestedParks, setSuggestedParks] = useState([]);
-  const [searchResults, setSearchResults] = useState([], []);
+  const [searchResultsByName, setSearchResultsByName] = useState([], []);
+  const [searchResultsByState, setSearchResultsByState] = useState([], []);
+
   const [searchInput, setSearchInput] = useState('');
   const [searchSubmit, setSearchSubmit] = useState(null);
 
@@ -177,13 +179,16 @@ export default function ParkSearch() {
     }
   };
 
-  const showResults = () => searchResults.map((park) => <AdventureCard key={park.id} park={park} />);
+  const showParkByState = () => searchResultsByState.map((park) => <AdventureCard key={park.id} park={park} />);
+
+  const showParkByName = () => searchResultsByName.map((park) => <AdventureCard key={park.id} park={park} />);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // const parksByName = allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    const parksByName = allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    setSearchResultsByName(parksByName);
     const parksByState = allParks?.filter((park) => park.states.includes(stateAbbreviation(searchInput.toUpperCase())));
-    setSearchResults(parksByState);
+    setSearchResultsByState(parksByState);
     // setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
     setSearchSubmit(true);
     setShowSuggestedParks(false);
@@ -204,15 +209,16 @@ export default function ParkSearch() {
             name="searchInput"
             value={searchInput.name}
             type="text"
-            placeholder="Search park by name"
+            placeholder="Search park by name or state"
             aria-label="Search"
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </form>
         <div className="park-search-results-container">
           {/* {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
-          {searchSubmit && searchResults.length ? showResults() : ''}
-          {searchSubmit && !searchResults.length ? <h1>No Parks Found</h1> : ''}
+          {searchSubmit && searchResultsByName.length ? showParkByName() : ''}
+          {searchSubmit && searchResultsByState.length ? showParkByState() : ''}
+          {searchSubmit && !searchResultsByName.length && !searchResultsByState.length ? <h1>No Parks Found</h1> : ''}
         </div>
       </div>
     </div>
