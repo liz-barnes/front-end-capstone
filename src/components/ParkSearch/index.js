@@ -1,3 +1,5 @@
+/* eslint-disable for-direction */
+/* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 import AdventureCard from '../Cards/AdventureCard';
 import parkData from '../../helpers/data/parkData';
@@ -8,14 +10,38 @@ export default function ParkSearch() {
   const [suggestedParks, setSuggestedParks] = useState([]);
   const [searchResultsByName, setSearchResultsByName] = useState([], []);
   const [searchResultsByState, setSearchResultsByState] = useState([], []);
-
   const [searchInput, setSearchInput] = useState('');
   const [searchSubmit, setSearchSubmit] = useState(null);
+
+  // const generateRandomInteger = (max) => Math.floor(Math.random() * max) + 1;
+
+  const randomizeParks = () => {
+    if (allParks.length) {
+      console.warn(allParks, 'parks parameter');
+      const suggested = [allParks[3], allParks[6], allParks[12]];
+      setSuggestedParks(suggested);
+      console.warn('sug park', suggestedParks);
+    }
+  };
+  // const random = parks[Math.floor(Math.random() * parks.length)];
+  // console.warn('random', random);
+  // const result = [];
+  // // for (let i = 0; i < 3; i++) {
+  // //   console.warn('i', i);
+  // //   result.push(parks[Math.floor(Math.random() * 51)]);
+  // //   console.warn(result, 'result aaray');
+  // // }
+  // return result;
+  // };
 
   useEffect(() => {
     if (!allParks.length) {
       parkData.getParkData().then((response) => {
         setAllParks(response);
+      }).then((resp) => {
+        // console.warn('pppp', resp);
+        // const suggested = [resp[generateRandomInteger(51)], resp[generateRandomInteger(51)], resp[generateRandomInteger(51)]];
+        // setSuggestedParks(suggested);
       });
     }
   }, [allParks]);
@@ -179,6 +205,13 @@ export default function ParkSearch() {
     }
   };
 
+  // const showSuggested = () => {
+  //   if (allParks.length && showSuggestedParks) {
+  //     setSuggestedParks([allParks[3], allParks[6], allParks[12]])
+  //   }
+  //   {showSuggestedParks && suggestedParks ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
+  // };
+
   const showParkByState = () => searchResultsByState.map((park) => <AdventureCard key={park.id} park={park} />);
 
   const showParkByName = () => searchResultsByName.map((park) => <AdventureCard key={park.id} park={park} />);
@@ -215,10 +248,13 @@ export default function ParkSearch() {
           />
         </form>
         <div className="park-search-results-container">
-          {/* {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
-          {searchSubmit && searchResultsByName.length ? showParkByName() : ''}
+          {randomizeParks()}
+          {/* {showSuggested()} */}
+          {/* {allParks.length && showSuggestedParks ? randomizeParks() : ''} */}
+          {allParks && searchSubmit && searchResultsByName.length ? showParkByName() : ''}
           {searchSubmit && searchResultsByState.length ? showParkByState() : ''}
           {searchSubmit && !searchResultsByName.length && !searchResultsByState.length ? <h1>No Parks Found</h1> : ''}
+
         </div>
       </div>
     </div>
