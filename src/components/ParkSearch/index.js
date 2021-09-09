@@ -15,14 +15,14 @@ export default function ParkSearch() {
 
   // const generateRandomInteger = (max) => Math.floor(Math.random() * max) + 1;
 
-  const randomizeParks = () => {
-    if (allParks.length) {
-      console.warn(allParks, 'parks parameter');
-      const suggested = [allParks[3], allParks[6], allParks[12]];
-      setSuggestedParks(suggested);
-      console.warn('sug park', suggestedParks);
-    }
-  };
+  // const randomizeParks = () => {
+  //   if (allParks.length) {
+  //     console.warn(allParks, 'parks parameter');
+  //     const suggested = [allParks[3], allParks[6], allParks[12]];
+  //     setSuggestedParks(suggested);
+  //     console.warn('sug park', suggestedParks);
+  //   }
+  // };
   // const random = parks[Math.floor(Math.random() * parks.length)];
   // console.warn('random', random);
   // const result = [];
@@ -248,7 +248,8 @@ export default function ParkSearch() {
           />
         </form>
         <div className="park-search-results-container">
-          {randomizeParks()}
+          {allParks.length && showSuggestedParks ? setSuggestedParks([allParks[3], allParks[5], allParks[7]]) : ''}
+          {showSuggestedParks && suggestedParks.length ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''}
           {/* {showSuggested()} */}
           {/* {allParks.length && showSuggestedParks ? randomizeParks() : ''} */}
           {allParks && searchSubmit && searchResultsByName.length ? showParkByName() : ''}
