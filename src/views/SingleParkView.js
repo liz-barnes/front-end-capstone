@@ -21,7 +21,15 @@ export default function SingleView({
   return (
     <div className="park-page">
         <div className="header-details">
-          <h4>{park.name}</h4>
+        <a
+            href={park.url}
+            target="_blank"
+            rel="noreferrer"
+            className="view-code-link"
+            >
+            <h4>{park.name}</h4>
+            </a>
+          {/* <h6>{park.states}</h6> */}
         </div>
         <div className="header-hikes-btn">
           <Link to={{
