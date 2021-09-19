@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-plusplus */
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
@@ -6,6 +7,28 @@ import AddToTripForm from '../Components/Forms/AddToTripForm';
 export default function SingleView({
   park, userTrips, user, getUserTrips, parkHikes,
 }) {
+  const [parkImages, setParkImages] = useState([]);
+
+  useEffect(() => {
+    if (!parkImages.length) {
+      // getParkImages();
+      const result = [];
+      park.images.map((img) => result.push(img));
+      setParkImages(result);
+    }
+  }, [park.images, parkImages]);
+
+  const showImages = () => {
+    // const result = [];
+
+    // park.images.map((img) => result.push(img));
+    // setParkImages(result);
+    for (let i = 1; i < parkImages.length; i++) {
+      <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>;
+      // parkImages.map((img) => console.warn('immm', img));
+    }
+  };
+
   return (
     <div className="park-page">
         <div className="header-details">
@@ -30,14 +53,17 @@ export default function SingleView({
         <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>
       </div>
       <p className="park-description">{park.description}</p>
-      <div className="img1" style={{ backgroundImage: `url(${park.images[1].url})` }}>
+      {parkImages.length ? parkImages.map((img) => <div className='img' style={{ backgroundImage: `url(${img.url})` }}></div>) : <h1>No park images</h1>}
+      {showImages()}
+      {/* {console.warn(park.images, 'park img')} */}
+      {/* <div className="img1" style={{ backgroundImage: `url(${park.images[1].url})` }}>
       </div>
       <div className="img2" style={{ backgroundImage: `url(${park.images[2].url})` }}>
       </div>
       <div className="img3" style={{ backgroundImage: `url(${park.images[3].url})` }}>
       </div>
       <div className="img4" style={{ backgroundImage: `url(${park.images[4].url})` }}>
-      </div>
+      </div> */}
       <div className="sidebar">
         <div className="park-address sidebar-section">
           <h6>Address</h6>
