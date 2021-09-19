@@ -11,36 +11,12 @@ export default function SingleView({
 
   useEffect(() => {
     if (!parkImages.length) {
-      // getParkImages();
       const result = [];
       park.images.map((img) => result.push(img));
       result.shift();
       setParkImages(result);
     }
   }, [park.images, parkImages]);
-
-  // const showImages = () => {
-  //   const limit = parkImages.length;
-  //   let index = 1;
-  //   // if (i <= limit) {
-
-  //   // }
-  //   // const result = [];
-
-  //   // park.images.map((img) => result.push(img));
-  //   // setParkImages(result);
-  //   // for (let i = 1; i < parkImages.length;) {
-  //   //   if (index <= limit) {
-  //   //   <div>
-  //   //     <h1>{`imggg${i}`}</h1>
-  //   //     <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>;
-  //   //     <img src={parkImages[i].url} alt=''/>
-  //   //   </div>;
-  //   //   }
-  //   //   index++;
-  //   //   // parkImages.map((img) => <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>);
-  //   // }
-  // };
 
   return (
     <div className="park-page">
@@ -66,19 +42,9 @@ export default function SingleView({
         <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>
       </div>
       <p className="park-description">{park.description}</p>
-      <div className='bottomContainer'>
+      <div className='park-images-container'>
         {parkImages.length ? parkImages.map((img) => <div className='img' style={{ backgroundImage: `url(${img.url})` }}></div>) : <h1>No park images</h1>}
       </div>
-      {/* {showImages()} */}
-      {/* {console.warn(park.images, 'park img')} */}
-      {/* <div className="img1" style={{ backgroundImage: `url(${park.images[1].url})` }}>
-      </div>
-      <div className="img2" style={{ backgroundImage: `url(${park.images[2].url})` }}>
-      </div>
-      <div className="img3" style={{ backgroundImage: `url(${park.images[3].url})` }}>
-      </div>
-      <div className="img4" style={{ backgroundImage: `url(${park.images[4].url})` }}>
-      </div> */}
       <div className="sidebar">
         <div className="park-address sidebar-section">
           <h6>Address</h6>
@@ -87,14 +53,14 @@ export default function SingleView({
         </div>
         <div className="park-fees sidebar-section">
           <h6>Fees</h6>
-          {/* filter a 'fee free park' */}
+          {/* TO DO: filter a 'fee free park' */}
           <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p>
         </div>
         <div className="park-hours sidebar-section">
           <h6>Hours</h6>
           <p>{park.operatingHours[0].description}</p>
-          {/* filter through length of exceptions array to get all dates the park is closed */}
+          {/* TO DO: filter through length of exceptions array to get all dates the park is closed */}
           {park.operatingHours[0].length ? <li>{park.operatingHours[0].exceptions[0].startDate}</li> : ''}
         </div>
         <div className="park-contact sidebar-section">
