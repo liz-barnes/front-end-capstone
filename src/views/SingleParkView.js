@@ -86,6 +86,7 @@ export default function SingleView({
         <div className="park-contact sidebar-section">
           <h6>Contact</h6>
           <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+          {park.contacts.emailAddresses ? <p>{park.contacts.emailAddresses[0].emailAddress}</p> : ''}
         </div>
       </div>
     </div>
