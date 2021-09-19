@@ -60,6 +60,16 @@ export default function SingleView({
           <h6>Address</h6>
           <p>{park.addresses[0].line1}</p>
           <p>{park.addresses[0].city}, {park.addresses[0].stateCode}, {park.addresses[0].postalCode}</p>
+          {park.directionsUrl ? (
+            <a
+              href={park.directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="view-code-link"
+              >
+              <p className='direction-url'>Directions</p>
+            </a>
+          ) : ''}
         </div>
         <div className="park-fees sidebar-section">
           <h6>Fees</h6>
