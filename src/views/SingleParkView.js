@@ -14,20 +14,33 @@ export default function SingleView({
       // getParkImages();
       const result = [];
       park.images.map((img) => result.push(img));
+      result.shift();
       setParkImages(result);
     }
   }, [park.images, parkImages]);
 
-  const showImages = () => {
-    // const result = [];
+  // const showImages = () => {
+  //   const limit = parkImages.length;
+  //   let index = 1;
+  //   // if (i <= limit) {
 
-    // park.images.map((img) => result.push(img));
-    // setParkImages(result);
-    for (let i = 1; i < parkImages.length; i++) {
-      <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>;
-      // parkImages.map((img) => console.warn('immm', img));
-    }
-  };
+  //   // }
+  //   // const result = [];
+
+  //   // park.images.map((img) => result.push(img));
+  //   // setParkImages(result);
+  //   // for (let i = 1; i < parkImages.length;) {
+  //   //   if (index <= limit) {
+  //   //   <div>
+  //   //     <h1>{`imggg${i}`}</h1>
+  //   //     <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>;
+  //   //     <img src={parkImages[i].url} alt=''/>
+  //   //   </div>;
+  //   //   }
+  //   //   index++;
+  //   //   // parkImages.map((img) => <div className={`img${i}`} style={{ backgroundImage: `url(${parkImages[i].url})` }}></div>);
+  //   // }
+  // };
 
   return (
     <div className="park-page">
@@ -53,8 +66,10 @@ export default function SingleView({
         <img className="single-page-header-image"src={park.images[0].url} alt={park.name}/>
       </div>
       <p className="park-description">{park.description}</p>
-      {parkImages.length ? parkImages.map((img) => <div className='img' style={{ backgroundImage: `url(${img.url})` }}></div>) : <h1>No park images</h1>}
-      {showImages()}
+      <div className='bottomContainer'>
+        {parkImages.length ? parkImages.map((img) => <div className='img' style={{ backgroundImage: `url(${img.url})` }}></div>) : <h1>No park images</h1>}
+      </div>
+      {/* {showImages()} */}
       {/* {console.warn(park.images, 'park img')} */}
       {/* <div className="img1" style={{ backgroundImage: `url(${park.images[1].url})` }}>
       </div>
