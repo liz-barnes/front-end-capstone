@@ -1,5 +1,7 @@
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
+import { FaPhoneSquare } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
@@ -85,8 +87,19 @@ export default function SingleView({
         </div>
         <div className="park-contact sidebar-section">
           <h6>Contact</h6>
-          <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
-          {park.contacts.emailAddresses ? <p>{park.contacts.emailAddresses[0].emailAddress}</p> : ''}
+          {park.contacts.phoneNumbers ? (
+            <div className='contact-container'>
+              <FaPhoneSquare />
+              <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+            </div>
+          ) : ''}
+          <FaPhoneSquare /><p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+          {park.contacts.emailAddresses ? (
+            <div className='contact-container'>
+              <MdEmail />
+              <p>{park.contacts.emailAddresses[0].emailAddress}</p>
+            </div>
+          ) : ''}
         </div>
       </div>
     </div>
