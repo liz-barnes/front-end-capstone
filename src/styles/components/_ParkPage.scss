@@ -35,6 +35,15 @@
   align-self: end;
 }
 
+.header-details a {
+  color: $fontColor;
+}
+
+.header-details a:hover {
+  color: $secondaryAccentColor;
+  text-decoration: none;
+}
+
 .header-hikes-btn {
   grid-area: header2;
   justify-self: end;
