@@ -53,14 +53,23 @@
   text-decoration-line: none;
 }
 
-.header-hikes-btn a {
+.header-hikes-btn a, .add-to-trip-btn {
   color: $fontColor;
   font-size: 18px;
 }
 
-.header-hikes-btn a:hover {
+.header-hikes-btn a:hover, .add-to-trip-btn:hover {
   color: $accentColor;
   text-decoration: none;
+}
+
+.add-to-trip-btn {
+  justify-self: end;
+  align-self: end;
+  text-decoration: none;
+  color: $fontColor;
+  text-decoration-line: none;
+  margin-bottom: 15px;
 }
 
 .header-hikes-btn p {
