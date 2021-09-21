@@ -27,6 +27,41 @@
   border: $secondaryAccentColor 1px solid;
 }
 
+.add-to-trip-modal {
+  background: $primaryColor;
+  color: $fontColor;
+  border: none;
+  min-width: 125px;
+  font-size: 18px;
+}
+
+.add-to-trip-modal:hover {
+  background: $primaryColor;
+  color: $accentColor;
+  border: none;
+}
+
+.add-to-trip-modal .btn .active {
+  border: none;
+  background: $primaryColor;
+  color: $fontColor;
+  box-shadow: none;
+}
+
+.add-to-trip-modal .btn-secondary {
+  border: none;
+  background: $primaryColor;
+  color: $fontColor;
+  box-shadow: none;
+}
+
+.add-to-trip-modal .btn-secondary.focus, .btn-secondary:focus {
+  border: none;
+  background: $primaryColor;
+  color: $fontColor;
+  box-shadow: none;
+}
+
 .alert-success {
   background-color: $secondaryAccentColor;
   color: $primaryColor;

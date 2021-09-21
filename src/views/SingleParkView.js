@@ -1,5 +1,7 @@
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
+// import { FaPhoneSquare } from 'react-icons/fa';
+// import { GrMailOption } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
@@ -44,7 +46,7 @@ export default function SingleView({
           </Link>
         </div>
         <div className="header-form">
-          <Modal title={'Add to a Trip'} buttonLabel={'Add to Trip'}>
+          <Modal title={'Add to a Trip'} header={'Add to Trip'} className={'add-to-trip-btn'}>
             <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} type='park' />
           </Modal>
         </div>
@@ -85,7 +87,18 @@ export default function SingleView({
         </div>
         <div className="park-contact sidebar-section">
           <h6>Contact</h6>
-          <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+          {park.contacts.phoneNumbers ? (
+            <div className='contact-container'>
+              {/* <FaPhoneSquare size='1.5rem' className='contact-icon'/> */}
+              <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+            </div>
+          ) : ''}
+          {park.contacts.emailAddresses ? (
+            <div className='contact-container'>
+              {/* <GrMailOption size='1.5rem' className='contact-icon'/> */}
+              <p>{park.contacts.emailAddresses[0].emailAddress}</p>
+            </div>
+          ) : ''}
         </div>
       </div>
     </div>
