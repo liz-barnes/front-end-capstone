@@ -75,9 +75,17 @@ export default function SingleView({
         </div>
         <div className="park-fees sidebar-section">
           <h6>Fees</h6>
+          {park.entranceFees ? park.entranceFees.map((fee) => (
+            <div>
+              <p><em>{fee.title}</em></p>
+              <p>${fee.cost}</p>
+              <p>{fee.description}</p>
+            </div>
+
+          )) : ''}
           {/* TO DO: filter a 'fee free park' */}
-          <p>${park.entranceFees[0].cost}</p>
-          <p>{park.entranceFees[0].description}</p>
+          {/* <p>${park.entranceFees[0].cost}</p>
+          <p>{park.entranceFees[0].description}</p> */}
         </div>
         <div className="park-hours sidebar-section">
           <h6>Hours</h6>
