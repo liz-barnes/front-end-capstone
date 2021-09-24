@@ -83,6 +83,14 @@ export default function SingleView({
             </div>
 
           )) : ''}
+          {park.entrancePasses ? park.entrancePasses.map((fee) => (
+            <div>
+              <p><em>{fee.title}</em></p>
+              <p>${fee.cost}</p>
+              <p>{fee.description}</p>
+            </div>
+
+          )) : ''}
           {/* TO DO: filter a 'fee free park' */}
           {/* <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p> */}
