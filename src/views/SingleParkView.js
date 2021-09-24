@@ -20,6 +20,29 @@ export default function SingleView({
     }
   }, [park.images, parkImages]);
 
+  const feeCategory = (title) => {
+    const t = title.toLowerCase();
+
+    const person = 'person';
+    switch (true) {
+      case t.includes('private vehicle'):
+      case t.includes('vehicle'):
+        return 'Vehicle';
+
+      case t.includes('motorcycle'):
+        return 'Motorcylce';
+
+      case t.includes(person):
+        return 'Person';
+
+      case t.includes('annual pass'):
+        return 'Annual Pass';
+
+      default:
+        return title;
+    }
+  };
+
   return (
     <div className="park-page">
         <div className="header-details">
@@ -77,6 +100,7 @@ export default function SingleView({
           <h6>Entrance Fees</h6>
           {park.entranceFees ? park.entranceFees.map((fee) => (
             <div className='fee-description'>
+              {feeCategory(fee.title)}
               <p><em>{fee.title}</em>: <b>${fee.cost}</b></p>
               <p>{fee.description}</p>
             </div>
