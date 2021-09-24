@@ -20,27 +20,32 @@ export default function SingleView({
     }
   }, [park.images, parkImages]);
 
-  const feeCategory = (title) => {
-    const t = title.toLowerCase();
+  const feeCategory = (fee) => {
+    // console.warn(fee);
+    const t = fee.title.toLowerCase();
+    const { cost } = fee;
 
     switch (true) {
+      case cost === '0.00':
+        return 'Free';
       case t.includes('private vehicle'):
       case t.includes('vehicle'):
       case t.includes('car'):
-        return 'Vehicle';
+        return `Vehicle: $${cost}`;
 
       case t.includes('motorcycle'):
-        return 'Motorcylce';
+        return `Motorcylce: $${cost}`;
 
       case t.includes('person'):
       case t.includes('single'):
-        return 'Person';
+      case t.includes('individual'):
+        return `Person: $${cost}`;
 
       case t.includes('annual pass'):
-        return 'Annual Pass';
+        return `Annual Pass: $${cost}`;
 
       default:
-        return title;
+        return `${fee.title}: $${fee.cost}`;
     }
   };
 
@@ -101,19 +106,19 @@ export default function SingleView({
           <h6>Entrance Fees</h6>
           {park.entranceFees ? park.entranceFees.map((fee) => (
             <div className='fee-description'>
-              <p>{feeCategory(fee.title)}: ${fee.cost}</p>
+              <p>{feeCategory(fee)}</p>
               <p>{fee.description}</p>
             </div>
 
           )) : ''}
           <h6 className="sidebar-section">Entrance Pass</h6>
-          {park.entrancePasses ? park.entrancePasses.map((fee) => (
+          {/* {park.entrancePasses ? park.entrancePasses.map((fee) => (
             <div className='fee-description'>
               <p>{feeCategory(fee.title)}: ${fee.cost}</p>
               <p>{fee.description}</p>
             </div>
 
-          )) : ''}
+          )) : ''} */}
           {/* TO DO: filter a 'fee free park' */}
           {/* <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p> */}
