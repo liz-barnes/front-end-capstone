@@ -23,16 +23,17 @@ export default function SingleView({
   const feeCategory = (title) => {
     const t = title.toLowerCase();
 
-    const person = 'person';
     switch (true) {
       case t.includes('private vehicle'):
       case t.includes('vehicle'):
+      case t.includes('car'):
         return 'Vehicle';
 
       case t.includes('motorcycle'):
         return 'Motorcylce';
 
-      case t.includes(person):
+      case t.includes('person'):
+      case t.includes('single'):
         return 'Person';
 
       case t.includes('annual pass'):
