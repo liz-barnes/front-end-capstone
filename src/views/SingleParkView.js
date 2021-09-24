@@ -100,16 +100,15 @@ export default function SingleView({
           <h6>Entrance Fees</h6>
           {park.entranceFees ? park.entranceFees.map((fee) => (
             <div className='fee-description'>
-              {feeCategory(fee.title)}
-              <p><em>{fee.title}</em>: <b>${fee.cost}</b></p>
+              <p>{feeCategory(fee.title)}: ${fee.cost}</p>
               <p>{fee.description}</p>
             </div>
 
           )) : ''}
-          <h6>Entrance Pass</h6>
+          <h6 className="sidebar-section">Entrance Pass</h6>
           {park.entrancePasses ? park.entrancePasses.map((fee) => (
             <div className='fee-description'>
-              <p><em>{fee.title}</em>: <b>${fee.cost}</b></p>
+              <p>{feeCategory(fee.title)}: ${fee.cost}</p>
               <p>{fee.description}</p>
             </div>
 
