@@ -21,7 +21,6 @@ export default function SingleView({
   }, [park.images, parkImages]);
 
   const feeCategory = (fee) => {
-    // console.warn(fee);
     const t = fee.title.toLowerCase();
     const { cost } = fee;
 
@@ -105,20 +104,23 @@ export default function SingleView({
         <div className="park-fees sidebar-section">
           <h6>Entrance Fees</h6>
           {park.entranceFees ? park.entranceFees.map((fee) => (
-            <div className='fee-description'>
-              <p>{feeCategory(fee)}</p>
-              <p>{fee.description}</p>
-            </div>
+            <>
+              <div className='fee-description'>
+                <p>{feeCategory(fee)}</p>
+                <p>{fee.description}</p>
+              </div>
+            </>
 
           )) : ''}
           <h6 className="sidebar-section">Entrance Pass</h6>
-          {/* {park.entrancePasses ? park.entrancePasses.map((fee) => (
-            <div className='fee-description'>
-              <p>{feeCategory(fee.title)}: ${fee.cost}</p>
-              <p>{fee.description}</p>
-            </div>
-
-          )) : ''} */}
+          {park.entrancePasses ? park.entrancePasses.map((fee) => (
+            <>
+              <div className='fee-description'>
+                <p>{feeCategory(fee)}</p>
+                <p>{fee.description}</p>
+              </div>
+            </>
+          )) : ''}
           {/* TO DO: filter a 'fee free park' */}
           {/* <p>${park.entranceFees[0].cost}</p>
           <p>{park.entranceFees[0].description}</p> */}
