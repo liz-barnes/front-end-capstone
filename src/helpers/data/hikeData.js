@@ -3,9 +3,10 @@ import apiKeys from '../apiKeys';
 
 const baseUrl = apiKeys.databaseURL;
 const key = apiKeys.apiKey;
+const hikeId = 'BFF8C027-7C8F-480B-A5F8-CD8CE490BFBA';
 
 const getParkHike = (parkCode) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/thingstodo?parkCode=${parkCode}&limit=5&api_key=${key}`).then((response) => {
+  axios.get(`${baseUrl}/thingstodo?parkCode=${parkCode}&q=${hikeId}&api_key=${key}`).then((response) => {
     resolve((response.data.data));
   });
 });
