@@ -1,0 +1,25 @@
+.hike-card-container {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    justify-content: left;
+      grid-template-columns: 1fr 2fr .5fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "title desc info";
+  }
+
+  .hike-card-header{
+    grid-area: title;
+    justify-self: start;
+  }
+
+  .hike-short-description{
+    grid-area: desc;
+    justify-self: start;
+  }
+
+  .hike-info{
+      grid-area: info;
+      justify-self: end;
+  }
