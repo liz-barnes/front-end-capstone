@@ -1,5 +1,6 @@
 .hike-card-container {
     width: 85%;
+    padding: 15px;
     margin: auto;
     display: grid;
     justify-content: left;
@@ -10,6 +11,7 @@
     grid-template-areas: 
     "img desc info"
     "title title title";
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
   }
 
 //   .hike-card-header{
@@ -26,12 +28,13 @@
 
   .hike-title {
     grid-area: title;
+    margin: 0;
   }
 
   .hike-short-description{
     grid-area: desc;
     justify-self: start;
-    margin-right: 25px;
+    margin-right: 20px;
   }
 
   .hike-info{
