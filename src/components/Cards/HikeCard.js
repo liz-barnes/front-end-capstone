@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default function HikeCard({ hike }) {
   return (
     <div className='hike-card-container'>
-      <div className='hike-card-header'>
         <Link to={{
           pathname: '/parks/hikess/',
           state: {
@@ -14,7 +13,6 @@ export default function HikeCard({ hike }) {
           <img className='hike-image' id={hike.id} src={hike.images[0].url} alt={hike.images[0].altText}/>
         </Link>
         <h3 className='hike-title'>{hike.title}</h3>
-      </div>
       <p className='hike-short-description'>{hike.shortDescription}</p>
       <div className='hike-info'>
         <p>Duration:</p>

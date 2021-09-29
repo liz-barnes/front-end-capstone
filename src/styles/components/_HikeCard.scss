@@ -3,23 +3,43 @@
     margin: auto;
     display: grid;
     justify-content: left;
-      grid-template-columns: 1fr 2fr .5fr;
-      grid-template-rows: auto;
-      grid-template-areas: 
-        "title desc info";
+    text-align: left;
+    grid-template-columns: auto 2fr .5fr;
+    grid-template-rows: auto;
+    column-gap: 15px;
+    grid-template-areas: 
+    "img desc info"
+    "title title title";
   }
 
-  .hike-card-header{
+//   .hike-card-header{
+//     grid-area: title;
+//     justify-self: start;
+//   }
+.hike-image {
+    grid-area: img;
+    max-width: 210px;
+    max-height: 210px;
+
+    width: 100%;
+  }
+
+  .hike-title {
     grid-area: title;
-    justify-self: start;
   }
 
   .hike-short-description{
     grid-area: desc;
     justify-self: start;
+    margin-right: 25px;
   }
 
   .hike-info{
       grid-area: info;
-      justify-self: end;
+      justify-self: start;
+      align-self: end;
+  }
+  
+  .hike-info p {
+    margin: 0px;
   }
