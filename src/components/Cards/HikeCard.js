@@ -17,8 +17,8 @@ export default function HikeCard({ hike }) {
       <div className='hike-info'>
         <p>Duration:</p>
         <p>Distance:</p>
-        <p>Pets:</p>
-        <p>Location:</p>
+        <p><b>Pets:</b> {hike.arePetsPermitted ? 'Yes' : 'No'}</p>
+        <p><b>Location:</b> {hike.location}</p>
       </div>
       {/* <p>{hike.accessibilityInformation}</p>
       <p>{hike.durationDescription}</p>
