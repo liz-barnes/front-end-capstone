@@ -69,7 +69,8 @@ export default function SingleView({
             state: {
               singlePark: park,
             },
-          }}>
+          }}
+          >
             <p>Hikes</p>
           </Link>
         </div>

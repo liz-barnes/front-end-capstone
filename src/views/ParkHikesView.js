@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import React, { Component } from 'react';
 import { getParkHike } from '../helpers/data/hikeData';
 import HikeCard from '../Components/Cards/HikeCard';
@@ -17,6 +18,8 @@ export default class ParkHikes extends Component {
   getParkHikes = () => {
     const { singlePark } = this.props.location.state;
     getParkHike(singlePark.parkCode).then((hike) => {
+      console.warn('parkcode', singlePark.parkCode);
+      console.warn('hikeeee', hike);
       this.setState({ parkHikes: hike });
     }).then(() => {
       this.setLoading();
