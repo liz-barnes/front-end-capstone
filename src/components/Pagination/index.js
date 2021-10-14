@@ -5,7 +5,6 @@ import { useState } from 'react';
 export default function Pagination(data, component, title, pageLimit, dataLimit) {
   // const [posts, setPosts] = useState([]);
   // const [error, setError] = useState('');
-  const [page, setPage] = useState(1);
 
   // useEffect(() => { ... }, [] );
 

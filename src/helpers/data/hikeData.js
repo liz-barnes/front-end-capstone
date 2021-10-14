@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 import apiKeys from '../apiKeys';
 
@@ -18,4 +19,7 @@ const getSingleHike = (id) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export { getParkHike, getSingleHike };
+export default {
+  getParkHike,
+  getSingleHike,
+};

@@ -68,6 +68,7 @@ export default function SingleView({
             pathname: '/parks/hikes/',
             state: {
               singlePark: park,
+              parkCode: park.parkCode,
             },
           }}>
             <p>Hikes</p>
