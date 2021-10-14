@@ -5,9 +5,10 @@ import HikeCard from '../Components/Cards/HikeCard';
 import Loader from '../Components/Loader';
 import { HIKES_PER_PAGE } from '../helpers/constants';
 
-export default function ParkHikes({ parkCode }) {
+export default function ParkHikes({ ...props }) {
   const [loading, setLoading] = useState(true);
   const [hikes, setHikes] = useState([]);
+  const { parkCode } = 'acad';
   // state = {
   //   loading: true,
   //   hike: [],
@@ -19,6 +20,7 @@ export default function ParkHikes({ parkCode }) {
 
   useEffect(() => {
     if (loading && !hikes.length) {
+      console.warn('props', props);
       hikeData.getParkHike({ parkCode }).then((response) => {
         console.warn('hike resp', response);
         setHikes(response);
@@ -70,7 +72,8 @@ export default function ParkHikes({ parkCode }) {
         { loading ? (
           <Loader />
         ) : (
-          hikes.map((hike) => console.warn('hikeypoo', hike))
+          <p>Hikes go here</p>
+          // hikes.map((hike) => console.warn('hikeypoo', hike))
         )}
         {/* {!loading && parkHikes.length === 0 ? <h3>No Hikes Found</h3> : ''} */}
       </div>

@@ -11,7 +11,7 @@ import ParkPage from '../Views/SingpleParkView';
 import Trips from '../Views/Trips';
 import SingleTrip from '../Views/SingleTrip';
 import ParkHikes from '../Views/ParkHikesView';
-import Hikes from '../Views/SingleHikeView';
+// import Hikes from '../Views/SingleHikeView';
 
 export default function Routes({
   parks, user, userTrips, suggestedParks,
@@ -54,7 +54,7 @@ export default function Routes({
       />
       <PrivateRoute
         exact
-        path="/parks/hikes/"
+        path="/parks/:parkCode/hikes"
         component={ParkHikes}
         user={user}
       />
@@ -65,14 +65,14 @@ export default function Routes({
         userTrips={userTrips}
         user={user}
       /> */}
-      <PrivateRoute
+      {/* <PrivateRoute
         exact
         path="/parks/hikess/"
         component={Hikes}
         parks={parks}
         userTrips={userTrips}
         user={user}
-        />
+        /> */}
 
       {/* <Route
         exact
