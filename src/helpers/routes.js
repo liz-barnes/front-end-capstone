@@ -54,7 +54,7 @@ export default function Routes({
       />
       <PrivateRoute
         exact
-        path="/parks/:parkCode/hikes"
+        path="/parks/hikes/"
         component={ParkHikes}
         user={user}
       />
