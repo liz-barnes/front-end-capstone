@@ -64,19 +64,14 @@ export default function SingleView({
           {/* <h6>{park.states}</h6> */}
         </div>
         <div className="header-hikes-btn">
-          <Link className='link-to-single-page' to={`/parks/${park.parkCode}/hikes`} parkCode={park.parkCode}>
-            <p>Hikes</p>
-          </Link>
-          {/* <Link to={{
-            pathname: `/parks/${park.parkCode}/hikes/`,
-            parkCode
+          <Link to={{
+            pathname: '/parks/hikes/',
             state: {
               singlePark: park,
-              parkCode: park.parkCode,
             },
           }}>
             <p>Hikes</p>
-          </Link> */}
+          </Link>
         </div>
         <div className="header-form">
           <Modal title={'Add to a Trip'} header={'Add to Trip'} className={'add-to-trip-btn'}>
