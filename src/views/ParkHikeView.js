@@ -1,26 +1,25 @@
 /* eslint-disable import/named */
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getParkHike } from '../helpers/data/hikeData';
-import HikeCard from '../Components/Cards/HikeCard';
 import Loader from '../Components/Loader';
 import { HIKES_PER_PAGE } from '../helpers/constants';
 import Pagination from '../Components/Pagination';
 import Hikes from '../Components/Hikes/Hikes';
 
-export default function ParkHikesView() {
+export default function ParkHikeView({ ...props }) {
   const [hikes, setHikes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const { singlePark } = this.props.location.state;
+  const { singlePark } = props.location.state;
 
   useEffect(() => {
     const fetchHikes = async () => {
       setLoading(true);
       getParkHike(singlePark.parkCode).then((hike) => {
-        console.warn('new hikes', hike);
+        // console.warn('new hikes', hike);
         setHikes(hike);
-        console.warn('hike sstate', hikes);
+        // console.warn('hike sstate', hikes);
       });
       setLoading(false);
 
@@ -48,7 +47,7 @@ export default function ParkHikesView() {
 
   return (
     <>
-    <h1 className='park-hikes-header'>{singlePark.name} Hikes</h1>
+    <h1 className='park-hikes-header'>{singlePark.parckCode} Hikes</h1>
     <div className="hike-result-container">
         { loading ? (
         <Loader />

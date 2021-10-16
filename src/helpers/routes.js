@@ -10,7 +10,7 @@ import ParkSearch from '../Components/ParkSearch';
 import ParkPage from '../Views/SingpleParkView';
 import Trips from '../Views/Trips';
 import SingleTrip from '../Views/SingleTrip';
-import ParkHikesView from '../Views/ParkHikesView';
+import ParkHikeView from '../Views/ParkHikeView';
 // import Hikes from '../Views/SingleHikeView';
 
 export default function Routes({
@@ -55,7 +55,7 @@ export default function Routes({
       <PrivateRoute
         exact
         path="/parks/hikes/"
-        component={ParkHikesView}
+        component={ParkHikeView}
         user={user}
       />
       {/* <PrivateRoute
