@@ -4,7 +4,7 @@ import { getParkHike } from '../helpers/data/hikeData';
 import HikeCard from '../Components/Cards/HikeCard';
 import Loader from '../Components/Loader';
 
-export default class ParkHikes extends Component {
+export default class ParkHikesView extends Component {
   state = {
     loading: true,
     hike: [],
