@@ -47,7 +47,7 @@ export default function ParkHikeView({ ...props }) {
 
   return (
     <>
-    <h1 className='park-hikes-header'>{singlePark.parckCode} Hikes</h1>
+    <h1 className='park-hikes-header'>{singlePark.name} Hikes</h1>
     <div className="hike-result-container">
         { loading ? (
         <Loader />
