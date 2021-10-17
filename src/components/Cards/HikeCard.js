@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function HikeCard({ hike }) {
+  const { title } = hike;
+  const newTitle = title.replace(/Hike /g, '');
   return (
     <div className='hike-card-container'>
+      {console.warn(typeof title)}
         <Link to={{
           pathname: '/parks/hikess/',
           state: {
@@ -12,7 +15,7 @@ export default function HikeCard({ hike }) {
         }}>
           <img className='hike-image' id={hike.id} src={hike.images[0].url} alt={hike.images[0].altText}/>
         </Link>
-        <h3 className='hike-title'>{hike.title}</h3>
+        <h3 className='hike-title'>{newTitle}</h3>
       <p className='hike-short-description'>{hike.shortDescription}</p>
       <div className='hike-info'>
         <p>Duration:</p>

@@ -52,10 +52,12 @@ export default function ParkHikeView({ ...props }) {
         { loading ? (
         <Loader />
         ) : (
-          <>
+          <div className='park-hike-container'>
             <Hikes hikes={hikes} page={page} />
-            <Pagination totalPages={totalPages} handleClick={handleClick} />
-          </>
+            <div className='pagination-container'>
+              <Pagination totalPages={totalPages} handleClick={handleClick} />
+            </div>
+          </div>
         )}
         {!loading && hikes.length === 0 ? <h3>No Hikes Found</h3> : ''}
     </div>
