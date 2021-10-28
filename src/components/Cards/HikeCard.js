@@ -6,7 +6,6 @@ export default function HikeCard({ hike }) {
   const newTitle = title.replace(/Hike /g, '');
   return (
     <div className='hike-card-container'>
-      {console.warn(typeof title)}
         <Link to={{
           pathname: '/parks/hikess/',
           state: {

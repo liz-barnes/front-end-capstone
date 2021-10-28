@@ -17,9 +17,7 @@ export default function ParkHikeView({ ...props }) {
     const fetchHikes = async () => {
       setLoading(true);
       getParkHike(singlePark.parkCode).then((hike) => {
-        // console.warn('new hikes', hike);
         setHikes(hike);
-        // console.warn('hike sstate', hikes);
       });
       setLoading(false);
 
