@@ -1,6 +1,6 @@
 /* eslint-disable import/named */
 import React, { Component } from 'react';
-import { getParkHike } from '../helpers/data/hikeData';
+// import { getParkHike } from '../helpers/data/hikeData';
 import HikeCard from '../Components/Cards/HikeCard';
 import Loader from '../Components/Loader';
 
@@ -10,21 +10,21 @@ export default class ParkHikesView extends Component {
     hike: [],
   };
 
-  componentDidMount() {
-    this.getParkHikes();
-  }
+  // componentDidMount() {
+  //   this.getParkHikes();
+  // }
 
   // think about mapping over each hike to find activity with name "Hiking"
-  getParkHikes = () => {
-    const { singlePark } = this.props.location.state;
-    getParkHike(singlePark.parkCode).then((hike) => {
-      console.warn('parkcode', singlePark.parkCode);
-      console.warn('hikeeee', hike);
-      this.setState({ parkHikes: hike });
-    }).then(() => {
-      this.setLoading();
-    });
-  }
+  // getParkHikes = () => {
+  //   const { singlePark } = this.props.location.state;
+  //   getParkHike(singlePark.parkCode).then((hike) => {
+  //     console.warn('parkcode', singlePark.parkCode);
+  //     console.warn('hikeeee', hike);
+  //     this.setState({ parkHikes: hike });
+  //   }).then(() => {
+  //     this.setLoading();
+  //   });
+  // }
 
   // set loading to false after 100 to stop loader and print data to DOM
   setLoading = () => {

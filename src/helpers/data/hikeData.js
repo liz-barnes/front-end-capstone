@@ -7,12 +7,14 @@ const hikeId = 'BFF8C027-7C8F-480B-A5F8-CD8CE490BFBA';
 
 const getParkHike = (parkCode) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/thingstodo?parkCode=${parkCode}&q=${hikeId}&limit=100&api_key=${key}`).then((response) => {
+    console.warn('park hike running');
     resolve((response.data.data));
   });
 });
 
 const getSingleHike = (id) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/thingstodo?id=${id}&api_key=${key}`).then((response) => {
+    console.warn('single hike running');
     resolve(response.data.data);
   }).catch((error) => reject(error));
 });

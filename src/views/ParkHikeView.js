@@ -25,7 +25,9 @@ export default function ParkHikeView({ ...props }) {
 
       setTotalPages(Math.ceil(hikes.length / HIKES_PER_PAGE));
     };
-    fetchHikes();
+    if (!hikes.length) {
+      fetchHikes();
+    }
   }, [hikes, singlePark.parkCode]);
 
   // think about mapping over each hike to find activity with name "Hiking"

@@ -16,6 +16,7 @@ const getParkData = () => new Promise((resolve, reject) => {
 
 const getSinglePark = (parkId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/parks?q=${parkId}&limit=5&api_key=${key}`).then((response) => {
+    console.warn('single park running');
     resolve(response.data.data[0]);
     resolve(response.status);
   }).catch((error) => reject(error));
