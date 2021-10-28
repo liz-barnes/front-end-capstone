@@ -20,12 +20,13 @@ export default function ParkHikeView({ ...props }) {
         setHikes(hike);
       });
       setLoading(false);
-
-      setTotalPages(Math.ceil(hikes.length / HIKES_PER_PAGE));
     };
+
     if (!hikes.length) {
       fetchHikes();
     }
+
+    setTotalPages(Math.ceil(hikes.length / HIKES_PER_PAGE));
   }, [hikes, singlePark.parkCode]);
 
   // think about mapping over each hike to find activity with name "Hiking"
