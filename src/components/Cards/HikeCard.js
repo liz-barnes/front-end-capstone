@@ -20,7 +20,9 @@ export default function HikeCard({ hike }) {
         <p><b>Duration:</b> {hike.duration}</p>
         <p><b>Distance:</b></p>
         <p><b>Pets:</b> {hike.arePetsPermitted ? 'Yes' : 'No'}</p>
-        <p><b>Location:</b> {hike.location}</p>
+        <p><b>Reservation:</b> {hike.isReservationRequired === true ? 'Required' : 'Not Required'}</p>
+        {/* {hike.isReservationRequired ? <p><b>Reservation:</b> Required</p> : <p>Not Required</p>}
+        <p><b>Location:</b> {hike.isReservationRequired ? }{hike.location}</p> */}
       </div>
       {/* <p>{hike.accessibilityInformation}</p>
       <p>{hike.durationDescription}</p>
