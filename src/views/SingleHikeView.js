@@ -8,10 +8,12 @@ export default class SingleHikeView extends Component {
   render() {
     const { singleHike } = this.props.location.state;
     const { user, userTrips } = this.props;
+    const { title } = singleHike;
+    const newTitle = title.replace(/Hike /g, '');
     return (
         <div className="hike-page">
           <div className="hike-header-details">
-            <h4 className='hike-name-header'>{singleHike.title}</h4>
+            <h4 className='hike-name-header'>{newTitle}</h4>
             <p>{singleHike.relatedParks.states}</p>
           </div>
           <div className="hike-header-form">
@@ -31,7 +33,6 @@ export default class SingleHikeView extends Component {
         <div className="hike-info sidebar-section">
           <h6>Duration</h6>
           <p>{singleHike.duration}</p>
-          <p>{singleHike.durationDescription}</p>
         </div>
         <div className="hike-location sidebar-section">
           <h6>Location</h6>
