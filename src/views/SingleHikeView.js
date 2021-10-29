@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactHtmlParser from 'html-react-parser';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
 
@@ -24,7 +25,7 @@ export default class SingleHikeView extends Component {
           <div className="single-hike-page-header-image">
             <img className="single-hike-header-image" src={singleHike.images[0].url} alt={singleHike.images[0].altText}/>
           </div>
-      <p className="hike-description">{singleHike.shortDescription}</p>
+      <p className="hike-description">{ReactHtmlParser(singleHike.longDescription)}</p>
       <div className="hike-sidebar">
         <div className="hike-info sidebar-section">
           <h6>Difficulty</h6>
@@ -37,12 +38,12 @@ export default class SingleHikeView extends Component {
         <div className="hike-location sidebar-section">
           <h6>Location</h6>
           <p>{singleHike.location}</p>
-          <p>{singleHike.locationDescription}</p>
+          <p>{ReactHtmlParser(singleHike.locationDescription)}</p>
         </div>
         <div className="hike-fees sidebar-section">
           <h6>Fees</h6>
           {/* filter a 'fee free park' */}
-          <p>${singleHike.feeDescription}</p>
+          <p>{ReactHtmlParser(singleHike.feeDescription)}</p>
         </div>
         <div className="hike-pets sidebar-section">
           <h6>Pets</h6>
