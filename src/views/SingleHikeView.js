@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
 
-export default class Hikes extends Component {
+export default class SingleHikeView extends Component {
   state = {};
 
   render() {

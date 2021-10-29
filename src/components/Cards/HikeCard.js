@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 export default function HikeCard({ hike }) {
   const { title } = hike;
   const newTitle = title.replace(/Hike /g, '');
-  // const browserTitle = title.replace(/ /g, '-');
+  const browserTitle = newTitle.replace(/ /g, '-');
   return (
     <div className='hike-card-container'>
         <Link to={{
-          pathname: '/test',
+          pathname: `/park/hike/${browserTitle}`,
           state: {
             singleHike: hike,
           },
