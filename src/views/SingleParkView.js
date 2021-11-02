@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 // import { FaPhoneSquare } from 'react-icons/fa';
 // import { GrMailOption } from 'react-icons/gr';
+import { FaHiking } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
@@ -71,7 +72,7 @@ export default function SingleView({
             },
           }}
           >
-            <p>Hikes</p>
+            <FaHiking />
           </Link>
         </div>
         <div className="header-form">
