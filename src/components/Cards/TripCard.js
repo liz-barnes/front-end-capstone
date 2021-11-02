@@ -12,7 +12,7 @@ export default function TripCard({ trip, onUpdate, removeTrip }) {
             <img id={trip.firebaseKey} className="trip-card-image" src={trip.imageUrl} alt={trip.name} />
           </Link>
           <div className="trip-btn-container">
-            <Modal title={'Update Trip'} buttonLabel={'Update Trip'}>
+            <Modal title={'Update Trip'} label={'edit'} className={'card-icon'}>
               <CreateNewTrip trip={trip} onUpdate={onUpdate}/>
             </Modal>
             <button className="delete-btn" onClick={() => removeTrip(trip.firebaseKey)}>Delete Trip</button>
