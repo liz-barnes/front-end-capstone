@@ -13,12 +13,10 @@ import SingleTrip from '../Views/SingleTrip';
 import ParkHikeView from '../Views/ParkHikeView';
 import SingleHikeView from '../Views/SingleHikeView';
 
-export default function Routes({
-  parks, user, userTrips, suggestedParks,
-}) {
+export default function Routes({ user }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Auth user={user} parks={parks} suggestedParks={suggestedParks}/>} />
+      <Route exact path='/' component={() => <Auth user={user} />} />
       {/* <PrivateRoute
         exact
         path="/adventure-planner"
@@ -29,15 +27,11 @@ export default function Routes({
         path="/parks"
         component={ParkSearch}
         user={user}
-        parks={parks}
-        suggestedParks={suggestedParks}
       />
       <PrivateRoute
         exact
         path="/parks/:name/:id"
         component={ParkPage}
-        parks={parks}
-        userTrips={userTrips}
         user={user}
       />
       <PrivateRoute
@@ -141,10 +135,10 @@ export default function Routes({
 // };
 
 const PrivateRoute = ({
-  component: Component, user, parks, userTrips, ...rest
+  component: Component, user, ...rest
 }) => {
   const RouteChecker = (props) => (user
-    ? (<Component {...props} user={user} parks={parks} userTrips={userTrips}/>)
+    ? (<Component {...props} user={user} />)
     : (<Redirect to={{ pathname: '/', state: { from: props.locations } }} />));
 
   return <Route {...rest} render={(props) => RouteChecker(props)} />;

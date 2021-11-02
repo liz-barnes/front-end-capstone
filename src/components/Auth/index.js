@@ -4,7 +4,7 @@ import 'firebase/auth';
 import Loader from '../Loader';
 import ParkSearch from '../ParkSearch';
 
-export default function Auth({ user, parks, suggestedParks }) {
+export default function Auth({ user }) {
   const loginClickEvent = (e) => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -16,7 +16,7 @@ export default function Auth({ user, parks, suggestedParks }) {
     if (user === null) {
       component = <Loader />;
     } else if (user) {
-      component = <ParkSearch parks={parks} user={user} suggestedParks={suggestedParks}/>;
+      component = <ParkSearch user={user}/>;
     } else {
       component = <div className="Auth">
                     <div className='page-banner'>
