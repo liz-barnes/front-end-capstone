@@ -18,7 +18,7 @@ export default class SingleHikeView extends Component {
             <p>{singleHike.relatedParks.states}</p>
           </div>
           <div className="hike-header-form">
-            <Modal title={'Add Hike to Trip'} buttonLabel={'Add to Trip'}>
+            <Modal title={'Add Hike to Trip'} label={'add'} className={'tab-icon'}>
               <AddToTripForm id={singleHike.id} userTrips={userTrips} user={user} type='hike' />
             </Modal>
           </div>
@@ -27,10 +27,10 @@ export default class SingleHikeView extends Component {
           </div>
       <p className="hike-description">{ReactHtmlParser(singleHike.longDescription)}</p>
       <div className="hike-sidebar">
-        <div className="hike-info sidebar-section">
+        {/* <div className="hike-info sidebar-section">
           <h6>Difficulty</h6>
           <p>{singleHike.activityDescription}</p>
-        </div>
+        </div> */}
         <div className="hike-info sidebar-section">
           <h6>Duration</h6>
           <p>{singleHike.duration}</p>
