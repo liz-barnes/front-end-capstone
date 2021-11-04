@@ -20,9 +20,9 @@ const AppModal = (props) => {
   const iconToRender = (type) => {
     switch (type) {
       case 'add':
-        return <MdAddCircleOutline />;
+        return <MdAddCircleOutline className={className} onClick={toggle}/>;
       case 'edit':
-        return <FiEdit />;
+        return <FiEdit className={className} onClick={toggle}/>;
 
       default:
         return '';
@@ -31,8 +31,6 @@ const AppModal = (props) => {
 
   return (
     <div className='modal-container'>
-      {console.warn('icon', ModalIcons.label)}
-      {console.warn('label', label)}
       {label ? (
         { ...iconToRender(label) }
         // <FontAwesomeIcon icon={ModalIcons.label} className={className} fixedWidth={true} />
