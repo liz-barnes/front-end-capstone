@@ -7,3 +7,11 @@
     width: 2em;
     height: 2em;
 }
+
+.tab-icon, .card-icon, .page-icon {
+    color: $fontColor;
+}
+
+.tab-icon:hover, .card-icon:hover, .page-icon:hover {
+    color: $secondaryAccentColor;
+}
