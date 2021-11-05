@@ -13,7 +13,13 @@
 
 .user-icon {
   padding-right: 25px;
-  background: $fontColor;
+  background: $primaryColor;
+  color: $fontColor;
+  border: none;
+}
+
+.user-icon:hover {
+  color: $accentColor;
 }
 
 .navbar-brand {
@@ -24,13 +30,20 @@
   font-size: 26px;
 }
 
-.navbar-brand:hover {
-  color: $accentColor;
+.navbar-brand.btn-secondary:hover {
+  color: $secondaryAccentColor;
+  background-color: $primaryColor;
 }
 
 .user-icon.navbar-toggler::before {
   color: $primaryColor;
+  background-color: wheat;
 }
+
+// .user-icon.navbar-toggler:active {
+//   color: $primaryColor;
+//   background-color: wheat;
+// }
 
 .navbar-toggler-icon {
   width: 0px;
