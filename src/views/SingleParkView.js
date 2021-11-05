@@ -76,7 +76,7 @@ export default function SingleView({
           </Link>
         </div>
         <div className="header-form">
-          <Modal title={'Add to a Trip'} header={'Add to Trip'} className={'add-to-trip-btn'}>
+          <Modal title={'Add to a Trip'} label={'add'} className={'tab-icon'}>
             <AddToTripForm id={park.id} userTrips={userTrips} user={user} park={park} getUserTrips={getUserTrips} type='park' />
           </Modal>
         </div>
