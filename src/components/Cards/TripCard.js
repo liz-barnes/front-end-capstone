@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AiOutlineDelete } from 'react-icons/ai';
 import Modal from '../Modals';
 import CreateNewTrip from '../Forms/CreateNewTrip';
 // import ParkPage from '../SingleViewPage/ParkPage';
@@ -15,7 +16,8 @@ export default function TripCard({ trip, onUpdate, removeTrip }) {
             <Modal title={'Update Trip'} label={'edit'} className={'card-icon'}>
               <CreateNewTrip trip={trip} onUpdate={onUpdate}/>
             </Modal>
-            <button className="delete-btn" onClick={() => removeTrip(trip.firebaseKey)}>Delete Trip</button>
+            <AiOutlineDelete className='card-icon delete-button' onClick={() => removeTrip(trip.firebaseKey)}/>
+            {/* <button className="delete-btn" onClick={() => removeTrip(trip.firebaseKey)}>Delete Trip</button> */}
           </div>
           <h3>{trip.name}</h3>
           <h6>{trip.dates}</h6>

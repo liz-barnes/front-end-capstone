@@ -9,8 +9,8 @@
 }
 
 .page-icon {
-    width: 2.25em;
-    height: 2.25em;
+    width: 2em;
+    height: 2em;
 }
 
 .tab-icon, .card-icon, .page-icon {
@@ -19,4 +19,9 @@
 
 .tab-icon:hover, .card-icon:hover, .page-icon:hover {
     color: $secondaryAccentColor;
+}
+
+.delete-button {
+    width: 1.75em;
+    height: 1.75em;    
 }
