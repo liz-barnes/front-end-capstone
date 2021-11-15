@@ -107,7 +107,7 @@
 }
 
 .sidebar {
-  padding: 25px;
+  padding: 5px 25px 25px 25px;
   grid-area: sidebar;
   background-color: $secondaryColor;
   margin-left: 15px;
@@ -140,6 +140,14 @@
   margin-bottom: 8px;
 }
 
-// .contact-icon {
-//   padding-right: 5px;
-// }
+.contact-icon {
+  padding-right: 5px;
+}
+
+.phone-icon {
+  padding-top: 2.5px;
+}
+
+.contact-phone {
+  padding-left: 4px;
+}

@@ -1,8 +1,7 @@
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
-// import { FaPhoneSquare } from 'react-icons/fa';
-// import { GrMailOption } from 'react-icons/gr';
-import { FaHiking } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
+import { FaHiking, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
 import AddToTripForm from '../Components/Forms/AddToTripForm';
@@ -137,13 +136,13 @@ export default function SingleView({
           <h6>Contact</h6>
           {park.contacts.phoneNumbers ? (
             <div className='contact-container'>
-              {/* <FaPhoneSquare size='1.5rem' className='contact-icon'/> */}
-              <p>{park.contacts.phoneNumbers[0].phoneNumber}</p>
+              <FaPhone size='1.25rem' className='contact-icon phone-icon'/>
+              <p className='contact-phone'>{park.contacts.phoneNumbers[0].phoneNumber}</p>
             </div>
           ) : ''}
           {park.contacts.emailAddresses ? (
             <div className='contact-container'>
-              {/* <GrMailOption size='1.5rem' className='contact-icon'/> */}
+              <HiOutlineMail size='1.5rem' className='contact-icon'/>
               <p>{park.contacts.emailAddresses[0].emailAddress}</p>
             </div>
           ) : ''}
