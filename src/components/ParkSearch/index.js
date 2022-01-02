@@ -18,6 +18,8 @@ export default function ParkSearch() {
         setAllParks(response);
       });
     }
+    const shuffledParks = allParks.sort(() => 0.5 - Math.random());
+    setSuggestedParks(shuffledParks.slice(0, 3));
   }, [allParks]);
 
   const stateAbbreviation = (state) => {
@@ -183,6 +185,8 @@ export default function ParkSearch() {
 
   const showParkByName = () => searchResultsByName.map((park) => <AdventureCard key={park.id} park={park} />);
 
+  const renderSuggestedParks = () => suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const parksByName = allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
@@ -215,6 +219,7 @@ export default function ParkSearch() {
           />
         </form>
         <div className="park-search-results-container">
+          {showSuggestedParks && suggestedParks && renderSuggestedParks()}
           {/* {suggestParks && suggestedParks !== null ? suggestedParks.map((park) => <AdventureCard key={park.id} park={park} />) : ''} */}
           {searchSubmit && searchResultsByName.length ? showParkByName() : ''}
           {searchSubmit && searchResultsByState.length ? showParkByState() : ''}

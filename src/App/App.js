@@ -34,9 +34,9 @@ class App extends React.Component {
     // console.warn('app running');
   }
 
-  componentWillUnmount() {
-    this.removeListener();
-  }
+  // componentWillUnmount() {
+  //   // this.removeListener();
+  // }
 
   // getParks = () => {
   //   getParkData().then((resp) => {

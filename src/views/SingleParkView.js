@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 import React, { useEffect, useState } from 'react';
 import { HiOutlineMail } from 'react-icons/hi';
+import { BsInfoCircle } from 'react-icons/bs';
 import { FaHiking, FaPhone } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Modal from '../Components/Modals';
@@ -10,6 +11,7 @@ export default function SingleView({
   park, userTrips, user, getUserTrips, parkHikes,
 }) {
   const [parkImages, setParkImages] = useState([]);
+  // const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (!parkImages.length) {
@@ -19,6 +21,19 @@ export default function SingleView({
       setParkImages(result);
     }
   }, [park.images, parkImages]);
+
+  const renderFeeDescription = (fee) => {
+    // setModalOpen(!modalOpen);
+    console.warn(fee);
+
+    // if (modalOpen === true) {
+    //   return (
+      <div className='fee-description-dropdown'>
+        <p>{fee.description}</p>
+      </div>;
+    //   );
+    // }
+  };
 
   const feeCategory = (fee) => {
     const t = fee.title.toLowerCase();
@@ -116,9 +131,12 @@ export default function SingleView({
           <h6 className="sidebar-section">Entrance Pass</h6>
           {park.entrancePasses ? park.entrancePasses.map((fee) => (
             <>
-              <div className='fee-description'>
+              <div className='fee-description d-flex'>
                 <p>{feeCategory(fee)}</p>
-                <p>{fee.description}</p>
+                <div className='dropdown-div'>
+                  <BsInfoCircle onClick={() => renderFeeDescription(fee)}/>
+                </div>
+                {/* <p>{fee.description}</p> */}
               </div>
             </>
           )) : ''}
