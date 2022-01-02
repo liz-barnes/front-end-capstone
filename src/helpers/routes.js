@@ -7,7 +7,7 @@ import {
 
 import Auth from '../Components/Auth';
 import ParkSearch from '../Components/ParkSearch';
-import ParkPage from '../Views/SingpleParkView';
+// import ParkPage from '../Views/SingpleParkView';
 import Trips from '../Views/Trips';
 import SingleTrip from '../Views/SingleTrip';
 import ParkHikeView from '../Views/ParkHikeView';
@@ -28,12 +28,12 @@ export default function Routes({ user }) {
         component={ParkSearch}
         user={user}
       />
-      <PrivateRoute
+      {/* <PrivateRoute
         exact
         path="/parks/:name/:id"
         component={ParkPage}
         user={user}
-      />
+      /> */}
       <PrivateRoute
         exact
         path="/my-trips"
