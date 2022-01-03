@@ -11,9 +11,11 @@ export default function ParkSearch({ parks }) {
   const [searchSubmit, setSearchSubmit] = useState(null);
 
   useEffect(() => {
-    const shuffledParks = parks.sort(() => 0.5 - Math.random());
-    setSuggestedParks(shuffledParks.slice(0, 3));
-  }, [parks]);
+    if (showSuggestedParks) {
+      const shuffledParks = parks.sort(() => 0.5 - Math.random());
+      setSuggestedParks(shuffledParks.slice(0, 3));
+    }
+  }, [parks, showSuggestedParks]);
 
   const stateAbbreviation = (state) => {
     switch (state) {
