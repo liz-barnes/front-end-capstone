@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import parkData from '../helpers/data/parkData';
-import SingleView from './SingleParkView';
+import SingleParkView from './SingleParkView';
 import Loader from '../Components/Loader';
 
 export default class ParkPage extends Component {
@@ -36,7 +36,7 @@ export default class ParkPage extends Component {
       { loading ? (
           <Loader />
       ) : (
-        <SingleView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips} parkHikes={parkHikes}/>
+        <SingleParkView park={park} userTrips={userTrips} user={user} getUserTrips={this.getUserTrips} parkHikes={parkHikes}/>
       )}
       </>
     );

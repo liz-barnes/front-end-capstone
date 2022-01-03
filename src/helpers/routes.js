@@ -12,6 +12,7 @@ import Trips from '../Views/Trips';
 import SingleTrip from '../Views/SingleTrip';
 import ParkHikeView from '../Views/ParkHikeView';
 import SingleHikeView from '../Views/SingleHikeView';
+import SingleParkView from '../Views/SingleParkView';
 
 export default function Routes({ user }) {
   return (
@@ -56,6 +57,12 @@ export default function Routes({ user }) {
         exact
         path="/park/hike/:parkName"
         component={SingleHikeView}
+        user={user}
+      />
+      <PrivateRoute
+        exact
+        path="/parks/:parkName/:parkId"
+        component={SingleParkView}
         user={user}
       />
       {/* <PrivateRoute
