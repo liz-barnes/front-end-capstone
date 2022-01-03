@@ -15,11 +15,6 @@ export default function AdventureCard({ park, log }) {
           }}
           park
         >
-          {/* <Link
-            className='link-to-single-page'
-            to={`/parks/${park.name}/${park.id}`}
-            state={{ park: 'hey' }}
-            park={park}> */}
             <img id={park.id} className="advenutre-card-image" src={park.images[0].url} alt={park.name} onClick={log}/>
           </Link>
           <h5 className='card-heading' >{park.name}</h5>
