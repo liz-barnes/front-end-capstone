@@ -2,101 +2,128 @@
 // /* eslint-disable import/no-duplicates */
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import fbConnection from '../helpers/data/connection';
 import './App.scss';
 import Routes from '../helpers/routes';
 import MyNavbar from '../Components/MyNavbar/index';
+import parkData from '../helpers/data/parkData';
 // import { getUserTrips } from '../helpers/data/tripData';
 
 fbConnection();
-class App extends React.Component {
-  state = {
-    user: null,
-    // userTrips: [],
-    // parks: [],
-    // hikes: [],
-    // campgrounds: [],
-    // suggestedParks: null,
-  }
 
-  componentDidMount() {
-    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // console.warn('user resp', user);
-        this.setState({ user });
-      } else {
-        this.setState({ user: false });
-        // console.warn('user false', user);
-      }
-    });
-    // console.warn('app running');
-  }
+export default function App() {
+  const [userData, setUserData] = useState(null);
+  const [allParks, setAllParks] = useState([]);
+  // class App extends React.Component {
+  //   state = {
+  //     user: null,
+  //     parks: [],
+  //     // userTrips: [],
+  //     // parks: [],
+  //     // hikes: [],
+  //     // campgrounds: [],
+  //     // suggestedParks: null,
+  //   };
 
-  // componentWillUnmount() {
-  //   // this.removeListener();
-  // }
-
-  // getParks = () => {
-  //   getParkData().then((resp) => {
-  //     this.setState({
-  //       parks: resp,
-  //     });
-  //   }).then((response) => {
-  //     this.setSuggestedParks();
-  //   });
-  // }
-
-  // getHikes = () => {
-  //   getHikeData().then((resp) => {
-  //     this.setState({
-  //       hikes: resp,
-  //     });
-  //   });
-  // }
-
-  // getCampgrounds = () => {
-  //   getCampgroundData().then((resp) => {
-  //     this.setState({
-  //       campgrounds: resp,
-  //     });
-  //   });
-  // }
-
-  // getUserTrips = () => {
-  //   const { user } = this.state;
-  //   if (user) {
-  //     getUserTrips(user.uid).then((resp) => {
-  //       this.setState({
-  //         userTrips: resp,
-  //       });
-  //     });
-  //   }
-  // }
-
-  // setSuggestedParks = () => {
-  //   const { parks } = this.state;
-  //   const suggested = [parks[241], parks[467], parks[34]];
-  //   this.setState({ suggestedParks: suggested });
-  // }
-
-  render() {
-    const {
-      user,
-    } = this.state;
-    return (
-      <div className="App">
-        <Router>
-          <MyNavbar user={user} />
-          { user !== null && <Routes user={user}/> }
-        </Router>
-     </div>
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          console.warn('user resp', user);
+          setUserData(user);
+          // this.setState({ user });
+        } else {
+          setUserData(false);
+          // this.setState({ user: false });
+          console.warn('user false', user);
+        }
+      },
     );
-  }
+    console.warn(allParks, 'parks');
+    if (allParks.length === 0) {
+      parkData.getParkData().then((response) => {
+        console.warn('app parks');
+        console.warn(allParks, 'parks in app call');
+        setAllParks(response);
+      });
+    }
+  }, [allParks]);
+
+  return (
+    <div className="App">
+      <Router>
+        <MyNavbar user={userData} />
+        {userData !== null && <Routes user={userData} />}
+      </Router>
+    </div>
+  );
 }
 
-export default App;
+// componentDidMount() {
+//   });
+//   // console.warn('app running');
+// }
+
+// componentWillUnmount() {
+//   // this.removeListener();
+// }
+
+// getParks = () => {
+//   getParkData().then((resp) => {
+//     this.setState({
+//       parks: resp,
+//     });
+//   }).then((response) => {
+//     this.setSuggestedParks();
+//   });
+// }
+
+// getHikes = () => {
+//   getHikeData().then((resp) => {
+//     this.setState({
+//       hikes: resp,
+//     });
+//   });
+// }
+
+// getCampgrounds = () => {
+//   getCampgroundData().then((resp) => {
+//     this.setState({
+//       campgrounds: resp,
+//     });
+//   });
+// }
+
+// getUserTrips = () => {
+//   const { user } = this.state;
+//   if (user) {
+//     getUserTrips(user.uid).then((resp) => {
+//       this.setState({
+//         userTrips: resp,
+//       });
+//     });
+//   }
+// }
+
+// setSuggestedParks = () => {
+//   const { parks } = this.state;
+//   const suggested = [parks[241], parks[467], parks[34]];
+//   this.setState({ suggestedParks: suggested });
+// }
+//     return (
+//       <div className="App">
+//         <Router>
+//           <MyNavbar user={user} />
+//           { user !== null && <Routes user={user}/> }
+//         </Router>
+//      </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
