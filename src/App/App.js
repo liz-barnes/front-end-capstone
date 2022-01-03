@@ -8,14 +8,15 @@ import fbConnection from '../helpers/data/connection';
 import './App.scss';
 import Routes from '../helpers/routes';
 import MyNavbar from '../Components/MyNavbar/index';
-import parkData from '../helpers/data/parkData';
+// import parkData from '../helpers/data/parkData';
 // import { getUserTrips } from '../helpers/data/tripData';
 
 fbConnection();
 
 export default function App() {
+  // const [getUser, setGetUser] = useState(true);
   const [userData, setUserData] = useState(null);
-  const [allParks, setAllParks] = useState([]);
+  // const [allParks, setAllParks] = useState([]);
   // class App extends React.Component {
   //   state = {
   //     user: null,
@@ -26,30 +27,32 @@ export default function App() {
   //     // campgrounds: [],
   //     // suggestedParks: null,
   //   };
-
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(
-      (user) => {
-        if (user) {
-          console.warn('user resp', user);
-          setUserData(user);
-          // this.setState({ user });
-        } else {
-          setUserData(false);
-          // this.setState({ user: false });
-          console.warn('user false', user);
-        }
-      },
-    );
-    console.warn(allParks, 'parks');
-    if (allParks.length === 0) {
-      parkData.getParkData().then((response) => {
-        console.warn('app parks');
-        console.warn(allParks, 'parks in app call');
-        setAllParks(response);
-      });
-    }
-  }, [allParks]);
+    // const getParks = () => {
+    //   if (allParks.length === 0) {
+    //     parkData.getParkData().then((response) => {
+    //       console.warn('app parks');
+    //       console.warn(allParks, 'parks in app call');
+    //       setAllParks(response);
+    //     });
+    //   }
+    // };
+    // if (getUser) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.warn('user resp', user);
+        setUserData(user);
+        // setGetUser(false);
+        // getParks();
+      } else {
+        setUserData(false);
+        console.warn('user false', user);
+      }
+    });
+  }, []);
+  // return () => {
+  //   setGetUser(false);
+  // };
 
   return (
     <div className="App">

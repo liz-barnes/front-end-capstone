@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AdventureCard from '../Cards/AdventureCard';
-import parkData from '../../helpers/data/parkData';
 
-export default function ParkSearch() {
-  const [allParks, setAllParks] = useState([]);
+export default function ParkSearch({ parks }) {
   const [showSuggestedParks, setShowSuggestedParks] = useState(true);
   const [suggestedParks, setSuggestedParks] = useState([]);
   const [searchResultsByName, setSearchResultsByName] = useState([], []);
@@ -13,14 +11,9 @@ export default function ParkSearch() {
   const [searchSubmit, setSearchSubmit] = useState(null);
 
   useEffect(() => {
-    if (!allParks.length) {
-      parkData.getParkData().then((response) => {
-        setAllParks(response);
-      });
-    }
-    const shuffledParks = allParks.sort(() => 0.5 - Math.random());
+    const shuffledParks = parks.sort(() => 0.5 - Math.random());
     setSuggestedParks(shuffledParks.slice(0, 3));
-  }, [allParks]);
+  }, [parks]);
 
   const stateAbbreviation = (state) => {
     switch (state) {
@@ -189,9 +182,9 @@ export default function ParkSearch() {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const parksByName = allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
+    const parksByName = parks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase()));
     setSearchResultsByName(parksByName);
-    const parksByState = allParks?.filter((park) => park.states.includes(stateAbbreviation(searchInput.toUpperCase())));
+    const parksByState = parks?.filter((park) => park.states.includes(stateAbbreviation(searchInput.toUpperCase())));
     setSearchResultsByState(parksByState);
     // setSearchResults(allParks?.filter((park) => park.name.toLowerCase().includes(searchInput.toLowerCase())));
     setSearchSubmit(true);

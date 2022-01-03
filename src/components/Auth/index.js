@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Loader from '../Loader';
 import ParkSearch from '../ParkSearch';
+import parkData from '../../helpers/data/parkData';
 
 export default function Auth({ user }) {
+  const [allParks, setAllParks] = useState([]);
+
   const loginClickEvent = (e) => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
+  };
+
+  const getParks = () => {
+    if (allParks.length === 0) {
+      parkData.getParkData().then((response) => {
+        setAllParks(response);
+      });
+    }
   };
 
   const loadComponent = () => {
@@ -16,7 +27,8 @@ export default function Auth({ user }) {
     if (user === null) {
       component = <Loader />;
     } else if (user) {
-      component = <ParkSearch user={user}/>;
+      getParks();
+      component = <ParkSearch user={user} parks={allParks}/>;
     } else {
       component = <div className="Auth">
                     <div className='page-banner'>
