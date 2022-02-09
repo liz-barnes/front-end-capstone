@@ -1,13 +1,16 @@
-/* eslint-disable import/no-unresolved */
-// /* eslint-disable import/no-duplicates */
-import firebase from 'firebase/app';
-import 'firebase/auth';
+// import firebase from 'firebase/app';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+// import firebase from 'firebase';
+import firebase from 'firebase';
+import 'firebase/auth';
 import fbConnection from '../helpers/data/connection';
 import './App.scss';
 import Routes from '../helpers/routes';
 import MyNavbar from '../Components/MyNavbar/index';
+
+require('firebase/auth');
+
 // import parkData from '../helpers/data/parkData';
 // import { getUserTrips } from '../helpers/data/tripData';
 
