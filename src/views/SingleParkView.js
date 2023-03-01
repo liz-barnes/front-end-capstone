@@ -126,10 +126,15 @@ export default function SingleView({
           <p>{park.entranceFees[0].description}</p> */}
         </div>
         <div className="park-hours sidebar-section">
-          <h6>Hours</h6>
-          <p>{park.operatingHours[0].description}</p>
+          {/* {console.warn(park)} */}
+          {/* {park.operatingHours === [] ? (
+            <>
+              <h6>Hours</h6>
+              <p>{park.operatingHours[0].description}</p>
+            </>
+          ) : <></>} */}
           {/* TO DO: filter through length of exceptions array to get all dates the park is closed */}
-          {park.operatingHours[0].length ? <li>{park.operatingHours[0].exceptions[0].startDate}</li> : ''}
+          {/* {park.operatingHours[0].length ? <li>{park.operatingHours[0].exceptions[0].startDate}</li> : ''} */}
         </div>
         <div className="park-contact sidebar-section">
           <h6>Contact</h6>
@@ -147,6 +152,7 @@ export default function SingleView({
           ) : ''}
         </div>
       </div>
+      {console.warn('park', park)}
     </div>
   );
 }
