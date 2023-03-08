@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Modal from '../components/Modal';
-import CreateNewTrip from '../components/Forms/CreateNewTrip';
+import Modal from '../Components/Modals';
+import CreateNewTrip from '../Components/Forms/CreateNewTrip';
 import { getUserTrips, deleteTrip } from '../helpers/data/tripData';
-import TripCard from '../components/Cards/TripCard';
+import TripCard from '../Components/Cards/TripCard';
 import { getTripActivity, removeTripActivities } from '../helpers/data/mergedData';
 
 export default class Trips extends Component {
